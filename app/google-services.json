@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "428732747883",
+    "project_id": "smart-village-app-682cb",
+    "storage_bucket": "smart-village-app-682cb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428732747883:android:f2e1a17cc441d073ce612e",
+        "android_client_info": {
+          "package_name": "com.example.smartvillageapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDK9AK_cvgvfKDMg5P-sXbTbJDDyjECyFs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
