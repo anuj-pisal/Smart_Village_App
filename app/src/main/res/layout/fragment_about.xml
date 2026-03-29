@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- 🔷 APP ICON + NAME -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginBottom="20dp">
+
+            <ImageView
+                android:id="@+id/app_logo"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/circle_bg"
+                android:padding="6dp"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Smart Village App"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Version 1.0"
+                android:textSize="13sp"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <!-- 🔷 ABOUT APP -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="Smart Village App is designed to digitally connect villagers with essential services. It provides easy access to contacts, businesses, notices, and government schemes in one place, making rural life more efficient and connected."
+                android:textSize="15sp"
+                android:textColor="@android:color/white"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 🔷 FEATURES -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Features"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="8dp"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="• About Village – Village overview\n• Contacts – Important contacts\n• Businesses – Local services\n• Market Prices – Latest rates\n• Notices – Announcements\n• Bills – Bill services\n• Locations – Key places\n• Complaints – Report issues\n• Schemes – Govt benefits\n• Development – Progress updates\n• Agricultural – Farming info\n• Jobs – Opportunities"
+                android:textSize="15sp"
+                android:textColor="@android:color/white"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 🔷 TECHNOLOGY USED -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Technology Used"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="8dp"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="• Android (Java)\n• Firebase Authentication\n• Firestore Database\n• Firebase Storage\n• Material UI Components"
+                android:textSize="15sp"
+                android:textColor="@android:color/white"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 🔷 DEVELOPER INFO -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Developer"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="8dp"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Anuj Pisal"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Second Year IT Engineering Student, WCE"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/white"
+                    android:layout_marginTop="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Smart Village Project"
+                    android:textSize="13sp"
+                    android:textColor="@android:color/white"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</ScrollView>

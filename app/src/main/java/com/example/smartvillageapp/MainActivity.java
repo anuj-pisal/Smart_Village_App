@@ -4,39 +4,35 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import android.view.Window;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager2.widget.ViewPager2;
+import androidx.core.view.GravityCompat;
 
-import com.example.smartvillageapp.R;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.bumptech.glide.Glide;
 
-import java.util.ArrayList;
-import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ProfileFragment.OnProfileUpdatedListener {
+
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    ViewPager2 viewPager;
-    RecyclerView recyclerView;
     View headerView;
+
+    @Override
+    public void onProfileUpdated() {
+        loadUserData();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.top_menu, menu);
@@ -46,90 +42,50 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         setContentView(R.layout.activity_main);
 
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.navigationView);
         headerView = navigationView.getHeaderView(0);
-        viewPager = findViewById(R.id.imageSlider);
-        recyclerView = findViewById(R.id.dashboardRecycler);
-
-
 
         hamburgerHandler();
         sideBarMenuHandler();
-        imageSlider();
-        mainGrid();
+        loadUserData();
+
+        // Load HomeFragment by default
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new HomeFragment())
+                    .commit();
+        }
     }
 
-    public void mainGrid() {
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+    private void sideBarMenuHandler() {
 
-        List<DashboardItem> list = new ArrayList<>();
-
-        list.add(new DashboardItem(R.drawable.home, "About Village"));
-        list.add(new DashboardItem(R.drawable.contacts, "Contacts"));
-        list.add(new DashboardItem(R.drawable.business, "Businesses"));
-        list.add(new DashboardItem(R.drawable.market_prices, "Market Prices"));
-        list.add(new DashboardItem(R.drawable.notices, "Notices"));
-        list.add(new DashboardItem(R.drawable.bill, "Bills"));
-        list.add(new DashboardItem(R.drawable.locations, "Locations"));
-        list.add(new DashboardItem(R.drawable.complaints, "Complaints"));
-        list.add(new DashboardItem(R.drawable.schemes, "Schemes"));
-        list.add(new DashboardItem(R.drawable.development, "Development"));
-        list.add(new DashboardItem(R.drawable.agriculture, "Agricultural"));
-        list.add(new DashboardItem(R.drawable.jobs, "Jobs"));
-
-        DashboardAdapter adapter = new DashboardAdapter(this, list);
-        recyclerView.setAdapter(adapter);
-    }
-
-    public void imageSlider() {
-        List<Integer> images = new ArrayList<>();
-        images.add(R.drawable.slide6);
-        images.add(R.drawable.slide1);
-        images.add(R.drawable.slide2);
-        images.add(R.drawable.slide3);
-        images.add(R.drawable.slide4);
-        images.add(R.drawable.slide5);
-        images.add(R.drawable.slide6);
-        images.add(R.drawable.slide1);
-
-        ImageSliderAdapter adapter = new ImageSliderAdapter(images);
-        viewPager.setAdapter(adapter);
-        viewPager.setCurrentItem(1, false);
-
-        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                super.onPageScrollStateChanged(state);
-
-                if (state == ViewPager2.SCROLL_STATE_IDLE) {
-
-                    if (viewPager.getCurrentItem() == 0) {
-                        viewPager.setCurrentItem(images.size() - 2, false);
-                    }
-
-                    if (viewPager.getCurrentItem() == images.size() - 1) {
-                        viewPager.setCurrentItem(1, false);
-                    }
-                }
-            }
-        });
-
-    }
-
-    public void sideBarMenuHandler() {
         navigationView.setNavigationItemSelectedListener(item -> {
+
             int id = item.getItemId();
+
             if (id == R.id.nav_home) {
-                Toast.makeText(this, "Home Clicked", Toast.LENGTH_SHORT).show();
+
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new HomeFragment())
+                        .commit();
+
             } else if (id == R.id.nav_about_app) {
-                Toast.makeText(this, "About App Clicked", Toast.LENGTH_SHORT).show();
+
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new AboutFragment())
+                        .commit();
+
             } else if (id == R.id.nav_profile) {
-                Toast.makeText(this, "Profile Clicked", Toast.LENGTH_SHORT).show();
+
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new ProfileFragment())
+                        .commit();
+
             } else if (id == R.id.nav_logout) {
+
                 new AlertDialog.Builder(this)
                         .setTitle("Logout")
                         .setMessage("Are you sure you want to logout?")
@@ -141,16 +97,18 @@ public class MainActivity extends AppCompatActivity {
                         })
                         .setNegativeButton("Cancel", null)
                         .show();
-            }else if (id == R.id.nav_exit) {
-                Toast.makeText(this, "Exit Clicked", Toast.LENGTH_SHORT).show();
-                this.finishAffinity();
+
+            } else if (id == R.id.nav_exit) {
+                finishAffinity();
             }
-            drawerLayout.closeDrawers();
+
+            drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         });
     }
 
-    public void hamburgerHandler() {
+    private void hamburgerHandler() {
+
         MaterialToolbar toolbar = findViewById(R.id.topAppBar);
         setSupportActionBar(toolbar);
 
@@ -161,14 +119,18 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+    }
 
-        // showing username and email in side drawer
+    private void loadUserData() {
+
         TextView nameText = headerView.findViewById(R.id.user_name_nav);
         TextView emailText = headerView.findViewById(R.id.user_email_nav);
+        ImageView imageView = headerView.findViewById(R.id.user_image_nav);
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         if (currentUser != null) {
+
             String userId = currentUser.getUid();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -176,18 +138,31 @@ public class MainActivity extends AppCompatActivity {
                     .document(userId)
                     .get()
                     .addOnSuccessListener(documentSnapshot -> {
+
                         if (documentSnapshot.exists()) {
+
                             String username = documentSnapshot.getString("username");
-                            String email = documentSnapshot.getString("email");
+                            String imageUrl = documentSnapshot.getString("profileImage");
+
                             nameText.setText(username);
-                            emailText.setText(email);
+                            emailText.setText(currentUser.getEmail());
+
+                            // Load profile image safely
+                            if (imageUrl != null && !imageUrl.isEmpty()) {
+
+                                Glide.with(MainActivity.this)
+                                        .load(imageUrl)
+                                        .circleCrop() // makes it round
+                                        .into(imageView);
+
+                            } else {
+
+                                // Optional: default image
+                                imageView.setImageResource(R.drawable.profile_vec);
+                            }
                         }
-                    })
-                    .addOnFailureListener(e ->
-                            Toast.makeText(MainActivity.this,
-                                    "Failed to load user data",
-                                    Toast.LENGTH_SHORT).show()
-                    );
+                    });
         }
     }
+
 }

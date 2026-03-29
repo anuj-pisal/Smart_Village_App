@@ -21,6 +21,8 @@ constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayo
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth" }
 firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore" }
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
+firebase-storage = { group = "com.google.firebase", name = "firebase-storage" }
+glide = { group = "com.github.bumptech.glide", name = "glide", version = "4.16.0" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

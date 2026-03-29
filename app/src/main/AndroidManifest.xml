@@ -12,6 +12,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartVillageApp">
         <activity
+            android:name=".ApplicationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddJobActivity"
+            android:exported="false" />
+        <activity
+            android:name=".JobsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LocationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddBusinessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BusinessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ContactsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AboutVillageActivity"
+            android:exported="false" />
+        <activity
             android:name=".SignUpActivity"
             android:exported="false" />
         <activity

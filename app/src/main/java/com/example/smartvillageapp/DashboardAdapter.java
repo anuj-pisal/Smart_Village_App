@@ -1,6 +1,7 @@
 package com.example.smartvillageapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,66 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.View
         DashboardItem item = list.get(position);
         holder.icon.setImageResource(item.getIcon());
         holder.title.setText(item.getTitle());
+        holder.itemView.setOnClickListener(v -> {
+
+            Context context = v.getContext();
+            Intent intent = null;
+
+            switch (item.getTitle()) {
+
+                case "About Village":
+                    intent = new Intent(context, AboutVillageActivity.class);
+                    break;
+
+                case "Contacts":
+                    intent = new Intent(context, ContactsActivity.class);
+                    break;
+//
+                case "Businesses":
+                    intent = new Intent(context, BusinessActivity.class);
+                    break;
+
+//                case "Market Prices":
+//                    intent = new Intent(context, MarketPricesActivity.class);
+//                    break;
+//
+//                case "Notices":
+//                    intent = new Intent(context, NoticesActivity.class);
+//                    break;
+//
+//                case "Bills":
+//                    intent = new Intent(context, BillsActivity.class);
+//                    break;
+//
+                case "Locations":
+                    intent = new Intent(context, LocationsActivity.class);
+                    break;
+//
+//                case "Complaints":
+//                    intent = new Intent(context, ComplaintsActivity.class);
+//                    break;
+//
+//                case "Schemes":
+//                    intent = new Intent(context, SchemesActivity.class);
+//                    break;
+//
+//                case "Development":
+//                    intent = new Intent(context, DevelopmentActivity.class);
+//                    break;
+//
+//                case "Agricultural":
+//                    intent = new Intent(context, AgriculturalActivity.class);
+//                    break;
+//
+                case "Jobs":
+                    intent = new Intent(context, JobsActivity.class);
+                    break;
+            }
+
+            if (intent != null) {
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

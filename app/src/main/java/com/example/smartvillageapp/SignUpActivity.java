@@ -17,6 +17,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.FieldValue;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -135,6 +137,7 @@ public class SignUpActivity extends AppCompatActivity {
                                 userMap.put("username", username);
                                 userMap.put("email", email);
                                 userMap.put("role", "user");
+                                userMap.put("joiningDate", FieldValue.serverTimestamp());
 
                                 db.collection("users")
                                         .document(userId)
@@ -149,8 +152,8 @@ public class SignUpActivity extends AppCompatActivity {
                                         })
                                         .addOnFailureListener(e -> {
                                             Toast.makeText(SignUpActivity.this,
-                                                    "Error saving user data!",
-                                                    Toast.LENGTH_SHORT).show();
+                                                    "Error: " + e.getMessage(),
+                                                    Toast.LENGTH_LONG).show();
                                         });
 
                             }

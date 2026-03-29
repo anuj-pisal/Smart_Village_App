@@ -10,6 +10,7 @@
     android:paddingBottom="16dp">
 
     <ImageView
+        android:id="@+id/user_image_nav"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:src="@drawable/profile_vec"
