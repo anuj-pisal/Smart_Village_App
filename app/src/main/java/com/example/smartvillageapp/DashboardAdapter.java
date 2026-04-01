@@ -56,9 +56,9 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.View
 //                    intent = new Intent(context, MarketPricesActivity.class);
 //                    break;
 //
-//                case "Notices":
-//                    intent = new Intent(context, NoticesActivity.class);
-//                    break;
+                case "Notices":
+                    intent = new Intent(context, NoticesActivity.class);
+                    break;
 //
 //                case "Bills":
 //                    intent = new Intent(context, BillsActivity.class);
@@ -80,9 +80,9 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.View
 //                    intent = new Intent(context, DevelopmentActivity.class);
 //                    break;
 //
-//                case "Agricultural":
-//                    intent = new Intent(context, AgriculturalActivity.class);
-//                    break;
+                case "Agricultural":
+                    intent = new Intent(context, AgriculturalActivity.class);
+                    break;
 //
                 case "Jobs":
                     intent = new Intent(context, JobsActivity.class);

@@ -45,6 +45,7 @@ dependencies {
     implementation(libs.glide)
     implementation(libs.constraintlayout)
     annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
+    implementation("com.github.chrisbanes:PhotoView:2.3.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

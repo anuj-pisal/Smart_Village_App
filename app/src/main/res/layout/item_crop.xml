@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="18dp"
+    app:cardElevation="6dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_height="wrap_content" android:layout_width="wrap_content">
+
+        <ImageView
+            android:id="@+id/crop_image"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"/>
+
+        <LinearLayout
+            android:padding="12dp"
+            android:orientation="vertical"
+            android:layout_height="wrap_content" android:layout_width="wrap_content">
+
+            <TextView
+                android:id="@+id/crop_title"
+                android:text="Crop Name"
+                android:textSize="17sp"
+                android:layout_height="wrap_content" android:layout_width="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"/>
+
+            <TextView
+                android:id="@+id/crop_desc"
+                android:text="Short info"
+                android:textSize="14sp"
+                android:layout_height="wrap_content" android:layout_width="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:layout_marginTop="6dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

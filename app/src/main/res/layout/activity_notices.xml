@@ -5,22 +5,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- HEADER -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Popular Locations"
-        android:textSize="20sp"
+        android:text="Notices"
+        android:textSize="22sp"
         android:textStyle="bold"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="25dp"
         android:textColor="@android:color/white"
-        android:padding="16dp"/>
+        android:padding="16dp"
+        android:layout_height="wrap_content" android:layout_width="wrap_content"/>
 
-    <!-- LIST -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/location_recycler"
+        android:id="@+id/notice_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="8dp"/>
+        android:padding="10dp"/>
 
 </LinearLayout>

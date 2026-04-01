@@ -12,6 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartVillageApp">
         <activity
+            android:name=".ExperienceDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddExperienceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AgriculturalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NoticeDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NoticesActivity"
+            android:exported="false" />
+        <activity
             android:name=".ApplicationsActivity"
             android:exported="false" />
         <activity
