@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartVillageApp">
         <activity
+            android:name=".DevelopmentDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DevelopmentActivity"
+            android:exported="false" />
+        <activity
             android:name=".ExperienceDetailActivity"
             android:exported="false" />
         <activity

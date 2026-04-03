@@ -33,7 +33,7 @@ public class AgriculturalActivity extends AppCompatActivity {
                 (tab, position) -> {
 
                     if (position == 0) tab.setText("Crops");
-                    else if (position == 1) tab.setText("Experiences");
+                    else if (position == 1) tab.setText("Queries");
                     else tab.setText("Videos");
 
                 }).attach();

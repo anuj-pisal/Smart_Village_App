@@ -106,7 +106,7 @@ public class HomeFragment extends Fragment {
         list.add(new DashboardItem(R.drawable.locations, "Locations"));
         list.add(new DashboardItem(R.drawable.complaints, "Complaints"));
         list.add(new DashboardItem(R.drawable.schemes, "Schemes"));
-        list.add(new DashboardItem(R.drawable.development, "Development"));
+        list.add(new DashboardItem(R.drawable.development, "Developments"));
         list.add(new DashboardItem(R.drawable.agriculture, "Agricultural"));
         list.add(new DashboardItem(R.drawable.jobs, "Jobs"));
 
