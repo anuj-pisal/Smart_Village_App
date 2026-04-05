@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,6 +13,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartVillageApp">
+        <activity
+            android:name=".SchemeDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SchemesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MarketActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FullImageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BillDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BillsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ComplaintDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddComplaintActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ComplaintsActivity"
+            android:exported="false" />
         <activity
             android:name=".DevelopmentDetailActivity"
             android:exported="false" />

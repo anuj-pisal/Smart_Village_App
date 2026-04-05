@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- 🔥 COMPLAINT IMAGE -->
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:scaleType="centerCrop"
+            android:background="#333"/>
+
+        <!-- 🔥 STATUS -->
+        <TextView
+            android:id="@+id/status"
+            android:text="Status: Pending"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="12dp"
+            android:layout_height="wrap_content" android:layout_width="match_parent"/>
+
+        <!-- 🔥 DESCRIPTION TITLE -->
+        <TextView
+            android:text="Description"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" android:layout_width="match_parent"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="12dp"/>
+
+        <!-- 🔥 DESCRIPTION -->
+        <TextView
+            android:id="@+id/desc"
+            android:textColor="@android:color/darker_gray"
+            android:layout_height="wrap_content" android:layout_width="match_parent"
+            android:layout_marginTop="6dp"/>
+
+        <!-- 🔥 PROOF SECTION -->
+        <TextView
+            android:text="Work Proof (by Panchayat)"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_height="wrap_content" android:layout_width="wrap_content"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="20dp"/>
+
+        <!-- 🔥 PROOF IMAGES CONTAINER -->
+        <LinearLayout
+            android:id="@+id/proof_container"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

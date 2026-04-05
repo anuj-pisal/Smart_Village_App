@@ -62,7 +62,7 @@ public class DevelopmentDetailActivity extends AppCompatActivity {
                         // 🔥 IMAGES
                         List<String> images = (List<String>) d.get("images");
                         if (images != null && !images.isEmpty()) {
-                            slider.setAdapter(new DevImageAdapter(images));
+                            slider.setAdapter(new DevImageAdapter(this, images));
 
                             // 🔥 AUTO SCROLL SETUP
                             sliderRunnable = new Runnable() {
