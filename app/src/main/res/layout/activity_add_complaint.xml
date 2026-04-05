@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- 🔥 IMAGE PREVIEW CARD -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="220dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:background="#222"/>
+
+                <!-- Overlay text -->
+                <TextView
+                    android:layout_height="match_parent" android:layout_width="match_parent"
+                    android:text="Tap to add image"
+                    android:textColor="#AAFFFFFF"
+                    android:gravity="center"
+                    android:textSize="14sp"
+                    android:layout_gravity="center"/>
+            </FrameLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 🔥 BUTTON ROW -->
+        <LinearLayout
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/camera_btn"
+                android:text="Camera"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/primaryColor"
+                android:textColor="@android:color/white"/>
+
+            <Button
+                android:id="@+id/gallery_btn"
+                android:text="Gallery"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="@color/primaryColor"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <!-- 🔥 DESCRIPTION CARD -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/desc"
+                android:hint="Describe the issue..."
+                android:textColor="@android:color/white"
+                android:textColorHint="#888"
+                android:padding="14dp"
+                android:minHeight="120dp"
+                android:background="@android:color/transparent"
+                android:gravity="top"
+                android:layout_height="wrap_content" android:layout_width="match_parent"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 🔥 SUBMIT BUTTON -->
+        <Button
+            android:id="@+id/submit_btn"
+            android:text="Submit Complaint"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/primaryColor"
+            android:textColor="@android:color/white"
+            android:padding="14dp"/>
+
+    </LinearLayout>
+
+</ScrollView>
