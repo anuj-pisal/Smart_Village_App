@@ -65,7 +65,7 @@
 
         <Button
             android:id="@+id/btn_select_image"
-            android:text="Select Image"
+            android:text="Upload Image"
             android:layout_marginTop="12dp"
             android:textColor="@color/white"
             android:layout_gravity="center"
