@@ -14,6 +14,45 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartVillageApp">
         <activity
+            android:name=".AdminUserManagementActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminComplaintDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminComplaintActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserBillsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddBillActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BillsUserListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AgricultureActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddSchemeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddDevelopmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddLocationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddNoticeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddContactActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminMainActivity"
+            android:exported="false" />
+        <activity
             android:name=".SchemeDetailActivity"
             android:exported="false" />
         <activity
