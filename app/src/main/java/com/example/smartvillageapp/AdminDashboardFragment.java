@@ -40,6 +40,7 @@ public class AdminDashboardFragment extends Fragment {
         list.add(new AdminItem("Developments"));
         list.add(new AdminItem("Agriculture"));
         list.add(new AdminItem("Users"));
+        list.add(new AdminItem("Logs"));
 
         recycler.setAdapter(new AdminDashboardAdapter(getContext(), list));
 

@@ -165,6 +165,14 @@ public class AddDevelopmentActivity extends AppCompatActivity {
         db.collection("developments")
                 .add(map)
                 .addOnSuccessListener(d -> {
+                    AppLogger.log(
+                            "Development Added",
+                            "NA",
+                            "admin",
+                            "Development: (" +title.getText().toString()+ ") is added." +
+                                    " Location : " + location.getText().toString() +
+                                    " Status : " + status.getSelectedItem().toString()
+                    );
                     Toast.makeText(this, "Development Added!", Toast.LENGTH_SHORT).show();
                     finish();
                 });

@@ -36,6 +36,13 @@ public class VideoAdminFragment extends Fragment {
 
             db.collection("agriculture_videos").add(map);
 
+            AppLogger.log(
+                    "Video Added",
+                    "NA",
+                    "admin",
+                    "Vidde: (" + title.getText().toString() + ") is added"
+            );
+
             Toast.makeText(getContext(), "Video Added", Toast.LENGTH_SHORT).show();
         });
 

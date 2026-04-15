@@ -75,6 +75,10 @@ public class AdminDashboardAdapter extends RecyclerView.Adapter<AdminDashboardAd
                 case "Users":
                     context.startActivity(new Intent(context, AdminUserManagementActivity.class));
                     break;
+
+                case "Logs":
+                    context.startActivity(new Intent(context, AdminLogsActivity.class));
+                    break;
             }
         });
     }

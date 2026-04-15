@@ -30,7 +30,7 @@ public class AdminComplaintDetailActivity extends AppCompatActivity {
     List<Uri> imageUris = new ArrayList<>();
     List<String> urls = new ArrayList<>();
 
-    String docId;
+    String docId, userId, username;
 
     @Override
     protected void onCreate(Bundle b) {
@@ -43,6 +43,9 @@ public class AdminComplaintDetailActivity extends AppCompatActivity {
         imageCount = findViewById(R.id.image_count);
 
         docId = getIntent().getStringExtra("docId");
+        userId = getIntent().getStringExtra("userId");
+        username = getIntent().getStringExtra("username");
+
 
         String[] statuses = {"pending", "in_progress", "resolved"};
         statusSpinner.setAdapter(new ArrayAdapter<>(this,
@@ -96,6 +99,13 @@ public class AdminComplaintDetailActivity extends AppCompatActivity {
                     .document(docId)
                     .update(map)
                     .addOnSuccessListener(unused -> {
+                        AppLogger.log(
+                                "Complaint Updated",
+                                username + "(id: " + userId + ")",
+                                "admin",
+                                "Complaint: the status is updated to ( " + statusSpinner.getSelectedItem().toString()
+                                        +" )"
+                        );
                         Toast.makeText(this, "Updated Successfully", Toast.LENGTH_SHORT).show();
                         finish();
                     })

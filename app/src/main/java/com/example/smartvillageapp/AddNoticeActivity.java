@@ -90,6 +90,12 @@ public class AddNoticeActivity extends AppCompatActivity {
                             db.collection("notices")
                                     .add(map)
                                     .addOnSuccessListener(d -> {
+                                        AppLogger.log(
+                                                "Notice Published",
+                                                "NA",
+                                                "admin",
+                                                "Notice: ( "+ t +" ) is added"
+                                        );
                                         Toast.makeText(this, "Notice Published!", Toast.LENGTH_SHORT).show();
                                         finish();
                                     });

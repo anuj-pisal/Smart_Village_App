@@ -113,6 +113,10 @@ public class LoginPage extends AppCompatActivity {
 
                                             String role = doc.getString("role");
 
+                                            UserSession.userId = uid;
+                                            UserSession.username = doc.getString("username");
+                                            UserSession.role = doc.getString("role");
+
                                             if ("admin".equals(role)) {
 
                                                 Toast.makeText(LoginPage.this, "Admin Login Successful!", Toast.LENGTH_SHORT).show();
@@ -176,6 +180,10 @@ public class LoginPage extends AppCompatActivity {
                         if (doc.exists()) {
 
                             String role = doc.getString("role");
+
+                            UserSession.userId = uid;
+                            UserSession.username = doc.getString("username");
+                            UserSession.role = doc.getString("role");
 
                             if ("admin".equals(role)) {
                                 startActivity(new Intent(this, AdminMainActivity.class));

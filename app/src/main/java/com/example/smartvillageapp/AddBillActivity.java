@@ -118,39 +118,67 @@ public class AddBillActivity extends AppCompatActivity {
 
     private void uploadBill() {
 
-        List<String> urls = new ArrayList<>();
+        // 🔥 STEP 1: FETCH USERNAME FIRST
+        FirebaseFirestore.getInstance()
+                .collection("users")
+                .document(userId)
+                .get()
+                .addOnSuccessListener(doc -> {
 
-        for (Uri uri : imageUris) {
+                    String username;
 
-            String name = "bill_" + System.currentTimeMillis();
+                    if (doc.exists()) {
+                        username = doc.getString("username");
+                    } else {
+                        username = "";
+                    }
 
-            StorageReference ref = storage.getReference()
-                    .child("bills/" + name);
+                    // 🔥 STEP 2: UPLOAD IMAGES
+                    List<String> urls = new ArrayList<>();
 
-            ref.putFile(uri)
-                    .continueWithTask(t -> ref.getDownloadUrl())
-                    .addOnSuccessListener(u -> {
+                    for (Uri uri : imageUris) {
 
-                        urls.add(u.toString());
+                        String name = "bill_" + System.currentTimeMillis();
 
-                        if (urls.size() == imageUris.size()) {
+                        StorageReference ref = storage.getReference()
+                                .child("bills/" + name);
 
-                            Map<String, Object> map = new HashMap<>();
-                            map.put("title", title.getText().toString());
-                            map.put("amount", Long.parseLong(amount.getText().toString()));
-                            map.put("description", desc.getText().toString());
-                            map.put("dueDate", date.getText().toString());
-                            map.put("status", "unpaid");
-                            map.put("userId", userId);
-                            map.put("images", urls);
-                            map.put("timestamp", System.currentTimeMillis());
+                        ref.putFile(uri)
+                                .continueWithTask(t -> ref.getDownloadUrl())
+                                .addOnSuccessListener(u -> {
 
-                            db.collection("bills").add(map);
+                                    urls.add(u.toString());
 
-                            Toast.makeText(this, "Bill Added", Toast.LENGTH_SHORT).show();
-                            finish();
-                        }
-                    });
-        }
+                                    if (urls.size() == imageUris.size()) {
+
+                                        Map<String, Object> map = new HashMap<>();
+                                        map.put("title", title.getText().toString());
+                                        map.put("amount", Long.parseLong(amount.getText().toString()));
+                                        map.put("description", desc.getText().toString());
+                                        map.put("dueDate", date.getText().toString());
+                                        map.put("status", "unpaid");
+                                        map.put("userId", userId);
+                                        map.put("images", urls);
+                                        map.put("timestamp", System.currentTimeMillis());
+
+                                        db.collection("bills").add(map);
+
+                                        Toast.makeText(this, "Bill Added", Toast.LENGTH_SHORT).show();
+
+                                        // 🔥 STEP 3: LOG CORRECTLY
+                                        AppLogger.log(
+                                                "Bill Added",
+                                                username + " (id : " + userId +" )",
+                                                "admin",
+                                                "Bill: (" + title.getText().toString()
+                                                        + ") of Rs. " + amount.getText().toString()
+                                                        + " added for user: " + username
+                                        );
+
+                                        finish();
+                                    }
+                                });
+                    }
+                });
     }
 }

@@ -105,6 +105,12 @@ public class AddLocationActivity extends AppCompatActivity {
                             db.collection("locations")
                                     .add(map)
                                     .addOnSuccessListener(x -> {
+                                        AppLogger.log(
+                                                "Location Added",
+                                                "NA",
+                                                "admin",
+                                                "Location: (" + n + ") is added"
+                                        );
                                         Toast.makeText(this, "Location Added!", Toast.LENGTH_SHORT).show();
                                         finish();
                                     });

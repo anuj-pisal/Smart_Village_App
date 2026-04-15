@@ -58,6 +58,13 @@ public class AdminUserManagementAdapter extends RecyclerView.Adapter<AdminUserMa
                             .delete()
                             .addOnSuccessListener(unused -> {
 
+                                AppLogger.log(
+                                        "User Deleted",
+                                        u.name + " (id : " + u.id +" )",
+                                        "admin",
+                                        "User: " + u.name + " (" + u.id + ") is deleted"
+                                );
+
                                 Toast.makeText(context, "User deleted", Toast.LENGTH_SHORT).show();
 
                                 list.remove(position);

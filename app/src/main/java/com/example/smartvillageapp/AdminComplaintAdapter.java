@@ -61,6 +61,8 @@ public class AdminComplaintAdapter extends RecyclerView.Adapter<AdminComplaintAd
         h.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, AdminComplaintDetailActivity.class);
             intent.putExtra("docId", c.docId);
+            intent.putExtra("userId", c.userId);
+            intent.putExtra("username", h.user.getText().toString());
             context.startActivity(intent);
         });
     }

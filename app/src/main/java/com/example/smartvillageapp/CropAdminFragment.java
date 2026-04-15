@@ -81,6 +81,13 @@ public class CropAdminFragment extends Fragment {
 
                             db.collection("agriculture_crops").add(map);
 
+                            AppLogger.log(
+                                    "Crop Info. Added",
+                                    "NA",
+                                    "admin",
+                                    "Crop: (" + title.getText().toString() + ") info. is added"
+                            );
+
                             Toast.makeText(getContext(), "Crop Added", Toast.LENGTH_SHORT).show();
                         }));
     }

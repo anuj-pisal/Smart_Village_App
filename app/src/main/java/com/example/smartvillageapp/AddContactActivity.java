@@ -66,6 +66,13 @@ public class AddContactActivity extends AppCompatActivity {
                 .add(map)
                 .addOnSuccessListener(doc -> {
                     Toast.makeText(this, "Contact Added!", Toast.LENGTH_SHORT).show();
+                    AppLogger.log(
+                            "Contact Added",
+                            "NA",
+                            "admin",
+                            "Contact: " + p
+                                    + " of ( " + n + " - " + d + " ) is added"
+                    );
                     finish();
                 })
                 .addOnFailureListener(e1 -> {

@@ -97,6 +97,12 @@ public class AddSchemeActivity extends AppCompatActivity {
                             db.collection("schemes")
                                     .add(map)
                                     .addOnSuccessListener(d -> {
+                                        AppLogger.log(
+                                                "Scheme Added",
+                                                "NA",
+                                                "admin",
+                                                "Scheme: ("+title.getText().toString()+") is added"
+                                        );
                                         Toast.makeText(this, "Scheme Added!", Toast.LENGTH_SHORT).show();
                                         finish();
                                     });
