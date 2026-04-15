@@ -119,7 +119,6 @@ public class BillDetailActivity extends AppCompatActivity implements PaymentResu
     // ✅ SUCCESS
     @Override
     public void onPaymentSuccess(String paymentId) {
-
         Toast.makeText(this, "Payment Successful", Toast.LENGTH_SHORT).show();
 
         FirebaseFirestore.getInstance()
@@ -129,6 +128,13 @@ public class BillDetailActivity extends AppCompatActivity implements PaymentResu
                         "status", "paid",
                         "paymentId", paymentId
                 );
+
+        AppLogger.log(
+                "Bill Paid",
+                UserSession.username + " (id:" + UserSession.userId + ")",
+                "user",
+                "Bill Payment: Bill (" + billId + ") is paid by user"
+        );
 
         payBtn.setText("Paid ✔");
         payBtn.setEnabled(false);

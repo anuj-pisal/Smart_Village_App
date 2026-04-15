@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.auth.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,7 +33,7 @@ public class ExperienceDetailActivity extends AppCompatActivity {
     List<CommentModel> list;
     CommentAdapter adapter;
 
-    String expId;
+    String expId, postUser;
 
     @Override
     protected void onCreate(Bundle b) {
@@ -46,6 +47,7 @@ public class ExperienceDetailActivity extends AppCompatActivity {
         send = findViewById(R.id.send_btn);
 
         expId = getIntent().getStringExtra("expId");
+        postUser = getIntent().getStringExtra("postingUser");
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         list = new ArrayList<>();
@@ -110,6 +112,14 @@ public class ExperienceDetailActivity extends AppCompatActivity {
                             .document(expId)
                             .collection("comments")
                             .add(c);
+
+                    AppLogger.log(
+                            "User Comment",
+                            UserSession.username + " (id:" + UserSession.userId + ")",
+                            "user",
+                            "Comment: "+ UserSession.username +"(id: " + UserSession.userId +
+                                    ") commented on the post done by " + postUser + " (id: "+ expId +")"
+                    );
 
                     input.setText("");
                     loadComments();

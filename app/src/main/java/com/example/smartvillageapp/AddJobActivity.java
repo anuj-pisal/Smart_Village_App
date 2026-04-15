@@ -44,6 +44,15 @@ public class AddJobActivity extends AppCompatActivity {
         FirebaseFirestore.getInstance()
                 .collection("jobs")
                 .add(map)
-                .addOnSuccessListener(unused -> finish());
+                .addOnSuccessListener(unused -> {
+                    AppLogger.log(
+                            "Job Posted",
+                            UserSession.username + " (id:" + UserSession.userId + ")",
+                            "user",
+                            "Job: posted job entitled (" + title.getText().toString() + ")"
+                    );
+                    finish();
+                });
+
     }
 }

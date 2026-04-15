@@ -77,6 +77,13 @@ public class AddComplaintActivity extends AppCompatActivity {
                                         .collection("complaints")
                                         .add(data);
 
+                                AppLogger.log(
+                                        "Complaint Added",
+                                        UserSession.username + " (id:" + UserSession.userId + ")",
+                                        "user",
+                                        "Complaint: title - (" + text +")"
+                                );
+
                                 Toast.makeText(this, "Complaint Registered !", Toast.LENGTH_SHORT).show();
 
                                 finish();

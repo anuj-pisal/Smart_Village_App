@@ -157,6 +157,13 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder> {
 
                                         db.collection("applications").add(app);
 
+                                        AppLogger.log(
+                                                "Job Application",
+                                                UserSession.username + " (id:" + UserSession.userId + ")",
+                                                "user",
+                                                "Job Application: Applied for the job (id: " + job.jobId + ")"
+                                        );
+
                                         Toast.makeText(context, "Applied", Toast.LENGTH_SHORT).show();
 
                                         // 🔥 UI update instantly

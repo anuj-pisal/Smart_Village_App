@@ -45,6 +45,7 @@ public class ExperienceAdapter extends RecyclerView.Adapter<ExperienceAdapter.Vi
         h.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, ExperienceDetailActivity.class);
             intent.putExtra("expId", e.id);
+            intent.putExtra("postingUser", e.userName);
             context.startActivity(intent);
         });
     }

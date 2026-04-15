@@ -147,6 +147,13 @@ public class AddBusinessActivity extends AppCompatActivity {
                                                 .collection("businesses")
                                                 .add(businessMap)
                                                 .addOnSuccessListener(doc -> {
+                                                    AppLogger.log(
+                                                            "Business Added (by user)",
+                                                             UserSession.username + " (id:" + UserSession.userId + ")",
+                                                            "user",
+                                                            "Business: Used added business - (" + name.getText().toString() +")" +
+                                                                    " Email : " + email.getText().toString()
+                                                    );
                                                     Toast.makeText(this,
                                                             "Business Added",
                                                             Toast.LENGTH_SHORT).show();

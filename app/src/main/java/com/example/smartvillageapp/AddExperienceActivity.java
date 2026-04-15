@@ -53,7 +53,12 @@ public class AddExperienceActivity extends AppCompatActivity {
                         exp.put("timestamp", System.currentTimeMillis());
 
                         db.collection("experiences").add(exp);
-
+                        AppLogger.log(
+                                "User post",
+                                UserSession.username + " (id:" + UserSession.userId + ")",
+                                "user",
+                                "Post: User posted with title - (" + t +")"
+                        );
                         Toast.makeText(this, "Posted", Toast.LENGTH_SHORT).show();
                         finish();
                     });
