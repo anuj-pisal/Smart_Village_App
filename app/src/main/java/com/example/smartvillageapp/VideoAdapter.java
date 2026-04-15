@@ -58,6 +58,14 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
 
             } else if (v.videoUrl.contains("youtu.be/")) {
                 videoId = v.videoUrl.substring(v.videoUrl.lastIndexOf("/") + 1);
+
+            } else if (v.videoUrl.contains("/live/")) {
+                videoId = v.videoUrl.substring(v.videoUrl.lastIndexOf("/") + 1);
+            }
+
+            int qIndex = videoId.indexOf("?");
+            if (qIndex != -1) {
+                videoId = videoId.substring(0, qIndex);
             }
         }
 
