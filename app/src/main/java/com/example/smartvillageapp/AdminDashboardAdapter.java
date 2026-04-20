@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,10 +24,12 @@ public class AdminDashboardAdapter extends RecyclerView.Adapter<AdminDashboardAd
 
     class VH extends RecyclerView.ViewHolder {
         TextView title;
+        ImageView icon;
 
         public VH(View v) {
             super(v);
             title = v.findViewById(R.id.title);
+            icon = v.findViewById(R.id.adminDashboardIcon);
         }
     }
 
@@ -35,6 +38,7 @@ public class AdminDashboardAdapter extends RecyclerView.Adapter<AdminDashboardAd
 
         AdminItem item = list.get(i);
         h.title.setText(item.title);
+        h.icon.setImageResource(item.iconResId);
 
         h.itemView.setOnClickListener(v -> {
 

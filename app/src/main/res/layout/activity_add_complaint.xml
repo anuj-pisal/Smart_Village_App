@@ -1,22 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:fillViewport="true">
 
     <LinearLayout
-        android:padding="16dp"
+        android:padding="20dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lodge Complaint"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"
+            android:textColor="@color/white"
+            android:layout_marginBottom="16dp"/>
+
         <!-- 🔥 IMAGE PREVIEW CARD -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_marginTop="20dp"
             android:layout_height="220dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="6dp">
+            app:cardCornerRadius="16dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="#DDDDDD"
+            app:cardElevation="2dp">
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -27,80 +39,75 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:background="#222"/>
+                    android:background="#EFEFEF"/>
 
-                <!-- Overlay text -->
                 <TextView
-                    android:layout_height="match_parent" android:layout_width="match_parent"
-                    android:text="Tap to add image"
-                    android:textColor="#AAFFFFFF"
-                    android:gravity="center"
-                    android:textSize="14sp"
-                    android:layout_gravity="center"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add evidence photo"
+                    android:textColor="#777777"
+                    android:layout_gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="14sp"/>
             </FrameLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
         <!-- 🔥 BUTTON ROW -->
         <LinearLayout
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:orientation="horizontal"
             android:weightSum="2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/camera_btn"
                 android:text="Camera"
                 android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/primaryColor"
-                android:textColor="@android:color/white"/>
+                android:layout_height="55dp"
+                app:cornerRadius="8dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/gallery_btn"
                 android:text="Gallery"
                 android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:backgroundTint="@color/primaryColor"
-                android:textColor="@android:color/white"/>
+                android:layout_height="55dp"
+                android:layout_marginStart="12dp"
+                app:cornerRadius="8dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
         </LinearLayout>
 
         <!-- 🔥 DESCRIPTION CARD -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_marginTop="16dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="4dp"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Describe the issue in detail"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/desc"
-                android:hint="Describe the issue..."
-                android:textColor="@android:color/white"
-                android:textColorHint="#888"
-                android:padding="14dp"
-                android:minHeight="120dp"
-                android:background="@android:color/transparent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="top"
-                android:layout_height="wrap_content" android:layout_width="match_parent"/>
-        </com.google.android.material.card.MaterialCardView>
+                android:minLines="5"
+                android:inputType="textMultiLine"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- 🔥 SUBMIT BUTTON -->
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/submit_btn"
             android:text="Submit Complaint"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_marginTop="20dp"
+            android:textColor="@color/white"
+            android:layout_marginTop="32dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/primaryColor"
-            android:textColor="@android:color/white"
-            android:padding="14dp"/>
+            android:layout_height="60dp"
+            app:cornerRadius="12dp"/>
 
     </LinearLayout>
 

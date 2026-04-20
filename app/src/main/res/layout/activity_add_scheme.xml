@@ -1,74 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
     <LinearLayout
+        android:padding="20dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/image"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Government Scheme"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"/>
+
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="#CCCCCC"
-            android:scaleType="centerCrop"/>
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp">
 
-        <Button
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#EFEFEF"
+                android:scaleType="centerCrop"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/select_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="Select Image"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            app:cornerRadius="8dp"
+            android:layout_marginBottom="20dp"
+            style="@style/Widget.MaterialComponents.Button.TextButton"/>
 
-        <EditText
-            android:id="@+id/title"
-            android:hint="Title"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:hint="Scheme Title"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <EditText
-            android:id="@+id/shortDesc"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:hint="Short Description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <EditText
-            android:id="@+id/fullDesc"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/shortDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minLines="2"
+                android:inputType="textMultiLine"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:hint="Full Description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <EditText
-            android:id="@+id/benefits"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fullDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minLines="4"
+                android:inputType="textMultiLine"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:hint="Benefits"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <EditText
-            android:id="@+id/eligibility"
-            android:hint="Eligibility"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/benefits"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minLines="2"
+                android:inputType="textMultiLine"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/documents"
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Eligibility Criteria"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/eligibility"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minLines="2"
+                android:inputType="textMultiLine"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:hint="Required Documents"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <EditText
-            android:id="@+id/applyLink"
-            android:hint="Apply Link"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/documents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minLines="2"
+                android:inputType="textMultiLine"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Apply Link (URL)"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/applyLink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textUri"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/upload_btn"
-            android:text="Add Scheme"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="60dp"
+            android:layout_marginTop="32dp"
+            android:textColor="@color/white"
+            android:text="Add Scheme"
+            android:textSize="16sp"
+            app:cornerRadius="12dp"/>
 
     </LinearLayout>
+
 </ScrollView>

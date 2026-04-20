@@ -31,16 +31,16 @@ public class AdminDashboardFragment extends Fragment {
 
         List<AdminItem> list = new ArrayList<>();
 
-        list.add(new AdminItem("Contacts"));
-        list.add(new AdminItem("Notices"));
-        list.add(new AdminItem("Bills"));
-        list.add(new AdminItem("Locations"));
-        list.add(new AdminItem("Complaints"));
-        list.add(new AdminItem("Schemes"));
-        list.add(new AdminItem("Developments"));
-        list.add(new AdminItem("Agriculture"));
-        list.add(new AdminItem("Users"));
-        list.add(new AdminItem("Logs"));
+        list.add(new AdminItem("Contacts", R.drawable.contacts));
+        list.add(new AdminItem("Notices", R.drawable.notices));
+        list.add(new AdminItem("Bills", R.drawable.bill));
+        list.add(new AdminItem("Locations", R.drawable.locations));
+        list.add(new AdminItem("Complaints", R.drawable.complaints));
+        list.add(new AdminItem("Schemes", R.drawable.schemes));
+        list.add(new AdminItem("Developments", R.drawable.development));
+        list.add(new AdminItem("Agriculture", R.drawable.agriculture));
+        list.add(new AdminItem("Users", R.drawable.profile));
+        list.add(new AdminItem("Logs", R.drawable.logs));
 
         recycler.setAdapter(new AdminDashboardAdapter(getContext(), list));
 

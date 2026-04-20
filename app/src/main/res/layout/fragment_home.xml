@@ -5,23 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- IMAGE SLIDER -->
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/imageSlider"
+    <!-- IMAGE SLIDER WRAPPED IN CARD -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/slider_card"
         android:layout_width="0dp"
         android:layout_height="220dp"
         android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="2dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent">
+        
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/imageSlider"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+            
+    </com.google.android.material.card.MaterialCardView>
 
     <!-- DASHBOARD GRID -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/dashboardRecycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:padding="12dp"
-        app:layout_constraintTop_toBottomOf="@id/imageSlider"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/slider_card"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>

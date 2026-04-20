@@ -52,6 +52,9 @@ public class MainActivity extends AppCompatActivity implements ProfileFragment.O
         sideBarMenuHandler();
         loadUserData();
 
+        // 🔥 Prefetch Market Prices silently in background
+        MarketPrefetcher.fetchAndCache();
+
         // Load HomeFragment by default
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()

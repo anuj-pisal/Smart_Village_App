@@ -5,105 +5,102 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="16dp"
-    android:layout_marginTop="10dp"
+    android:layout_margin="8dp"
     app:cardElevation="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
-        <!-- Business Image -->
+        <!-- Business Hero Image -->
         <ImageView
             android:id="@+id/business_image"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:background="@color/primaryColor"
-            android:scaleType="centerCrop"
-            android:src="@drawable/slide2" />
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="?attr/colorPrimaryContainer"
+            android:scaleType="centerCrop"/>
 
         <!-- Info Section -->
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingStart="12dp">
+            android:padding="16dp">
 
             <TextView
                 android:id="@+id/business_name"
                 android:text="Business Name"
                 android:textStyle="bold"
-                android:textColor="@color/primaryColor"
-                android:textSize="16sp"
+                android:textAppearance="?attr/textAppearanceHeadline6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <TextView
                 android:id="@+id/business_domain"
                 android:text="Domain"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="13sp"
+                android:textColor="?attr/colorPrimary"
+                android:textStyle="bold"
+                android:textAppearance="?attr/textAppearanceCaption"
                 android:layout_marginTop="4dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:id="@+id/business_address"
-                android:text="Flat no. T-3, Third floor, Balaji sparsh, opp. safa bakery, mseb road, Vishrambag, Sangli."
-                android:textSize="13sp"
-                android:layout_marginTop="4dp"
-                android:layout_width="wrap_content"
-                android:textColor="@color/white"
                 android:layout_height="wrap_content"/>
 
             <TextView
                 android:id="@+id/business_description"
                 android:text="The Businesss works on agricultural goods and provides benefits."
-                android:textSize="12sp"
-                android:layout_marginTop="4dp"
-                android:maxLines="2"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:layout_marginTop="12dp"
+                android:maxLines="3"
                 android:ellipsize="end"
-                android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-            <com.google.android.material.card.MaterialCardView
+            <TextView
+                android:id="@+id/business_address"
+                android:text="Address Address"
+                android:textAppearance="?attr/textAppearanceCaption"
+                android:layout_marginTop="12dp"
                 android:layout_width="wrap_content"
+                android:textColor="?android:attr/textColorSecondary"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                app:cardCornerRadius="16dp"
-                android:layout_marginTop="5dp"
-                app:cardElevation="4dp">
+                app:cardCornerRadius="12dp"
+                app:cardBackgroundColor="?attr/colorControlHighlight"
+                android:layout_marginTop="16dp"
+                app:cardElevation="0dp">
+                
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:padding="16dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
+                    
                     <TextView
                         android:id="@+id/business_contact"
                         android:text="+91 9394950090"
-                        android:textSize="12sp"
-                        android:textColor="@color/white"
-                        android:layout_marginTop="4dp"
-                        android:maxLines="2"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:layout_weight="1"
+                        android:maxLines="1"
                         android:ellipsize="end"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"/>
+                        
                     <TextView
                         android:id="@+id/business_email"
                         android:text="anujpisal@gmail.com"
-                        android:textSize="12sp"
-                        android:textColor="@color/white"
-                        android:layout_marginTop="4dp"
-                        android:maxLines="2"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:layout_weight="1"
+                        android:maxLines="1"
                         android:ellipsize="end"
-                        android:layout_width="wrap_content"
+                        android:gravity="end"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
-
 
         </LinearLayout>
 

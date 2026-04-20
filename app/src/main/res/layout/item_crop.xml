@@ -4,9 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    app:cardCornerRadius="18dp"
-    app:cardElevation="6dp">
+    android:layout_margin="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp">
 
     <LinearLayout
         android:orientation="vertical"
@@ -18,10 +18,11 @@
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:scaleType="centerCrop"
+            android:background="?attr/colorPrimaryContainer"
             android:adjustViewBounds="false"/>
 
         <LinearLayout
-            android:padding="12dp"
+            android:padding="16dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -29,18 +30,17 @@
             <TextView
                 android:id="@+id/crop_title"
                 android:text="Crop Name"
-                android:textSize="17sp"
+                android:textAppearance="?attr/textAppearanceHeadline6"
                 android:textStyle="bold"
-                android:textColor="@android:color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <TextView
                 android:id="@+id/crop_desc"
                 android:text="Short info"
-                android:textSize="14sp"
-                android:textColor="@android:color/darker_gray"
-                android:layout_marginTop="6dp"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary"
+                android:layout_marginTop="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 

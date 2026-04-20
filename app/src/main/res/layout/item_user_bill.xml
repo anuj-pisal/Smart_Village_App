@@ -1,30 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="12dp"
-    android:orientation="vertical"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp">
 
-    <TextView
-        android:id="@+id/title"
-        android:text="Water Bill"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:layout_height="match_parent" android:layout_width="wrap_content"/>
+    <LinearLayout
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/amount"
-        android:layout_height="match_parent" android:layout_width="wrap_content"
-        android:text="₹500"/>
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Water Bill"
+            android:textStyle="bold"
+            android:textAppearance="?attr/textAppearanceSubtitle1"/>
 
-    <TextView
-        android:id="@+id/date"
-        android:layout_height="match_parent" android:layout_width="wrap_content"
-        android:text="Due: 10 April 2026"/>
+        <TextView
+            android:id="@+id/amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="₹500"
+            android:textStyle="bold"
+            android:textColor="?attr/colorPrimary"
+            android:textAppearance="?attr/textAppearanceBody1"/>
 
-    <TextView
-        android:id="@+id/status"
-        android:layout_height="match_parent" android:layout_width="wrap_content"
-        android:text="unpaid"/>
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Due: 10 April 2026"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="?android:attr/textColorSecondary"/>
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Unpaid"
+            android:textStyle="bold"
+            android:textColor="#F44336"
+            android:textAppearance="?attr/textAppearanceCaption"/>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

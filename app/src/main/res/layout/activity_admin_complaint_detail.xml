@@ -1,36 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Spinner
-        android:id="@+id/status_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <Button
-        android:id="@+id/upload_btn"
-        android:text="Upload Proof Images"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
+        app:cardCornerRadius="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardElevation="4dp">
 
-    <!-- 🔥 IMAGE COUNT TEXT -->
-    <TextView
-        android:id="@+id/image_count"
-        android:text="No images selected"
-        android:textSize="14sp"
-        android:layout_marginTop="6dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:padding="20dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/update_btn"
-        android:text="Update Complaint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
+            <TextView
+                android:text="Moderate Complaint"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Status Dropdown (Fallback to standard spinner for logic safety, styled) -->
+            <TextView
+                android:text="Status"
+                android:textAppearance="?attr/textAppearanceCaption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Spinner
+                android:id="@+id/status_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/upload_btn"
+                android:text="Upload Proof Images"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="24dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                app:cornerRadius="12dp"/>
+
+            <TextView
+                android:id="@+id/image_count"
+                android:text="No images selected"
+                android:textAppearance="?attr/textAppearanceCaption"
+                android:textColor="?attr/colorPrimary"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/update_btn"
+                android:text="Update Complaint"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="24dp"
+                app:cornerRadius="12dp"/>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>

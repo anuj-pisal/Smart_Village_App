@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,51 +13,70 @@
 
         <TextView
             android:text="Post a Job"
-            android:textSize="22sp"
+            android:textSize="24sp"
+            android:layout_marginTop="24dp"
             android:textStyle="bold"
-            android:textColor="@android:color/white"
-            android:layout_marginBottom="20dp"
-            android:layout_height="wrap_content" android:layout_width="wrap_content"/>
+            android:textColor="@color/white"
+            android:layout_marginBottom="24dp"
+            android:layout_height="wrap_content" 
+            android:layout_width="wrap_content"/>
 
         <!-- TITLE -->
-        <EditText
-            android:id="@+id/job_title"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Job Title"
-            android:backgroundTint="@color/primaryColor"
-            android:textColor="@android:color/white"/>
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/job_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- REQUIREMENT -->
-        <EditText
-            android:id="@+id/job_requirement"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Requirements"
             android:layout_marginTop="16dp"
-            android:backgroundTint="@color/primaryColor"
-            android:textColor="@android:color/white"/>
+            android:hint="Requirements/Education Needed"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/job_requirement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- DESCRIPTION -->
-        <EditText
-            android:id="@+id/job_desc"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:hint="Description"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/primaryColor"
-            android:gravity="top"
-            android:textColor="@android:color/white"/>
-
-        <!-- SUBMIT -->
-        <Button
-            android:id="@+id/submit_job"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Job Description"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/job_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minLines="5"
+                android:gravity="top"
+                android:inputType="textMultiLine"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- SUBMIT -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submit_job"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="32dp"
+            android:textColor="@color/white"
             android:text="Post Job"
-            android:layout_marginTop="24dp"
-            android:backgroundTint="@color/primaryColor"
-            android:textColor="@android:color/white"/>
+            android:textSize="16sp"
+            app:cornerRadius="12dp"/>
 
     </LinearLayout>
 

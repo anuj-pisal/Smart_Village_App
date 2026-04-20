@@ -5,10 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tab_layout"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:elevation="4dp">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabIndicatorHeight="3dp"
+            app:tabSelectedTextColor="?attr/colorPrimary"
+            app:tabTextAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:tabTextColor="?android:attr/textColorSecondary"/>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager"

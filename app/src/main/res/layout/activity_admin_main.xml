@@ -17,11 +17,10 @@
             android:id="@+id/topAppBar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@color/primaryColor"
-            android:backgroundTint="@color/primaryColor"
+            android:background="?attr/colorPrimary"
             android:elevation="4dp"
             android:title="@string/app_name"
-            android:titleTextColor="@android:color/white"
+            app:titleTextColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -46,8 +45,6 @@
         android:layout_gravity="start"
         app:menu="@menu/drawer_menu"
         app:headerLayout="@layout/nav_header"
-        android:background="@android:color/white"
-        app:itemTextColor="@color/black"
-        app:itemIconTint="@color/black"/>
+        android:background="?android:attr/windowBackground"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

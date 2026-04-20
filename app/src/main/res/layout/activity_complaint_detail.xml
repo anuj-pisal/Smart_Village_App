@@ -1,65 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
     <LinearLayout
         android:orientation="vertical"
-        android:padding="16dp"
-        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="24dp">
 
-        <!-- 🔥 COMPLAINT IMAGE -->
-        <ImageView
-            android:id="@+id/img"
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:scaleType="centerCrop"
-            android:background="#333"/>
+            android:layout_height="300dp"
+            app:cardElevation="2dp"
+            app:cardCornerRadius="0dp">
 
-        <!-- 🔥 STATUS -->
-        <TextView
-            android:id="@+id/status"
-            android:text="Status: Pending"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
-            android:layout_marginTop="12dp"
-            android:layout_height="wrap_content" android:layout_width="match_parent"/>
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:background="?attr/colorSurfaceVariant"/>
+                
+        </com.google.android.material.card.MaterialCardView>
 
-        <!-- 🔥 DESCRIPTION TITLE -->
-        <TextView
-            android:text="Description"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:layout_height="wrap_content" android:layout_width="match_parent"
-            android:textColor="@android:color/white"
-            android:layout_marginTop="12dp"/>
-
-        <!-- 🔥 DESCRIPTION -->
-        <TextView
-            android:id="@+id/desc"
-            android:textColor="@android:color/darker_gray"
-            android:layout_height="wrap_content" android:layout_width="match_parent"
-            android:layout_marginTop="6dp"/>
-
-        <!-- 🔥 PROOF SECTION -->
-        <TextView
-            android:text="Work Proof (by Panchayat)"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:layout_height="wrap_content" android:layout_width="wrap_content"
-            android:textColor="@android:color/white"
-            android:layout_marginTop="20dp"/>
-
-        <!-- 🔥 PROOF IMAGES CONTAINER -->
         <LinearLayout
-            android:id="@+id/proof_container"
+            android:padding="20dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"/>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Complaint Specifics"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/status"
+                android:text="Status: Pending"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textColor="?attr/colorPrimary"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="Description"
+                android:textAppearance="?attr/textAppearanceSubtitle2"
+                android:textStyle="bold"
+                android:textColor="?android:attr/textColorSecondary"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/desc"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"/>
+
+            <TextView
+                android:text="Attached Proof"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="(Submitted by Admin/Panchayat)"
+                android:textAppearance="?attr/textAppearanceCaption"
+                android:textColor="?android:attr/textColorSecondary"
+                android:layout_marginBottom="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <!-- PROOF IMAGES CONTAINER -->
+            <LinearLayout
+                android:id="@+id/proof_container"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 

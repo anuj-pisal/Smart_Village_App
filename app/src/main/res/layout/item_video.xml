@@ -5,11 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="12dp"
-    android:foreground="?attr/selectableItemBackground"
-    app:cardCornerRadius="18dp"
-    app:cardElevation="6dp"
-    app:strokeWidth="1dp"
-    app:strokeColor="@color/primaryColor">
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp">
 
     <LinearLayout
         android:orientation="vertical"
@@ -19,19 +16,25 @@
         <!-- THUMBNAIL WITH PLAY ICON -->
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="220dp">
 
             <ImageView
                 android:id="@+id/video_thumbnail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:clipToOutline="true"
+                android:background="?attr/colorPrimaryContainer"
                 android:scaleType="centerCrop"/>
+                
+            <!-- Dark Overlay for Play Icon Visibility -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#33000000"/>
 
             <!-- PLAY ICON -->
             <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
                 android:src="@android:drawable/ic_media_play"
                 android:layout_gravity="center"
                 app:tint="@android:color/white" />
@@ -43,10 +46,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Video Title"
-            android:textSize="16sp"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
             android:textStyle="bold"
-            android:textColor="@android:color/white"
-            android:padding="12dp"/>
+            android:padding="16dp"/>
 
     </LinearLayout>
 

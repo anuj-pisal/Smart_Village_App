@@ -1,59 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
     <LinearLayout
-        android:padding="16dp"
-        android:layout_marginTop="25dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="30dp">
 
-        <ImageView
-            android:id="@+id/img"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"/>
+            android:layout_height="250dp">
 
-        <TextView
-            android:id="@+id/title"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
-            android:layout_marginTop="10dp"
-            android:layout_height="wrap_content" android:layout_width="match_parent"/>
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/colorSurfaceVariant"
+                android:scaleType="centerCrop"/>
+                
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/bg_gradient_dark_bottom"/>
+                
+            <TextView
+                android:id="@+id/title"
+                android:layout_gravity="bottom"
+                android:padding="20dp"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:layout_height="wrap_content" 
+                android:layout_width="match_parent"/>
+        </FrameLayout>
 
-        <TextView
-            android:id="@+id/full"
-            android:textColor="@android:color/darker_gray"
-            android:layout_height="wrap_content" android:layout_width="match_parent"
-            android:layout_marginTop="8dp"/>
-
-        <TextView
-            android:id="@+id/benefits"
-            android:textColor="@android:color/white"
-            android:layout_height="wrap_content" android:layout_width="match_parent"
-            android:layout_marginTop="10dp"/>
-
-        <TextView
-            android:id="@+id/eligibility"
-            android:textColor="@android:color/white"
-            android:layout_height="wrap_content" android:layout_width="match_parent"
-            android:layout_marginTop="10dp"/>
-
-        <TextView
-            android:id="@+id/documents"
-            android:textColor="@android:color/white"
-            android:layout_height="wrap_content" android:layout_width="match_parent"
-            android:layout_marginTop="10dp"/>
-
-        <Button
-            android:id="@+id/apply_btn"
-            android:text="Apply Now"
-            android:textColor="@android:color/white"
-            android:layout_marginTop="20dp"
+        <LinearLayout
+            android:padding="20dp"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Overview"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/full"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:textColor="?android:attr/textColorSecondary"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="?attr/colorPrimaryContainer"
+                app:cardCornerRadius="16dp">
+
+                <LinearLayout
+                    android:padding="16dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/benefits"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:text="Eligibility Criteria"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textStyle="bold"
+                android:layout_marginTop="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/eligibility"
+                android:layout_marginTop="8dp"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="Required Documents"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textStyle="bold"
+                android:layout_marginTop="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/documents"
+                android:layout_marginTop="8dp"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/apply_btn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="32dp"
+                app:cornerRadius="12dp"
+                android:text="Apply Now"
+                android:textSize="16sp"/>
+                
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

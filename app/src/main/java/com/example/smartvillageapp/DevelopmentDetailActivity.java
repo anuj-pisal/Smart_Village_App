@@ -47,9 +47,9 @@ public class DevelopmentDetailActivity extends AppCompatActivity {
                         status.setText(d.getString("status"));
                         full.setText(d.getString("fullDesc"));
 
-                        location.setText("📍 Location : " + d.getString("location"));
-                        date.setText("📅 Start Date : " + d.getString("startDate"));
-                        budget.setText("💰 Budget : " + d.getString("budget"));
+                        location.setText(d.getString("location"));
+                        date.setText(d.getString("startDate"));
+                        budget.setText(d.getString("budget"));
 
                         // 🔥 PROGRESS
                         Long prog = d.getLong("progress");

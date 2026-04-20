@@ -10,143 +10,143 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <!-- HEADER -->
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="220dp">
+            android:layout_height="wrap_content">
+            
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:paddingTop="40dp"
+                android:paddingBottom="30dp">
 
-            <!-- Profile Circle -->
-            <ImageView
-                android:id="@+id/profile_image"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:background="@drawable/circle_bg"
-                android:padding="28dp"
-                android:src="@drawable/profile_vec"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                <ImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/circle_bg"
+                    android:padding="20dp"
+                    android:src="@drawable/profile_vec"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
 
-            <!-- Add Button -->
-            <ImageView
-                android:id="@+id/add_profile_icon"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/circle_small"
-                android:padding="10dp"
-                android:src="@drawable/ic_add"
-                app:tint="@android:color/white"
-                app:layout_constraintBottom_toBottomOf="@id/profile_image"
-                app:layout_constraintEnd_toEndOf="@id/profile_image"
-                android:translationX="8dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:translationY="8dp"/>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/add_profile_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/circle_small"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_add"
+                    app:tint="@android:color/white"
+                    app:layout_constraintCircle="@id/profile_image"
+                    app:layout_constraintCircleRadius="55dp"
+                    app:layout_constraintCircleAngle="135"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:elevation="6dp"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </FrameLayout>
 
         <!-- CONTENT SECTION -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="598dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="24dp">
 
-            <!-- Username -->
             <TextView
                 android:id="@+id/profile_username"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Username"
-                android:textColor="@color/white"
-                android:textSize="20sp"
+                android:gravity="center"
+                android:textAppearance="?attr/textAppearanceHeadline5"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/profile_joining_date"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="32dp"
+                android:gravity="center"
                 android:text="Joined September 2024"
-                android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textAppearance="?attr/textAppearanceCaption"
+                android:textColor="?android:attr/textColorSecondary"/>
 
             <!-- Email -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="E-mail"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/profile_email"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#0E5A6C"
-                android:enabled="false"
-                android:textColor="@color/white" />
+                android:hint="Email Address"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/profile_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:inputType="textEmailAddress"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Name -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Name"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/profile_name"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#0E5A6C"
-                android:textColor="@color/white" />
+                android:layout_marginTop="16dp"
+                android:hint="Full Name"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/profile_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Contact -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Contact"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/profile_contact"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#0E5A6C"
-                android:inputType="phone"
-                android:textColor="@color/white" />
+                android:layout_marginTop="16dp"
+                android:hint="Phone Number"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/profile_contact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Birthdate -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Birthdate"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/profile_birthdate"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="dd/mm/yyyy"
-                android:backgroundTint="#0E5A6C"
-                android:textColor="@color/white"
-                android:clickable="true"
-                android:focusable="false"
-                android:paddingEnd="8dp"/>
+                android:layout_marginTop="16dp"
+                android:hint="Birthdate (dd/mm/yyyy)"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/profile_birthdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="false"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Gender -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
                 android:text="Gender"
-                android:textColor="@color/white"
+                android:textAppearance="?attr/textAppearanceSubtitle2"
+                android:textColor="?android:attr/textColorSecondary"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -155,50 +155,46 @@
                 android:layout_marginTop="8dp"
                 android:orientation="horizontal">
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_male"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@color/primaryColor"
                     android:text="Male"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@color/white"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_female"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_marginStart="8dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@color/primaryColor"
+                    android:textColor="@color/white"
                     android:text="Female"
-                    android:textColor="@android:color/white" />
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_other"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_marginStart="8dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@color/primaryColor"
                     android:text="Other"
-                    android:textColor="@android:color/white" />
-
+                    android:textColor="@color/white"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
             </LinearLayout>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/profile_save_btn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:padding="20dp"
-                android:backgroundTint="@color/primaryColor"
+                android:layout_height="60dp"
+                android:layout_marginTop="32dp"
+                android:text="Save Profile"
                 android:textColor="@color/white"
-                android:text="Save Profile" />
+                android:textSize="16sp"
+                app:cornerRadius="12dp" />
 
         </LinearLayout>
-
     </LinearLayout>
-
 </ScrollView>
