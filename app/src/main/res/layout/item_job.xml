@@ -37,7 +37,7 @@
             android:id="@+id/job_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Status: Pending"
+            android:text="@string/status_pending"
             android:textAppearance="?attr/textAppearanceCaption"
             android:textStyle="bold"
             android:visibility="gone"
@@ -59,7 +59,7 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/apply_btn"
                 android:layout_width="wrap_content"
-                android:text="Apply"
+                android:text="@string/apply"
                 android:layout_height="wrap_content"
                 app:cornerRadius="8dp"/>
 
@@ -67,7 +67,7 @@
                 android:id="@+id/view_app_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Applications"
+                android:text="@string/applications"
                 android:layout_marginStart="8dp"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 app:cornerRadius="8dp"

@@ -16,7 +16,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BusinessActivity extends AppCompatActivity {
+public class BusinessActivity extends BaseActivity {
 
     RecyclerView recyclerView;
     BusinessAdapter adapter;

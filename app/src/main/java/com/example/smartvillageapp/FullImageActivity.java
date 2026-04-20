@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.github.chrisbanes.photoview.PhotoView;
 
-public class FullImageActivity extends AppCompatActivity {
+public class FullImageActivity extends BaseActivity {
 
     PhotoView image;
 

@@ -26,7 +26,7 @@ import androidx.core.content.ContextCompat;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class LoginPage extends AppCompatActivity {
+public class LoginPage extends BaseActivity {
 
     private FirebaseAuth auth;
     private FirebaseFirestore db;
@@ -34,10 +34,7 @@ public class LoginPage extends AppCompatActivity {
     private EditText loginEmail, loginPassword;
     private Button b;
 
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(LocaleHelper.applyLocale(newBase));
-    }
+    
 
     // 🔹 SIGNUP TEXT
     public void signUpText() {

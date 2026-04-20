@@ -16,7 +16,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AddLocationActivity extends AppCompatActivity {
+public class AddLocationActivity extends BaseActivity {
 
     ImageView image;
     EditText name, desc, latitude, longitude;
@@ -72,7 +72,7 @@ public class AddLocationActivity extends AppCompatActivity {
         String lngStr = longitude.getText().toString().trim();
 
         if (n.isEmpty() || d.isEmpty() || latStr.isEmpty() || lngStr.isEmpty() || imageUri == null) {
-            Toast.makeText(this, "All fields required", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.all_fields_required), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -82,7 +82,7 @@ public class AddLocationActivity extends AppCompatActivity {
             lat = Double.parseDouble(latStr);
             lng = Double.parseDouble(lngStr);
         } catch (Exception e) {
-            Toast.makeText(this, "Invalid latitude/longitude", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.invalid_lat_lng), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -111,12 +111,12 @@ public class AddLocationActivity extends AppCompatActivity {
                                                 "admin",
                                                 "Location: (" + n + ") is added"
                                         );
-                                        Toast.makeText(this, "Location Added!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(this, getString(R.string.location_added), Toast.LENGTH_SHORT).show();
                                         finish();
                                     });
 
                         }))
                 .addOnFailureListener(e ->
-                        Toast.makeText(this, "Upload Failed", Toast.LENGTH_SHORT).show());
+                        Toast.makeText(this, getString(R.string.upload_failed), Toast.LENGTH_SHORT).show());
     }
 }

@@ -11,7 +11,7 @@ import java.util.*;
 
 import retrofit2.*;
 
-public class MarketActivity extends AppCompatActivity {
+public class MarketActivity extends BaseActivity {
 
     RecyclerView recycler;
     List<MarketModel> list = new ArrayList<>();
@@ -106,13 +106,13 @@ public class MarketActivity extends AppCompatActivity {
 
 
                 } else {
-                    Toast.makeText(MarketActivity.this, "No data found", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MarketActivity.this, getString(R.string.no_data_found), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<MarketResponse> call, Throwable t) {
-                Toast.makeText(MarketActivity.this, "API failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MarketActivity.this, getString(R.string.api_failed), Toast.LENGTH_SHORT).show();
                 Log.e("API_ERROR", t.getMessage());
             }
         });

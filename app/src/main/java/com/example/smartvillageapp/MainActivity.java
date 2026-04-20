@@ -28,7 +28,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.bumptech.glide.Glide;
 
 
-public class MainActivity extends AppCompatActivity implements ProfileFragment.OnProfileUpdatedListener {
+public class MainActivity extends BaseActivity implements ProfileFragment.OnProfileUpdatedListener {
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -39,10 +39,7 @@ public class MainActivity extends AppCompatActivity implements ProfileFragment.O
         loadUserData();
     }
 
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(LocaleHelper.applyLocale(newBase));
-    }
+    
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

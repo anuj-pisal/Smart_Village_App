@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jobs &amp; Opportunities"
+            android:text="@string/jobs_opportunities"
             android:textSize="22sp"
             android:textStyle="bold"
             android:textColor="@android:color/white"/>
@@ -24,7 +24,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Find and post job openings in your village"
+            android:text="@string/find_post_jobs"
             android:textSize="13sp"
             android:textColor="@android:color/darker_gray"
             android:layout_marginTop="4dp"/>

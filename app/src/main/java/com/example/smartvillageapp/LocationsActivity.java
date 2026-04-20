@@ -12,7 +12,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LocationsActivity extends AppCompatActivity {
+public class LocationsActivity extends BaseActivity {
 
     RecyclerView recyclerView;
     LocationAdapter adapter;

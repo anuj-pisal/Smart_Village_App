@@ -12,7 +12,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminComplaintActivity extends AppCompatActivity {
+public class AdminComplaintActivity extends BaseActivity {
 
     RecyclerView recyclerView;
     List<AdminComplaintModel> list = new ArrayList<>();

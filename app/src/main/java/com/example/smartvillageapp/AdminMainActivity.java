@@ -26,16 +26,13 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.bumptech.glide.Glide;
 
-public class AdminMainActivity extends AppCompatActivity {
+public class AdminMainActivity extends BaseActivity {
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     View headerView;
 
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(LocaleHelper.applyLocale(newBase));
-    }
+    
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

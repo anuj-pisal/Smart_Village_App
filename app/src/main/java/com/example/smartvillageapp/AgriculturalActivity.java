@@ -12,7 +12,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
-public class AgriculturalActivity extends AppCompatActivity {
+public class AgriculturalActivity extends BaseActivity {
 
     TabLayout tabLayout;
     ViewPager2 viewPager;
@@ -32,9 +32,9 @@ public class AgriculturalActivity extends AppCompatActivity {
         new TabLayoutMediator(tabLayout, viewPager,
                 (tab, position) -> {
 
-                    if (position == 0) tab.setText("Crops");
-                    else if (position == 1) tab.setText("Queries");
-                    else tab.setText("Videos");
+                    if (position == 0) tab.setText(getString(R.string.crops));
+                    else if (position == 1) tab.setText(getString(R.string.queries));
+                    else tab.setText(getString(R.string.videos));
 
                 }).attach();
     }

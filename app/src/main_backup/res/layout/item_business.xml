@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="16dp"
+    android:layout_margin="8dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Business Hero Image -->
+        <ImageView
+            android:id="@+id/business_image"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="?attr/colorPrimaryContainer"
+            android:scaleType="centerCrop"/>
+
+        <!-- Info Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/business_name"
+                android:text="Business Name"
+                android:textStyle="bold"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/business_domain"
+                android:text="Domain"
+                android:textColor="?attr/colorPrimary"
+                android:textStyle="bold"
+                android:textAppearance="?attr/textAppearanceCaption"
+                android:layout_marginTop="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/business_description"
+                android:text="The Businesss works on agricultural goods and provides benefits."
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:layout_marginTop="12dp"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/business_address"
+                android:text="Address Address"
+                android:textAppearance="?attr/textAppearanceCaption"
+                android:layout_marginTop="12dp"
+                android:layout_width="wrap_content"
+                android:textColor="?android:attr/textColorSecondary"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardBackgroundColor="?attr/colorControlHighlight"
+                android:layout_marginTop="16dp"
+                app:cardElevation="0dp">
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:padding="16dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    
+                    <TextView
+                        android:id="@+id/business_contact"
+                        android:text="+91 9394950090"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:layout_weight="1"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+                        
+                    <TextView
+                        android:id="@+id/business_email"
+                        android:text="anujpisal@gmail.com"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:layout_weight="1"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:gravity="end"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

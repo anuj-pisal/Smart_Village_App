@@ -8,7 +8,7 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="My Bills"
+        android:text="@string/my_bills"
         android:layout_marginTop="24dp"
         android:textColor="@color/white"
         android:padding="20dp"

@@ -28,7 +28,7 @@
 
             <TextView
                 android:id="@+id/dev_title"
-                android:text="Development Title"
+                android:text="@string/development_title"
                 android:textSize="17sp"
                 android:textStyle="bold"
                 android:layout_height="wrap_content" android:layout_width="wrap_content"
@@ -36,7 +36,7 @@
 
             <TextView
                 android:id="@+id/dev_short"
-                android:text="Short description..."
+                android:text="@string/short_desc_dots"
                 android:layout_height="wrap_content" android:layout_width="wrap_content"
                 android:textSize="14sp"
                 android:textColor="@android:color/darker_gray"

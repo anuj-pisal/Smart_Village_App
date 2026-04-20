@@ -40,7 +40,7 @@
                     android:id="@+id/village_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Smart Village"
+                    android:text="@string/smart_village"
                     android:textSize="28sp"
                     android:textStyle="bold"
                     android:textColor="@android:color/white"/>
@@ -48,7 +48,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Building a Digital Future"
+                    android:text="@string/building_digital_future"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     android:textColor="@color/primaryColor"/>
@@ -84,7 +84,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Village Highlights"
+                android:text="@string/village_highlights"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/primaryColor"
@@ -112,7 +112,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:text="12,500"
+                            android:text="@string/population_val"
                             android:textSize="18sp"
                             android:textStyle="bold"
                             android:textColor="@android:color/white"
@@ -120,7 +120,7 @@
                             android:layout_width="wrap_content"/>
 
                         <TextView
-                            android:text="Population"
+                            android:text="@string/population"
                             android:textSize="13sp"
                             android:textColor="@android:color/white"
                             android:layout_height="wrap_content"
@@ -143,7 +143,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:text="82%"
+                            android:text="@string/literacy_val"
                             android:textSize="18sp"
                             android:textStyle="bold"
                             android:textColor="@android:color/white"
@@ -151,7 +151,7 @@
                             android:layout_width="wrap_content"/>
 
                         <TextView
-                            android:text="Literacy Rate"
+                            android:text="@string/literacy_rate"
                             android:textSize="13sp"
                             android:textColor="@android:color/white"
                             android:layout_height="wrap_content"
@@ -183,7 +183,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:text="15 sq km"
+                            android:text="@string/area_val"
                             android:textSize="18sp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -191,7 +191,7 @@
                             android:textColor="@android:color/white"/>
 
                         <TextView
-                            android:text="Area"
+                            android:text="@string/area"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="13sp"
@@ -214,7 +214,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:text="5 Schools"
+                            android:text="@string/schools_val"
                             android:textSize="18sp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -222,7 +222,7 @@
                             android:textColor="@android:color/white"/>
 
                         <TextView
-                            android:text="Education"
+                            android:text="@string/education"
                             android:textSize="13sp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -236,7 +236,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Our Vision"
+                android:text="@string/our_vision"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/primaryColor"
@@ -262,7 +262,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Facilities"
+                android:text="@string/facilities"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/primaryColor"
@@ -290,7 +290,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Development Goals"
+                android:text="@string/development_goals"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/primaryColor"
@@ -317,7 +317,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Village Office Contact"
+                android:text="@string/village_office_contact"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/primaryColor"

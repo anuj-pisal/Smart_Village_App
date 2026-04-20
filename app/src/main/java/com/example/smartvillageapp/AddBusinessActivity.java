@@ -25,7 +25,7 @@ import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AddBusinessActivity extends AppCompatActivity {
+public class AddBusinessActivity extends BaseActivity {
 
     EditText name, domain, address, description, phone, email;
     Button saveBtn;
@@ -96,7 +96,7 @@ public class AddBusinessActivity extends AppCompatActivity {
         String bName = name.getText().toString().trim();
 
         if (bName.isEmpty()) {
-            name.setError("Required");
+            name.setError(getString(R.string.required));
             return;
         }
 

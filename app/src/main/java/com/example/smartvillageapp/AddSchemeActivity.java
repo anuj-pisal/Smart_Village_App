@@ -16,7 +16,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AddSchemeActivity extends AppCompatActivity {
+public class AddSchemeActivity extends BaseActivity {
 
     ImageView image;
     EditText title, shortDesc, fullDesc, benefits, eligibility, documents, applyLink;
@@ -70,7 +70,7 @@ public class AddSchemeActivity extends AppCompatActivity {
     private void uploadScheme() {
 
         if (imageUri == null) {
-            Toast.makeText(this, "Select image", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.select_image), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -103,7 +103,7 @@ public class AddSchemeActivity extends AppCompatActivity {
                                                 "admin",
                                                 "Scheme: ("+title.getText().toString()+") is added"
                                         );
-                                        Toast.makeText(this, "Scheme Added!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(this, getString(R.string.scheme_added), Toast.LENGTH_SHORT).show();
                                         finish();
                                     });
 

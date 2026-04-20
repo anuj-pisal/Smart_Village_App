@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Publish New Notice"
+            android:text="@string/publish_new_notice"
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="@color/white"
@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Select Image"
+            android:text="@string/select_image_btn"
             app:cornerRadius="8dp"
             android:layout_marginBottom="24dp"
             style="@style/Widget.MaterialComponents.Button.TextButton"/>
@@ -50,7 +50,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Notice Title/Description"
+            android:hint="@string/enter_notice_desc"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -68,7 +68,7 @@
             android:layout_height="60dp"
             android:textColor="@color/white"
             android:layout_marginTop="32dp"
-            android:text="Publish Notice"
+            android:text="@string/publish_notice"
             android:textSize="16sp"
             app:cornerRadius="12dp"/>
 

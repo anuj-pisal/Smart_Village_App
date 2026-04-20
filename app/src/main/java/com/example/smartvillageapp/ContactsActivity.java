@@ -16,7 +16,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContactsActivity extends AppCompatActivity {
+public class ContactsActivity extends BaseActivity {
 
     RecyclerView recyclerView;
     List<ContactsModel> contactList = new ArrayList<>();

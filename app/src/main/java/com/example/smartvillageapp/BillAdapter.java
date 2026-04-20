@@ -42,7 +42,7 @@ public class BillAdapter extends RecyclerView.Adapter<BillAdapter.VH> {
 
         h.title.setText(b.title);
         h.amount.setText("₹" + b.amount);
-        h.date.setText("Due: " + b.dueDate);
+        h.date.setText(context.getString(R.string.due_prefix) + b.dueDate);
         h.status.setText(b.status.toUpperCase());
 
         if ("unpaid".equals(b.status))

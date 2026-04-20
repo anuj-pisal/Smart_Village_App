@@ -35,16 +35,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignUpActivity extends BaseActivity {
 
     private FirebaseAuth auth;
     private EditText signupEmail, signupPassword, signupUsername;
     private Button b;
 
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(LocaleHelper.applyLocale(newBase));
-    }
+    
 
     public void logInText() {
         TextView signupText = findViewById(R.id.log_in_text);
@@ -159,7 +156,7 @@ public class SignUpActivity extends AppCompatActivity {
                                         })
                                         .addOnFailureListener(e -> {
                                             Toast.makeText(SignUpActivity.this,
-                                                    "Error: " + e.getMessage(),
+                                                    getString(R.string.error_prefix) + e.getMessage(),
                                                     Toast.LENGTH_LONG).show();
                                         });
 

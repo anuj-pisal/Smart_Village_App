@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-public class AddBillActivity extends AppCompatActivity {
+public class AddBillActivity extends BaseActivity {
 
     EditText title, amount, desc, date;
     Button selectImages, addBtn;
@@ -163,7 +163,7 @@ public class AddBillActivity extends AppCompatActivity {
 
                                         db.collection("bills").add(map);
 
-                                        Toast.makeText(this, "Bill Added", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(this, getString(R.string.bill_added), Toast.LENGTH_SHORT).show();
 
                                         // 🔥 STEP 3: LOG CORRECTLY
                                         AppLogger.log(

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SmartVillageApp">
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminLogsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminUserManagementActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminComplaintDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminComplaintActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserBillsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddBillActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BillsUserListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AgricultureActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddSchemeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddDevelopmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddLocationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddNoticeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddContactActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SchemeDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SchemesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MarketActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FullImageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BillDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BillsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ComplaintDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddComplaintActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ComplaintsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DevelopmentDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DevelopmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ExperienceDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddExperienceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AgriculturalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NoticeDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NoticesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ApplicationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddJobActivity"
+            android:exported="false" />
+        <activity
+            android:name=".JobsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LocationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddBusinessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BusinessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ContactsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AboutVillageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginPage"
+            android:exported="false" /> <!-- Splash / Flash Screen -->
+        <activity
+            android:name=".FlashScreen"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- Main Activity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>

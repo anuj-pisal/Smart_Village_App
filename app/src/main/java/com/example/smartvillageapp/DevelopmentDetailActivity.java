@@ -10,7 +10,7 @@ import java.util.List;
 import android.os.Handler;
 import android.os.Looper;
 
-public class DevelopmentDetailActivity extends AppCompatActivity {
+public class DevelopmentDetailActivity extends BaseActivity {
 
     Handler sliderHandler = new Handler(Looper.getMainLooper());
     Runnable sliderRunnable;
@@ -56,7 +56,7 @@ public class DevelopmentDetailActivity extends AppCompatActivity {
                         if (prog != null) {
                             int p = prog.intValue();
                             progressBar.setProgress(p);
-                            progressText.setText("Progress: " + p + "%");
+                            progressText.setText(getString(R.string.progress) + p + "%");
                         }
 
                         // 🔥 IMAGES

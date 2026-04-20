@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 
-public class AdminLogsActivity extends AppCompatActivity {
+public class AdminLogsActivity extends BaseActivity {
 
     RecyclerView recycler;
     List<ActivityLogModel> list = new ArrayList<>();

@@ -36,7 +36,7 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.VH> {
         MarketModel m = list.get(i);
 
         h.crop.setText(m.commodity);
-        h.market.setText("Across " + m.district + " markets");
+        h.market.setText(context.getString(R.string.across_prefix) + m.district + " markets");
 
         // 🔥 Convert ₹/quintal → ₹/kg
         try {
@@ -46,7 +46,7 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.VH> {
             h.price.setText("₹" + (min/100.0) + " - ₹" + (max/100.0) + "/kg");
 
         } catch (Exception e) {
-            h.price.setText("₹--");
+            h.price.setText(context.getString(R.string.rupee_placeholder));
         }
     }
 

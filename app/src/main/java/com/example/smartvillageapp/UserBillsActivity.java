@@ -13,7 +13,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserBillsActivity extends AppCompatActivity {
+public class UserBillsActivity extends BaseActivity {
 
     RecyclerView recycler;
     List<BillModel> billList = new ArrayList<>();
@@ -39,7 +39,7 @@ public class UserBillsActivity extends AppCompatActivity {
                 .get()
                 .addOnSuccessListener(snapshot -> {
 
-                    Toast.makeText(this, "Bills found: " + snapshot.size(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.bills_found_prefix) + snapshot.size(), Toast.LENGTH_SHORT).show();
 
                     billList.clear();
 
@@ -51,7 +51,7 @@ public class UserBillsActivity extends AppCompatActivity {
                     adapter.notifyDataSetChanged(); // 🔥 NOW THIS WORKS
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, getString(R.string.error_prefix) + e.getMessage(), Toast.LENGTH_LONG).show();
                 });
     }
 }

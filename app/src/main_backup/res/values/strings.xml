@@ -1,0 +1,100 @@
+<resources>
+    <string name="app_name">Smart Village</string>
+    <string name="open_drawer">Open navigation drawer</string>
+    <string name="close_drawer">Close navigation drawer</string>
+
+    <!-- Menu -->
+    <string name="settings">Settings</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_about_app">About App</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_logout">Logout</string>
+    <string name="nav_exit">Exit</string>
+
+    <!-- Dashboard Items -->
+    <string name="about_village">About Village</string>
+    <string name="contacts">Contacts</string>
+    <string name="businesses">Businesses</string>
+    <string name="market_prices">Market Prices</string>
+    <string name="notices">Notices</string>
+    <string name="bills">Bills</string>
+    <string name="locations">Locations</string>
+    <string name="complaints">Complaints</string>
+    <string name="schemes">Schemes</string>
+    <string name="developments">Developments</string>
+    <string name="agricultural">Agricultural</string>
+    <string name="jobs">Jobs</string>
+
+    <!-- Admin Dashboard Items -->
+    <string name="agriculture">Agriculture</string>
+    <string name="users">Users</string>
+    <string name="logs">Logs</string>
+
+    <!-- Login / Sign Up -->
+    <string name="log_in">Log in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="hint_email">email</string>
+    <string name="hint_password">password</string>
+    <string name="hint_username">username</string>
+    <string name="btn_log_in">Log In</string>
+    <string name="btn_sign_up">Sign up</string>
+    <string name="dont_have_account">Don\'t have an account? </string>
+    <string name="sign_up_now">Sign up now</string>
+    <string name="dont_have_account_full">Don\'t have an account? Sign up now</string>
+    <string name="already_have_account">Already have an account? </string>
+    <string name="log_in_link">Log in</string>
+    <string name="already_have_account_full">Already have an account? Log in</string>
+
+    <!-- Validation Messages -->
+    <string name="error_email_empty">Email cannot be empty!</string>
+    <string name="error_password_empty">Password cannot be empty!</string>
+    <string name="error_password_short">Password must be at least 8 characters!</string>
+    <string name="error_password_weak">Password must contain Uppercase, Lowercase, Number &amp; Special Character!</string>
+    <string name="error_username_empty">Username cannot be empty!</string>
+    <string name="error_invalid_email">Invalid Email!</string>
+    <string name="error_name_required">Name required</string>
+
+    <!-- Toast Messages -->
+    <string name="login_admin_success">Admin Login Successful!</string>
+    <string name="login_success">Login Successful!</string>
+    <string name="login_failed">Invalid Credentials!</string>
+    <string name="signup_success">SignUp successful!</string>
+    <string name="signup_failed">SignUp Failed: %1$s</string>
+    <string name="account_removed">Your account has been removed by admin</string>
+    <string name="profile_updated">Profile Updated Successfully</string>
+    <string name="profile_update_failed">Update Failed</string>
+    <string name="profile_image_updated">Profile image updated!</string>
+    <string name="upload_failed">Upload failed</string>
+
+    <!-- Profile -->
+    <string name="username_label">Username</string>
+    <string name="joined_date">Joined %1$s</string>
+    <string name="hint_email_address">Email Address</string>
+    <string name="hint_full_name">Full Name</string>
+    <string name="hint_phone_number">Phone Number</string>
+    <string name="hint_birthdate">Birthdate (dd/mm/yyyy)</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="other">Other</string>
+    <string name="save_profile">Save Profile</string>
+
+    <!-- Logout Dialog -->
+    <string name="logout_title">Logout</string>
+    <string name="logout_message">Are you sure you want to logout?\nYou will need to sign in again.</string>
+    <string name="cancel">Cancel</string>
+    <string name="logout">Logout</string>
+    <string name="logout_icon_desc">Logout icon</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="language_section">Language</string>
+    <string name="language_description">Choose your preferred language</string>
+    <string name="english">English</string>
+    <string name="marathi">मराठी</string>
+    <string name="language_changed">Language changed to %1$s</string>
+    <string name="current_language">Current</string>
+    <string name="about_section">About</string>
+    <string name="app_version">App Version</string>
+    <string name="version_number">1.0</string>
+</resources>

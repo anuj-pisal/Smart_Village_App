@@ -16,7 +16,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AddNoticeActivity extends AppCompatActivity {
+public class AddNoticeActivity extends BaseActivity {
 
     ImageView imageView;
     EditText title;
@@ -67,7 +67,7 @@ public class AddNoticeActivity extends AppCompatActivity {
         String t = title.getText().toString().trim();
 
         if (t.isEmpty() || imageUri == null) {
-            Toast.makeText(this, "All fields required", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.all_fields_required), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -96,12 +96,12 @@ public class AddNoticeActivity extends AppCompatActivity {
                                                 "admin",
                                                 "Notice: ( "+ t +" ) is added"
                                         );
-                                        Toast.makeText(this, "Notice Published!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(this, getString(R.string.notice_published), Toast.LENGTH_SHORT).show();
                                         finish();
                                     });
 
                         }))
                 .addOnFailureListener(e ->
-                        Toast.makeText(this, "Upload failed", Toast.LENGTH_SHORT).show());
+                        Toast.makeText(this, getString(R.string.upload_failed_2), Toast.LENGTH_SHORT).show());
     }
 }

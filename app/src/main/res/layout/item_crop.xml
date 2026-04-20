@@ -29,7 +29,7 @@
 
             <TextView
                 android:id="@+id/crop_title"
-                android:text="Crop Name"
+                android:text="@string/crop_name"
                 android:textAppearance="?attr/textAppearanceHeadline6"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
@@ -37,7 +37,7 @@
 
             <TextView
                 android:id="@+id/crop_desc"
-                android:text="Short info"
+                android:text="@string/short_info"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="?android:attr/textColorSecondary"
                 android:layout_marginTop="8dp"

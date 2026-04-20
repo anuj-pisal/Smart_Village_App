@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Agriculture"
+        android:text="@string/agriculture_title"
         android:layout_marginTop="24dp"
         android:padding="20dp"
         android:textAppearance="?attr/textAppearanceHeadline5"

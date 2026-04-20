@@ -31,7 +31,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Smart Village App"
+                android:text="@string/smart_village_app_name"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:textColor="@android:color/white"
@@ -40,7 +40,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Version 1.0"
+                android:text="@string/version"
                 android:textSize="13sp"
                 android:textColor="@android:color/white"/>
         </LinearLayout>
@@ -57,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
-                android:text="Smart Village App is designed to digitally connect villagers with essential services. It provides easy access to contacts, businesses, notices, and government schemes in one place, making rural life more efficient and connected."
+                android:text="@string/about_app_desc"
                 android:textSize="15sp"
                 android:textColor="@android:color/white"/>
         </com.google.android.material.card.MaterialCardView>
@@ -66,7 +66,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Features"
+            android:text="@string/features_title"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@android:color/white"
@@ -83,7 +83,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
-                android:text="• About Village – Village overview\n• Contacts – Important contacts\n• Businesses – Local services\n• Market Prices – Latest rates\n• Notices – Announcements\n• Bills – Bill services\n• Locations – Key places\n• Complaints – Report issues\n• Schemes – Govt benefits\n• Development – Progress updates\n• Agricultural – Farming info\n• Jobs – Opportunities"
+                android:text="@string/features_desc"
                 android:textSize="15sp"
                 android:textColor="@android:color/white"/>
         </com.google.android.material.card.MaterialCardView>
@@ -92,7 +92,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Technology Used"
+            android:text="@string/tech_used_title"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@android:color/white"
@@ -109,7 +109,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
-                android:text="• Android (Java)\n• Firebase Authentication\n• Firestore Database\n• Firebase Storage\n• Material UI Components"
+                android:text="@string/tech_used_desc"
                 android:textSize="15sp"
                 android:textColor="@android:color/white"/>
         </com.google.android.material.card.MaterialCardView>
@@ -118,7 +118,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Developer"
+            android:text="@string/developer"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@android:color/white"
@@ -139,7 +139,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Anuj Pisal"
+                    android:text="@string/anuj_pisal"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@android:color/white"/>
@@ -147,7 +147,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Second Year IT Engineering Student, WCE"
+                    android:text="@string/dev_subtitle"
                     android:textSize="14sp"
                     android:textColor="@android:color/white"
                     android:layout_marginTop="4dp"/>
@@ -155,7 +155,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Smart Village Project"
+                    android:text="@string/smart_village_project_desc"
                     android:textSize="13sp"
                     android:textColor="@android:color/white"
                     android:layout_marginTop="4dp"/>

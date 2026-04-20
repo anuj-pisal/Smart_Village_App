@@ -11,7 +11,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AddContactActivity extends AppCompatActivity {
+public class AddContactActivity extends BaseActivity {
 
     EditText name, designation, phone, email, priority;
     Button addBtn;
@@ -47,7 +47,7 @@ public class AddContactActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(n) || TextUtils.isEmpty(d) ||
                 TextUtils.isEmpty(p) || TextUtils.isEmpty(e) || TextUtils.isEmpty(pr)) {
 
-            Toast.makeText(this, "All fields required", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.all_fields_required), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -65,7 +65,7 @@ public class AddContactActivity extends AppCompatActivity {
         db.collection("contacts")
                 .add(map)
                 .addOnSuccessListener(doc -> {
-                    Toast.makeText(this, "Contact Added!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.contact_added), Toast.LENGTH_SHORT).show();
                     AppLogger.log(
                             "Contact Added",
                             "NA",
@@ -76,7 +76,7 @@ public class AddContactActivity extends AppCompatActivity {
                     finish();
                 })
                 .addOnFailureListener(e1 -> {
-                    Toast.makeText(this, "Error: " + e1.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.error_prefix) + e1.getMessage(), Toast.LENGTH_SHORT).show();
                 });
     }
 }

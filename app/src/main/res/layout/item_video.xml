@@ -45,7 +45,7 @@
             android:id="@+id/video_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Video Title"
+            android:text="@string/video_title"
             android:textAppearance="?attr/textAppearanceSubtitle1"
             android:textStyle="bold"
             android:padding="16dp"/>

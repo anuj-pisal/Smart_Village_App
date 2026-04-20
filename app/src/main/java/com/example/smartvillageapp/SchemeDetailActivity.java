@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class SchemeDetailActivity extends AppCompatActivity {
+public class SchemeDetailActivity extends BaseActivity {
 
     ImageView img;
     TextView title, full, benefits, eligibility, documents;

@@ -13,7 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.bumptech.glide.Glide;
 
-public class FlashScreen extends AppCompatActivity {
+public class FlashScreen extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

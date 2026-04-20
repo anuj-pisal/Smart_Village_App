@@ -12,7 +12,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminUserManagementActivity extends AppCompatActivity {
+public class AdminUserManagementActivity extends BaseActivity {
 
     RecyclerView recyclerView;
     List<UserModel> list = new ArrayList<>();

@@ -38,104 +38,34 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.View
             Context context = v.getContext();
             Intent intent = null;
 
-            switch (item.getTitle()) {
-
-                case "About Village":
-                    intent = new Intent(context, AboutVillageActivity.class);
-                    break;
-
-                case "Contacts":
-                    intent = new Intent(context, ContactsActivity.class);
-                    break;
-//
-                case "Businesses":
-                    intent = new Intent(context, BusinessActivity.class);
-                    break;
-
-                case "Market Prices":
-                    intent = new Intent(context, MarketActivity.class);
-                    break;
-//
-                case "Notices":
-                    intent = new Intent(context, NoticesActivity.class);
-                    break;
-//
-                case "Bills":
-                    intent = new Intent(context, BillsActivity.class);
-                    break;
-
-                case "Locations":
-                    intent = new Intent(context, LocationsActivity.class);
-                    break;
-//
-                case "Complaints":
-                    intent = new Intent(context, ComplaintsActivity.class);
-                    break;
-//
-                case "Schemes":
-                    intent = new Intent(context, SchemesActivity.class);
-                    break;
-//
-                case "Developments":
-                    intent = new Intent(context, DevelopmentActivity.class);
-                    break;
-
-                case "Agricultural":
-                    intent = new Intent(context, AgriculturalActivity.class);
-                    break;
-//
-                case "Jobs":
-                    intent = new Intent(context, JobsActivity.class);
-                    break;
-
-                case "गावाबद्दल":
-                    intent = new Intent(context, AboutVillageActivity.class);
-                    break;
-
-                case "संपर्क":
-                    intent = new Intent(context, ContactsActivity.class);
-                    break;
-//
-                case "व्यवसाय":
-                    intent = new Intent(context, BusinessActivity.class);
-                    break;
-
-                case "बाजारभाव":
-                    intent = new Intent(context, MarketActivity.class);
-                    break;
-//
-                case "सूचना":
-                    intent = new Intent(context, NoticesActivity.class);
-                    break;
-//
-                case "बिले":
-                    intent = new Intent(context, BillsActivity.class);
-                    break;
-
-                case "ठिकाणे":
-                    intent = new Intent(context, LocationsActivity.class);
-                    break;
-//
-                case "तक्रारी":
-                    intent = new Intent(context, ComplaintsActivity.class);
-                    break;
-//
-                case "योजना":
-                    intent = new Intent(context, SchemesActivity.class);
-                    break;
-//
-                case "विकासकामे":
-                    intent = new Intent(context, DevelopmentActivity.class);
-                    break;
-
-                case "शेती":
-                    intent = new Intent(context, AgriculturalActivity.class);
-                    break;
-//
-                case "नोकऱ्या":
-                    intent = new Intent(context, JobsActivity.class);
-                    break;
+            
+            String title = item.getTitle();
+            if (title.equals(context.getString(R.string.about_village))) {
+                intent = new Intent(context, AboutVillageActivity.class);
+            } else if (title.equals(context.getString(R.string.contacts))) {
+                intent = new Intent(context, ContactsActivity.class);
+            } else if (title.equals(context.getString(R.string.businesses))) {
+                intent = new Intent(context, BusinessActivity.class);
+            } else if (title.equals(context.getString(R.string.market_prices))) {
+                intent = new Intent(context, MarketActivity.class);
+            } else if (title.equals(context.getString(R.string.notices))) {
+                intent = new Intent(context, NoticesActivity.class);
+            } else if (title.equals(context.getString(R.string.bills))) {
+                intent = new Intent(context, BillsActivity.class);
+            } else if (title.equals(context.getString(R.string.locations))) {
+                intent = new Intent(context, LocationsActivity.class);
+            } else if (title.equals(context.getString(R.string.complaints))) {
+                intent = new Intent(context, ComplaintsActivity.class);
+            } else if (title.equals(context.getString(R.string.schemes))) {
+                intent = new Intent(context, SchemesActivity.class);
+            } else if (title.equals(context.getString(R.string.developments))) {
+                intent = new Intent(context, DevelopmentActivity.class);
+            } else if (title.equals(context.getString(R.string.agricultural))) {
+                intent = new Intent(context, AgriculturalActivity.class);
+            } else if (title.equals(context.getString(R.string.jobs))) {
+                intent = new Intent(context, JobsActivity.class);
             }
+
 
             if (intent != null) {
                 context.startActivity(intent);

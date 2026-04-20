@@ -20,7 +20,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Local Businesses"
+                android:text="@string/local_businesses"
                 android:padding="20dp"
                 android:textColor="@color/white"
                 android:textAppearance="?attr/textAppearanceHeadline5"

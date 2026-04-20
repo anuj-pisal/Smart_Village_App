@@ -12,7 +12,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 
-public class ComplaintDetailActivity extends AppCompatActivity {
+public class ComplaintDetailActivity extends BaseActivity {
 
     ImageView img;
     TextView desc, status;
@@ -37,7 +37,7 @@ public class ComplaintDetailActivity extends AppCompatActivity {
                 .addOnSuccessListener(d -> {
 
                     desc.setText(d.getString("description"));
-                    status.setText("Status : " + d.getString("status"));
+                    status.setText(getString(R.string.status_colon) + d.getString("status"));
 
                     if ("pending".equals(d.getString("status")))
                         status.setTextColor(Color.YELLOW);

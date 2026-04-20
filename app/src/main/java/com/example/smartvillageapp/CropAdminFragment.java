@@ -88,7 +88,7 @@ public class CropAdminFragment extends Fragment {
                                     "Crop: (" + title.getText().toString() + ") info. is added"
                             );
 
-                            Toast.makeText(getContext(), "Crop Added", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), getString(R.string.crop_added), Toast.LENGTH_SHORT).show();
                         }));
     }
 }

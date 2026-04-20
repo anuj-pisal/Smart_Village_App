@@ -16,7 +16,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BillsUserListActivity extends AppCompatActivity {
+public class BillsUserListActivity extends BaseActivity {
 
     RecyclerView recycler;
     List<UserModel> list = new ArrayList<>();

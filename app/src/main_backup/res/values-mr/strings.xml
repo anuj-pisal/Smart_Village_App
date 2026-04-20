@@ -1,0 +1,100 @@
+<resources>
+    <string name="app_name">स्मार्ट गाव</string>
+    <string name="open_drawer">नेव्हिगेशन ड्रॉवर उघडा</string>
+    <string name="close_drawer">नेव्हिगेशन ड्रॉवर बंद करा</string>
+
+    <!-- Menu -->
+    <string name="settings">सेटिंग्ज</string>
+    <string name="nav_home">मुख्यपृष्ठ</string>
+    <string name="nav_about_app">ॲपबद्दल</string>
+    <string name="nav_profile">प्रोफाइल</string>
+    <string name="nav_logout">लॉगआउट</string>
+    <string name="nav_exit">बाहेर पडा</string>
+
+    <!-- Dashboard Items -->
+    <string name="about_village">गावाबद्दल</string>
+    <string name="contacts">संपर्क</string>
+    <string name="businesses">व्यवसाय</string>
+    <string name="market_prices">बाजारभाव</string>
+    <string name="notices">सूचना</string>
+    <string name="bills">बिले</string>
+    <string name="locations">ठिकाणे</string>
+    <string name="complaints">तक्रारी</string>
+    <string name="schemes">योजना</string>
+    <string name="developments">विकासकामे</string>
+    <string name="agricultural">शेती</string>
+    <string name="jobs">नोकऱ्या</string>
+
+    <!-- Admin Dashboard Items -->
+    <string name="agriculture">शेती</string>
+    <string name="users">वापरकर्ते</string>
+    <string name="logs">नोंदी</string>
+
+    <!-- Login / Sign Up -->
+    <string name="log_in">लॉग इन</string>
+    <string name="sign_up">साइन अप</string>
+    <string name="hint_email">ईमेल</string>
+    <string name="hint_password">पासवर्ड</string>
+    <string name="hint_username">वापरकर्तानाव</string>
+    <string name="btn_log_in">लॉग इन</string>
+    <string name="btn_sign_up">साइन अप</string>
+    <string name="dont_have_account">खाते नाही? </string>
+    <string name="sign_up_now">आता साइन अप करा</string>
+    <string name="dont_have_account_full">खाते नाही? आता साइन अप करा</string>
+    <string name="already_have_account">आधीपासून खाते आहे? </string>
+    <string name="log_in_link">लॉग इन</string>
+    <string name="already_have_account_full">आधीपासून खाते आहे? लॉग इन</string>
+
+    <!-- Validation Messages -->
+    <string name="error_email_empty">ईमेल रिकामा असू शकत नाही!</string>
+    <string name="error_password_empty">पासवर्ड रिकामा असू शकत नाही!</string>
+    <string name="error_password_short">पासवर्ड किमान ८ अक्षरांचा असावा!</string>
+    <string name="error_password_weak">पासवर्डमध्ये मोठे अक्षर, छोटे अक्षर, अंक आणि विशेष चिन्ह असणे आवश्यक!</string>
+    <string name="error_username_empty">वापरकर्तानाव रिकामे असू शकत नाही!</string>
+    <string name="error_invalid_email">अवैध ईमेल!</string>
+    <string name="error_name_required">नाव आवश्यक</string>
+
+    <!-- Toast Messages -->
+    <string name="login_admin_success">ॲडमिन लॉगिन यशस्वी!</string>
+    <string name="login_success">लॉगिन यशस्वी!</string>
+    <string name="login_failed">अवैध माहिती!</string>
+    <string name="signup_success">साइन अप यशस्वी!</string>
+    <string name="signup_failed">साइन अप अयशस्वी: %1$s</string>
+    <string name="account_removed">तुमचे खाते ॲडमिनने काढले आहे</string>
+    <string name="profile_updated">प्रोफाइल यशस्वीरित्या अपडेट झाली</string>
+    <string name="profile_update_failed">अपडेट अयशस्वी</string>
+    <string name="profile_image_updated">प्रोफाइल फोटो अपडेट झाला!</string>
+    <string name="upload_failed">अपलोड अयशस्वी</string>
+
+    <!-- Profile -->
+    <string name="username_label">वापरकर्तानाव</string>
+    <string name="joined_date">सामील %1$s</string>
+    <string name="hint_email_address">ईमेल पत्ता</string>
+    <string name="hint_full_name">पूर्ण नाव</string>
+    <string name="hint_phone_number">फोन नंबर</string>
+    <string name="hint_birthdate">जन्मतारीख (दि/म/वर्ष)</string>
+    <string name="gender">लिंग</string>
+    <string name="male">पुरुष</string>
+    <string name="female">स्त्री</string>
+    <string name="other">इतर</string>
+    <string name="save_profile">प्रोफाइल जतन करा</string>
+
+    <!-- Logout Dialog -->
+    <string name="logout_title">लॉगआउट</string>
+    <string name="logout_message">तुम्हाला खात्री आहे की तुम्ही लॉगआउट करू इच्छिता?\nतुम्हाला पुन्हा साइन इन करावे लागेल.</string>
+    <string name="cancel">रद्द करा</string>
+    <string name="logout">लॉगआउट</string>
+    <string name="logout_icon_desc">लॉगआउट चिन्ह</string>
+
+    <!-- Settings -->
+    <string name="settings_title">सेटिंग्ज</string>
+    <string name="language_section">भाषा</string>
+    <string name="language_description">तुमची पसंतीची भाषा निवडा</string>
+    <string name="english">English</string>
+    <string name="marathi">मराठी</string>
+    <string name="language_changed">भाषा %1$s मध्ये बदलली</string>
+    <string name="current_language">सध्याची</string>
+    <string name="about_section">माहिती</string>
+    <string name="app_version">ॲप आवृत्ती</string>
+    <string name="version_number">१.०</string>
+</resources>

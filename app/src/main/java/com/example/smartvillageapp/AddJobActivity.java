@@ -12,7 +12,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AddJobActivity extends AppCompatActivity {
+public class AddJobActivity extends BaseActivity {
 
     EditText title, req, desc;
     Button submit;

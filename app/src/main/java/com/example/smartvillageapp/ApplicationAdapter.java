@@ -50,7 +50,7 @@ public class ApplicationAdapter extends RecyclerView.Adapter<ApplicationAdapter.
         h.email.setText(app.applicantEmail != null ? app.applicantEmail : "");
 
         // ✅ Show Status
-        h.status.setText("Status: " + app.status);
+        h.status.setText(context.getString(R.string.status_prefix) + app.status);
 
         // Disable buttons if already decided
         if ("approved".equals(app.status) || "rejected".equals(app.status)) {

@@ -65,13 +65,13 @@ public class AdminUserManagementAdapter extends RecyclerView.Adapter<AdminUserMa
                                         "User: " + u.name + " (" + u.id + ") is deleted"
                                 );
 
-                                Toast.makeText(context, "User deleted", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, context.getString(R.string.user_deleted), Toast.LENGTH_SHORT).show();
 
                                 list.remove(position);
                                 notifyDataSetChanged();
                             })
                             .addOnFailureListener(e -> {
-                                Toast.makeText(context, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                                Toast.makeText(context, context.getString(R.string.error_prefix) + e.getMessage(), Toast.LENGTH_LONG).show();
                             });
                 }
 

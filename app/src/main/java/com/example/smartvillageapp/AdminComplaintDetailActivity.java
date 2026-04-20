@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AdminComplaintDetailActivity extends AppCompatActivity {
+public class AdminComplaintDetailActivity extends BaseActivity {
 
     Spinner statusSpinner;
     Button uploadBtn, updateBtn;
@@ -106,11 +106,11 @@ public class AdminComplaintDetailActivity extends AppCompatActivity {
                                 "Complaint: the status is updated to ( " + statusSpinner.getSelectedItem().toString()
                                         +" )"
                         );
-                        Toast.makeText(this, "Updated Successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, getString(R.string.updated_successfully), Toast.LENGTH_SHORT).show();
                         finish();
                     })
                     .addOnFailureListener(e -> {
-                        Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(this, getString(R.string.error_prefix) + e.getMessage(), Toast.LENGTH_LONG).show();
                         Log.d("error", "Error: " + e.getMessage());
                     });
 
@@ -143,11 +143,11 @@ public class AdminComplaintDetailActivity extends AppCompatActivity {
                                     .document(docId)
                                     .update(map)
                                     .addOnSuccessListener(unused -> {
-                                        Toast.makeText(this, "Updated Successfully", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(this, getString(R.string.updated_successfully), Toast.LENGTH_SHORT).show();
                                         finish();
                                     })
                                     .addOnFailureListener(e -> {
-                                        Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                                        Toast.makeText(this, getString(R.string.error_prefix) + e.getMessage(), Toast.LENGTH_LONG).show();
                                         Log.d("error", "Error: " + e.getMessage());
                                     });
                         }

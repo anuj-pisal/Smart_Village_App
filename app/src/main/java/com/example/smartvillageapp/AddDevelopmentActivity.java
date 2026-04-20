@@ -17,7 +17,7 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.*;
 
-public class AddDevelopmentActivity extends AppCompatActivity {
+public class AddDevelopmentActivity extends BaseActivity {
 
     EditText title, shortDesc, fullDesc, budget, location, progress, startDate;
     Spinner status;
@@ -121,7 +121,7 @@ public class AddDevelopmentActivity extends AppCompatActivity {
     private void uploadDevelopment() {
 
         if (imageUris.isEmpty()) {
-            Toast.makeText(this, "Select images", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.select_images), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -173,7 +173,7 @@ public class AddDevelopmentActivity extends AppCompatActivity {
                                     " Location : " + location.getText().toString() +
                                     " Status : " + status.getSelectedItem().toString()
                     );
-                    Toast.makeText(this, "Development Added!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.development_added), Toast.LENGTH_SHORT).show();
                     finish();
                 });
     }

@@ -14,7 +14,7 @@ import org.json.JSONObject;
 
 import java.util.List;
 
-public class BillDetailActivity extends AppCompatActivity implements PaymentResultListener {
+public class BillDetailActivity extends BaseActivity implements PaymentResultListener {
 
     TextView title, amount, date, status, desc;
     Button payBtn;
@@ -42,7 +42,7 @@ public class BillDetailActivity extends AppCompatActivity implements PaymentResu
         billId = getIntent().getStringExtra("id");
 
         if (billId == null) {
-            Toast.makeText(this, "Error: No Bill ID", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.error_no_bill_id), Toast.LENGTH_SHORT).show();
             finish();
             return;
         }
@@ -64,7 +64,7 @@ public class BillDetailActivity extends AppCompatActivity implements PaymentResu
                             amount.setText("₹" + billAmount);
                         }
 
-                        date.setText("Due: " + d.getString("dueDate"));
+                        date.setText(getString(R.string.due_prefix) + d.getString("dueDate"));
                         status.setText(d.getString("status"));
                         desc.setText(d.getString("description"));
 
@@ -76,7 +76,7 @@ public class BillDetailActivity extends AppCompatActivity implements PaymentResu
 
                         // 🔥 HANDLE PAID STATE
                         if ("paid".equals(d.getString("status"))) {
-                            payBtn.setText("Paid ✔");
+                            payBtn.setText(getString(R.string.paid_check));
                             payBtn.setEnabled(false);
                         }
                     }
@@ -85,7 +85,7 @@ public class BillDetailActivity extends AppCompatActivity implements PaymentResu
         // 🔥 PAY BUTTON CLICK
         payBtn.setOnClickListener(v -> {
             if (billAmount <= 0) {
-                Toast.makeText(this, "Invalid amount", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.invalid_amount), Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -111,14 +111,14 @@ public class BillDetailActivity extends AppCompatActivity implements PaymentResu
             checkout.open(this, options);
 
         } catch (Exception e) {
-            Toast.makeText(this, "Payment error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.payment_error) + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
     // ✅ SUCCESS
     @Override
     public void onPaymentSuccess(String paymentId) {
-        Toast.makeText(this, "Payment Successful", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getString(R.string.payment_successful), Toast.LENGTH_SHORT).show();
 
         FirebaseFirestore.getInstance()
                 .collection("bills")
@@ -135,13 +135,13 @@ public class BillDetailActivity extends AppCompatActivity implements PaymentResu
                 "Bill Payment: Bill (" + billId + ") is paid by user"
         );
 
-        payBtn.setText("Paid ✔");
+        payBtn.setText(getString(R.string.paid_check));
         payBtn.setEnabled(false);
     }
 
     // ❌ FAILURE
     @Override
     public void onPaymentError(int code, String response) {
-        Toast.makeText(this, "Payment Failed", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getString(R.string.payment_failed), Toast.LENGTH_SHORT).show();
     }
 }

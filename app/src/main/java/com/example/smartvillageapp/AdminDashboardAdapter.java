@@ -42,88 +42,30 @@ public class AdminDashboardAdapter extends RecyclerView.Adapter<AdminDashboardAd
 
         h.itemView.setOnClickListener(v -> {
 
-            switch (item.title) {
-
-                case "Contacts":
-                    context.startActivity(new Intent(context, AddContactActivity.class));
-                    break;
-
-                case "Notices":
-                    context.startActivity(new Intent(context, AddNoticeActivity.class));
-                    break;
-
-                case "Bills":
-                    context.startActivity(new Intent(context, BillsUserListActivity.class));
-                    break;
-
-                case "Locations":
-                    context.startActivity(new Intent(context, AddLocationActivity.class));
-                    break;
-
-                case "Complaints":
-                    context.startActivity(new Intent(context, AdminComplaintActivity.class));
-                    break;
-
-                case "Schemes":
-                    context.startActivity(new Intent(context, AddSchemeActivity.class));
-                    break;
-
-                case "Developments":
-                    context.startActivity(new Intent(context, AddDevelopmentActivity.class));
-                    break;
-
-                case "Agriculture":
-                    context.startActivity(new Intent(context, AgricultureActivity.class));
-                    break;
-
-                case "Users":
-                    context.startActivity(new Intent(context, AdminUserManagementActivity.class));
-                    break;
-
-                case "Logs":
-                    context.startActivity(new Intent(context, AdminLogsActivity.class));
-                    break;
-
-                case "संपर्क":
-                    context.startActivity(new Intent(context, AddContactActivity.class));
-                    break;
-
-                case "सूचना":
-                    context.startActivity(new Intent(context, AddNoticeActivity.class));
-                    break;
-
-                case "बिले":
-                    context.startActivity(new Intent(context, BillsUserListActivity.class));
-                    break;
-
-                case "ठिकाणे":
-                    context.startActivity(new Intent(context, AddLocationActivity.class));
-                    break;
-
-                case "तक्रारी":
-                    context.startActivity(new Intent(context, AdminComplaintActivity.class));
-                    break;
-
-                case "योजना":
-                    context.startActivity(new Intent(context, AddSchemeActivity.class));
-                    break;
-
-                case "विकासकामे":
-                    context.startActivity(new Intent(context, AddDevelopmentActivity.class));
-                    break;
-
-                case "शेती":
-                    context.startActivity(new Intent(context, AgricultureActivity.class));
-                    break;
-
-                case "वापरकर्ते":
-                    context.startActivity(new Intent(context, AdminUserManagementActivity.class));
-                    break;
-
-                case "नोंदी":
-                    context.startActivity(new Intent(context, AdminLogsActivity.class));
-                    break;
+            
+            String t = item.title;
+            if (t.equals(context.getString(R.string.contacts))) {
+                context.startActivity(new Intent(context, AddContactActivity.class));
+            } else if (t.equals(context.getString(R.string.notices))) {
+                context.startActivity(new Intent(context, AddNoticeActivity.class));
+            } else if (t.equals(context.getString(R.string.bills))) {
+                context.startActivity(new Intent(context, BillsUserListActivity.class));
+            } else if (t.equals(context.getString(R.string.locations))) {
+                context.startActivity(new Intent(context, AddLocationActivity.class));
+            } else if (t.equals(context.getString(R.string.complaints))) {
+                context.startActivity(new Intent(context, AdminComplaintActivity.class));
+            } else if (t.equals(context.getString(R.string.schemes))) {
+                context.startActivity(new Intent(context, AddSchemeActivity.class));
+            } else if (t.equals(context.getString(R.string.developments))) {
+                context.startActivity(new Intent(context, AddDevelopmentActivity.class));
+            } else if (t.equals(context.getString(R.string.agriculture))) {
+                context.startActivity(new Intent(context, AgricultureActivity.class));
+            } else if (t.equals(context.getString(R.string.users))) {
+                context.startActivity(new Intent(context, AdminUserManagementActivity.class));
+            } else if (t.equals(context.getString(R.string.logs))) {
+                context.startActivity(new Intent(context, AdminLogsActivity.class));
             }
+
         });
     }
 

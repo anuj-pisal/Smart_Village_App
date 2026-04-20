@@ -17,7 +17,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AddExperienceActivity extends AppCompatActivity {
+public class AddExperienceActivity extends BaseActivity {
 
     EditText title, desc;
     Button postBtn;
@@ -59,7 +59,7 @@ public class AddExperienceActivity extends AppCompatActivity {
                                 "user",
                                 "Post: User posted with title - (" + t +")"
                         );
-                        Toast.makeText(this, "Posted", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, getString(R.string.posted), Toast.LENGTH_SHORT).show();
                         finish();
                     });
         });

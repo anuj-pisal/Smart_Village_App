@@ -57,7 +57,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Join the discussion"
+                android:hint="@string/join_discussion"
                 app:hintEnabled="true"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
@@ -72,7 +72,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/send_btn"
-                android:text="Post"
+                android:text="@string/post_btn"
                 android:layout_marginStart="8dp"
                 app:cornerRadius="20dp"
                 android:layout_width="wrap_content"

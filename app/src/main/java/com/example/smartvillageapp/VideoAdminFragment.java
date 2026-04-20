@@ -43,7 +43,7 @@ public class VideoAdminFragment extends Fragment {
                     "Vidde: (" + title.getText().toString() + ") is added"
             );
 
-            Toast.makeText(getContext(), "Video Added", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), getString(R.string.video_added), Toast.LENGTH_SHORT).show();
         });
 
         return v;

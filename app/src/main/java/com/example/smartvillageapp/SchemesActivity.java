@@ -9,7 +9,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.*;
 
-public class SchemesActivity extends AppCompatActivity {
+public class SchemesActivity extends BaseActivity {
 
     RecyclerView recycler;
     List<SchemeModel> list = new ArrayList<>();

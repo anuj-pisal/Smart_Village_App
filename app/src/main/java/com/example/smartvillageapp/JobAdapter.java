@@ -59,11 +59,11 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder> {
         if ("closed".equals(job.status)) {
 
             h.applyBtn.setVisibility(View.VISIBLE);
-            h.applyBtn.setText("Expired");
+            h.applyBtn.setText(context.getString(R.string.expired));
             h.applyBtn.setEnabled(false);
 
             h.status.setVisibility(View.VISIBLE);
-            h.status.setText("Job Closed");
+            h.status.setText(context.getString(R.string.job_closed));
             h.status.setTextColor(Color.RED);
 
             return;
@@ -101,11 +101,11 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder> {
 
                         // ✅ Already applied
                         h.applyBtn.setVisibility(View.VISIBLE);
-                        h.applyBtn.setText("Applied");
+                        h.applyBtn.setText(context.getString(R.string.applied));
                         h.applyBtn.setEnabled(false);
 
                         h.status.setVisibility(View.VISIBLE);
-                        h.status.setText("Status: " + status.toUpperCase());
+                        h.status.setText(context.getString(R.string.status_prefix) + status.toUpperCase());
 
                         // Color
                         if ("pending".equals(status)) {
@@ -121,7 +121,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder> {
                         // ❌ Not applied yet
                         h.applyBtn.setVisibility(View.VISIBLE);
                         h.applyBtn.setEnabled(true);
-                        h.applyBtn.setText("Apply");
+                        h.applyBtn.setText(context.getString(R.string.apply));
 
                         h.status.setVisibility(View.GONE);
                     }
@@ -137,7 +137,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder> {
                     .addOnSuccessListener(query -> {
 
                         if (!query.isEmpty()) {
-                            Toast.makeText(context, "Already applied", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, context.getString(R.string.already_applied), Toast.LENGTH_SHORT).show();
                         } else {
 
                             db.collection("users")
@@ -164,14 +164,14 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder> {
                                                 "Job Application: Applied for the job (id: " + job.jobId + ")"
                                         );
 
-                                        Toast.makeText(context, "Applied", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(context, context.getString(R.string.applied), Toast.LENGTH_SHORT).show();
 
                                         // 🔥 UI update instantly
-                                        h.applyBtn.setText("Applied");
+                                        h.applyBtn.setText(context.getString(R.string.applied));
                                         h.applyBtn.setEnabled(false);
 
                                         h.status.setVisibility(View.VISIBLE);
-                                        h.status.setText("Status: PENDING");
+                                        h.status.setText(context.getString(R.string.status_pending_upper));
                                         h.status.setTextColor(Color.YELLOW);
                                     });
                         }

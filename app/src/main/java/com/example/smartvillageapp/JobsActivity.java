@@ -13,7 +13,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JobsActivity extends AppCompatActivity {
+public class JobsActivity extends BaseActivity {
 
     RecyclerView recyclerView;
     List<JobModel> list;

@@ -10,15 +10,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends BaseActivity {
 
     private LinearLayout langEnglish, langMarathi;
     private ImageView checkEnglish, checkMarathi;
 
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(LocaleHelper.applyLocale(newBase));
-    }
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -14,7 +14,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ComplaintsActivity extends AppCompatActivity {
+public class ComplaintsActivity extends BaseActivity {
 
     RecyclerView recycler;
     List<ComplaintModel> list = new ArrayList<>();

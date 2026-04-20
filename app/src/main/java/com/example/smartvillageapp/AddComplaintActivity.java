@@ -16,7 +16,7 @@ import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.*;
 
-public class AddComplaintActivity extends AppCompatActivity {
+public class AddComplaintActivity extends BaseActivity {
 
     ImageView preview;
     Uri imageUri;
@@ -52,7 +52,7 @@ public class AddComplaintActivity extends AppCompatActivity {
         submit.setOnClickListener(v -> {
 
             if (imageUri == null) {
-                Toast.makeText(this, "Select image", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.select_image), Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -84,7 +84,7 @@ public class AddComplaintActivity extends AppCompatActivity {
                                         "Complaint: title - (" + text +")"
                                 );
 
-                                Toast.makeText(this, "Complaint Registered !", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(this, getString(R.string.complaint_registered), Toast.LENGTH_SHORT).show();
 
                                 finish();
                             }));

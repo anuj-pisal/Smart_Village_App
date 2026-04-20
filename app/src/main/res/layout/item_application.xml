@@ -16,7 +16,7 @@
 
         <TextView
             android:id="@+id/applicant_name"
-            android:text="Name"
+            android:text="@string/name"
             android:textAppearance="?attr/textAppearanceSubtitle1"
             android:textStyle="bold"
             android:layout_height="wrap_content" 
@@ -49,7 +49,7 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/approve_btn"
                 android:layout_weight="1"
-                android:text="Approve"
+                android:text="@string/approve"
                 android:layout_height="wrap_content" 
                 android:layout_width="0dp"
                 app:cornerRadius="8dp"
@@ -58,7 +58,7 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/reject_btn"
                 android:layout_weight="1"
-                android:text="Reject"
+                android:text="@string/reject"
                 android:layout_height="wrap_content" 
                 android:layout_width="0dp"
                 android:layout_marginStart="8dp"

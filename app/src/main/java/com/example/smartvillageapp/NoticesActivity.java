@@ -16,7 +16,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NoticesActivity extends AppCompatActivity {
+public class NoticesActivity extends BaseActivity {
 
     RecyclerView recyclerView;
     List<NoticeModel> list;

@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ExperienceDetailActivity extends AppCompatActivity {
+public class ExperienceDetailActivity extends BaseActivity {
 
     TextView title, desc;
     RecyclerView recyclerView;

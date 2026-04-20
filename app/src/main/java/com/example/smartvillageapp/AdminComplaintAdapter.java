@@ -44,7 +44,7 @@ public class AdminComplaintAdapter extends RecyclerView.Adapter<AdminComplaintAd
         AdminComplaintModel c = list.get(i);
 
         h.desc.setText(c.description);
-        h.status.setText("Status: " + c.status);
+        h.status.setText(context.getString(R.string.status_prefix) + c.status);
 
         Glide.with(context).load(c.imageUrl).into(h.img);
 

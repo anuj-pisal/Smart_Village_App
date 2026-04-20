@@ -30,7 +30,7 @@
 
             <TextView
                 android:id="@+id/business_name"
-                android:text="Business Name"
+                android:text="@string/business_name"
                 android:textStyle="bold"
                 android:textAppearance="?attr/textAppearanceHeadline6"
                 android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
 
             <TextView
                 android:id="@+id/business_domain"
-                android:text="Domain"
+                android:text="@string/domain_h"
                 android:textColor="?attr/colorPrimary"
                 android:textStyle="bold"
                 android:textAppearance="?attr/textAppearanceCaption"

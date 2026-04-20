@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Share Issues/Queries"
+        android:text="@string/share_issues_queries"
         android:layout_marginTop="24dp"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -19,7 +19,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Issue/Query Title"
+        android:hint="@string/issue_query_title"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -33,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Describe your issue or experience"
+        android:hint="@string/describe_issue_exp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -51,7 +51,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="32dp"
         android:textColor="@color/white"
-        android:text="Post Issue/Query"
+        android:text="@string/post_issue_query"
         android:textSize="16sp"
         app:cornerRadius="12dp"/>
 

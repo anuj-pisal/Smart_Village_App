@@ -8,7 +8,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
-public class AgricultureActivity extends AppCompatActivity {
+public class AgricultureActivity extends BaseActivity {
 
     TabLayout tabLayout;
     ViewPager2 viewPager;
@@ -26,9 +26,9 @@ public class AgricultureActivity extends AppCompatActivity {
         new TabLayoutMediator(tabLayout, viewPager,
                 (tab, position) -> {
                     if (position == 0)
-                        tab.setText("Crop");
+                        tab.setText(getString(R.string.crop));
                     else
-                        tab.setText("Video");
+                        tab.setText(getString(R.string.video));
                 }).attach();
     }
 }

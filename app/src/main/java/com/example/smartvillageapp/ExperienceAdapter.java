@@ -39,7 +39,7 @@ public class ExperienceAdapter extends RecyclerView.Adapter<ExperienceAdapter.Vi
 
         h.title.setText(e.title);
         h.desc.setText(e.description);
-        h.user.setText("By " + e.userName);
+        h.user.setText(context.getString(R.string.by_prefix) + e.userName);
 
         // 🔥 OPEN DETAIL SCREEN
         h.itemView.setOnClickListener(v -> {

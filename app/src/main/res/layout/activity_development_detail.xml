@@ -117,7 +117,7 @@
                         <TextView
                             android:layout_width="80dp"
                             android:layout_height="wrap_content"
-                            android:text="Location:"
+                            android:text="@string/location_colon"
                             android:textStyle="bold"/>
                             
                         <TextView
@@ -135,7 +135,7 @@
                         <TextView
                             android:layout_width="80dp"
                             android:layout_height="wrap_content"
-                            android:text="Start Date:"
+                            android:text="@string/start_date_colon"
                             android:textStyle="bold"/>
                             
                         <TextView
@@ -153,7 +153,7 @@
                         <TextView
                             android:layout_width="80dp"
                             android:layout_height="wrap_content"
-                            android:text="Budget:"
+                            android:text="@string/budget_colon"
                             android:textStyle="bold"/>
                             
                         <TextView
@@ -167,7 +167,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <TextView
-                android:text="Project Overview"
+                android:text="@string/project_overview"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
                 android:textStyle="bold"
                 android:layout_marginTop="24dp"
@@ -182,7 +182,7 @@
                 android:textColor="?android:attr/textColorSecondary"/>
 
             <TextView
-                android:text="Managed by:"
+                android:text="@string/managed_by_colon"
                 android:textStyle="bold"
                 android:layout_marginTop="24dp"
                 android:layout_width="wrap_content"
@@ -190,7 +190,7 @@
 
             <TextView
                 android:id="@+id/dev_authority"
-                android:text="Gram Panchyat"
+                android:text="@string/gram_panchyat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
