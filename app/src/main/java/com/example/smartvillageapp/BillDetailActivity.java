@@ -97,7 +97,7 @@ public class BillDetailActivity extends AppCompatActivity implements PaymentResu
     private void startPayment(String title, long amount) {
 
         Checkout checkout = new Checkout();
-        checkout.setKeyID("rzp_test_SZN4lFvtVjv7V8");
+        checkout.setKeyID("rzp_test_ZRJIiALFE5Tw1e");
 
         try {
             JSONObject options = new JSONObject();
@@ -106,7 +106,6 @@ public class BillDetailActivity extends AppCompatActivity implements PaymentResu
             options.put("description", title);
             options.put("currency", "INR");
 
-            // 🔥 amount in paise
             options.put("amount", amount * 100);
 
             checkout.open(this, options);

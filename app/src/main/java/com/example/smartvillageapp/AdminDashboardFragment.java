@@ -31,16 +31,16 @@ public class AdminDashboardFragment extends Fragment {
 
         List<AdminItem> list = new ArrayList<>();
 
-        list.add(new AdminItem("Contacts", R.drawable.contacts));
-        list.add(new AdminItem("Notices", R.drawable.notices));
-        list.add(new AdminItem("Bills", R.drawable.bill));
-        list.add(new AdminItem("Locations", R.drawable.locations));
-        list.add(new AdminItem("Complaints", R.drawable.complaints));
-        list.add(new AdminItem("Schemes", R.drawable.schemes));
-        list.add(new AdminItem("Developments", R.drawable.development));
-        list.add(new AdminItem("Agriculture", R.drawable.agriculture));
-        list.add(new AdminItem("Users", R.drawable.profile));
-        list.add(new AdminItem("Logs", R.drawable.logs));
+        list.add(new AdminItem(getString(R.string.contacts), R.drawable.contacts));
+        list.add(new AdminItem(getString(R.string.notices), R.drawable.notices));
+        list.add(new AdminItem(getString(R.string.bills), R.drawable.bill));
+        list.add(new AdminItem(getString(R.string.locations), R.drawable.locations));
+        list.add(new AdminItem(getString(R.string.complaints), R.drawable.complaints));
+        list.add(new AdminItem(getString(R.string.schemes), R.drawable.schemes));
+        list.add(new AdminItem(getString(R.string.developments), R.drawable.development));
+        list.add(new AdminItem(getString(R.string.agriculture), R.drawable.agriculture));
+        list.add(new AdminItem(getString(R.string.users), R.drawable.profile));
+        list.add(new AdminItem(getString(R.string.logs), R.drawable.logs));
 
         recycler.setAdapter(new AdminDashboardAdapter(getContext(), list));
 

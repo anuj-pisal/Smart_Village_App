@@ -1,14 +1,20 @@
 package com.example.smartvillageapp;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.core.view.GravityCompat;
@@ -27,9 +33,23 @@ public class AdminMainActivity extends AppCompatActivity {
     View headerView;
 
     @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.applyLocale(newBase));
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.top_menu, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -80,17 +100,26 @@ public class AdminMainActivity extends AppCompatActivity {
 
             } else if (id == R.id.nav_logout) {
 
-                new AlertDialog.Builder(this)
-                        .setTitle("Logout")
-                        .setMessage("Are you sure you want to logout?")
-                        .setPositiveButton("Yes", (dialog, which) -> {
-                            FirebaseAuth.getInstance().signOut();
-                            Intent intent = new Intent(AdminMainActivity.this, LoginPage.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            startActivity(intent);
-                        })
-                        .setNegativeButton("Cancel", null)
-                        .show();
+                Dialog dialog = new Dialog(this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.dialog_logout);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.setCancelable(true);
+
+                Button btnCancel = dialog.findViewById(R.id.btn_cancel);
+                Button btnLogout = dialog.findViewById(R.id.btn_logout);
+
+                btnCancel.setOnClickListener(v -> dialog.dismiss());
+
+                btnLogout.setOnClickListener(v -> {
+                    dialog.dismiss();
+                    FirebaseAuth.getInstance().signOut();
+                    Intent intent = new Intent(AdminMainActivity.this, LoginPage.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                });
+
+                dialog.show();
 
             } else if (id == R.id.nav_exit) {
                 finishAffinity();

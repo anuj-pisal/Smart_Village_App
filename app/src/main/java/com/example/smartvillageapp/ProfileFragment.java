@@ -104,7 +104,7 @@ public class ProfileFragment extends Fragment {
                                                 Locale.getDefault());
 
                                 String formattedDate = sdf.format(date);
-                                joiningDateText.setText("Joined " + formattedDate);
+                                joiningDateText.setText(getString(R.string.joined_date, formattedDate));
                             }
 
                             // Contact
@@ -232,12 +232,12 @@ public class ProfileFragment extends Fragment {
                                     .into(profileImage);
 
                             Toast.makeText(getContext(),
-                                    "Profile image updated!",
+                                    getString(R.string.profile_image_updated),
                                     Toast.LENGTH_SHORT).show();
                         }))
                 .addOnFailureListener(e ->
                         Toast.makeText(getContext(),
-                                "Upload failed",
+                                getString(R.string.upload_failed),
                                 Toast.LENGTH_SHORT).show());
     }
 
@@ -288,7 +288,7 @@ public class ProfileFragment extends Fragment {
             String birthdate = birthdateField.getText().toString().trim();
 
             if (name.isEmpty()) {
-                nameField.setError("Name required");
+                nameField.setError(getString(R.string.error_name_required));
                 return;
             }
 
@@ -306,7 +306,7 @@ public class ProfileFragment extends Fragment {
                     .addOnSuccessListener(unused -> {
 
                         Toast.makeText(getContext(),
-                                "Profile Updated Successfully",
+                                getString(R.string.profile_updated),
                                 Toast.LENGTH_SHORT).show();
 
                         if (listener != null) {
@@ -315,7 +315,7 @@ public class ProfileFragment extends Fragment {
                     })
                     .addOnFailureListener(e ->
                             Toast.makeText(getContext(),
-                                    "Update Failed",
+                                    getString(R.string.profile_update_failed),
                                     Toast.LENGTH_SHORT).show());
         });
     }

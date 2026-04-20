@@ -87,6 +87,54 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.View
                 case "Jobs":
                     intent = new Intent(context, JobsActivity.class);
                     break;
+
+                case "गावाबद्दल":
+                    intent = new Intent(context, AboutVillageActivity.class);
+                    break;
+
+                case "संपर्क":
+                    intent = new Intent(context, ContactsActivity.class);
+                    break;
+//
+                case "व्यवसाय":
+                    intent = new Intent(context, BusinessActivity.class);
+                    break;
+
+                case "बाजारभाव":
+                    intent = new Intent(context, MarketActivity.class);
+                    break;
+//
+                case "सूचना":
+                    intent = new Intent(context, NoticesActivity.class);
+                    break;
+//
+                case "बिले":
+                    intent = new Intent(context, BillsActivity.class);
+                    break;
+
+                case "ठिकाणे":
+                    intent = new Intent(context, LocationsActivity.class);
+                    break;
+//
+                case "तक्रारी":
+                    intent = new Intent(context, ComplaintsActivity.class);
+                    break;
+//
+                case "योजना":
+                    intent = new Intent(context, SchemesActivity.class);
+                    break;
+//
+                case "विकासकामे":
+                    intent = new Intent(context, DevelopmentActivity.class);
+                    break;
+
+                case "शेती":
+                    intent = new Intent(context, AgriculturalActivity.class);
+                    break;
+//
+                case "नोकऱ्या":
+                    intent = new Intent(context, JobsActivity.class);
+                    break;
             }
 
             if (intent != null) {

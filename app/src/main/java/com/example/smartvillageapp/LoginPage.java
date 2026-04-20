@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import android.content.Context;
 import androidx.core.content.ContextCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -33,15 +34,21 @@ public class LoginPage extends AppCompatActivity {
     private EditText loginEmail, loginPassword;
     private Button b;
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.applyLocale(newBase));
+    }
+
     // 🔹 SIGNUP TEXT
     public void signUpText() {
         TextView signupText = findViewById(R.id.sign_up_text);
 
-        String fullText = "Don’t have an account? Sign up now";
+        String fullText = getString(R.string.dont_have_account_full);
+        String actionText = getString(R.string.sign_up_now);
         SpannableString spannableString = new SpannableString(fullText);
 
-        int startIndex = fullText.indexOf("Sign up now");
-        int endIndex = startIndex + "Sign up now".length();
+        int startIndex = fullText.indexOf(actionText);
+        int endIndex = startIndex + actionText.length();
 
         spannableString.setSpan(new StyleSpan(Typeface.BOLD),
                 startIndex, endIndex, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -88,15 +95,15 @@ public class LoginPage extends AppCompatActivity {
             String pass = loginPassword.getText().toString().trim();
 
             if (email.isEmpty()) {
-                loginEmail.setError("Email cannot be Empty !");
+                loginEmail.setError(getString(R.string.error_email_empty));
             } else if (pass.isEmpty()) {
-                loginPassword.setError("Password cannot be Empty !");
+                loginPassword.setError(getString(R.string.error_password_empty));
             } else if (pass.length() < 8) {
-                loginPassword.setError("Password must be at least 8 characters !");
+                loginPassword.setError(getString(R.string.error_password_short));
             } else if (!isValidPassword(pass)) {
-                loginPassword.setError("Password must contain Uppercase, Lowercase, Number & Special Character !");
+                loginPassword.setError(getString(R.string.error_password_weak));
             } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                loginEmail.setError("Invalid Email !");
+                loginEmail.setError(getString(R.string.error_invalid_email));
             } else {
 
                 auth.signInWithEmailAndPassword(email, pass)
@@ -118,13 +125,10 @@ public class LoginPage extends AppCompatActivity {
                                             UserSession.role = doc.getString("role");
 
                                             if ("admin".equals(role)) {
-
-                                                Toast.makeText(LoginPage.this, "Admin Login Successful!", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(LoginPage.this, getString(R.string.login_admin_success), Toast.LENGTH_SHORT).show();
                                                 startActivity(new Intent(LoginPage.this, AdminMainActivity.class));
-
                                             } else {
-
-                                                Toast.makeText(LoginPage.this, "Login Successful!", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(LoginPage.this, getString(R.string.login_success), Toast.LENGTH_SHORT).show();
                                                 startActivity(new Intent(LoginPage.this, MainActivity.class));
                                             }
 
@@ -136,13 +140,13 @@ public class LoginPage extends AppCompatActivity {
                                             auth.signOut();
 
                                             Toast.makeText(LoginPage.this,
-                                                    "Your account has been removed by admin",
+                                                    getString(R.string.account_removed),
                                                     Toast.LENGTH_LONG).show();
                                         }
                                     });
                         })
                         .addOnFailureListener(e ->
-                                Toast.makeText(LoginPage.this, "Invalid Credentials !", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(LoginPage.this, getString(R.string.login_failed), Toast.LENGTH_SHORT).show()
                         );
             }
         });
@@ -193,15 +197,15 @@ public class LoginPage extends AppCompatActivity {
 
                             finish();
 
-                        } else {
+                            } else {
 
-                            // 🔥 AUTO LOGOUT IF USER DELETED
-                            auth.signOut();
+                                // 🔥 AUTO LOGOUT IF USER DELETED
+                                auth.signOut();
 
-                            Toast.makeText(this,
-                                    "Your account has been removed by admin",
-                                    Toast.LENGTH_LONG).show();
-                        }
+                                Toast.makeText(this,
+                                        getString(R.string.account_removed),
+                                        Toast.LENGTH_LONG).show();
+                            }
                     });
         }
     }

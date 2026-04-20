@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.FieldValue;
 
+import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -40,14 +41,20 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText signupEmail, signupPassword, signupUsername;
     private Button b;
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.applyLocale(newBase));
+    }
+
     public void logInText() {
         TextView signupText = findViewById(R.id.log_in_text);
 
-        String fullText = "Already have an account? Log in";
+        String fullText = getString(R.string.already_have_account_full);
+        String actionText = getString(R.string.log_in_link);
         SpannableString spannableString = new SpannableString(fullText);
 
-        int startIndex = fullText.indexOf("Log in");
-        int endIndex = startIndex + "Log in".length();
+        int startIndex = fullText.indexOf(actionText);
+        int endIndex = startIndex + actionText.length();
 
         spannableString.setSpan(
                 new StyleSpan(Typeface.BOLD),
@@ -106,22 +113,22 @@ public class SignUpActivity extends AppCompatActivity {
                 String pass = signupPassword.getText().toString().trim();
 
                 if(email.isEmpty()) {
-                    signupEmail.setError("Email cannot be empty !");
+                    signupEmail.setError(getString(R.string.error_email_empty));
                 }
                 else if(pass.isEmpty()) {
-                    signupPassword.setError("Password cannot be Empty !");
+                    signupPassword.setError(getString(R.string.error_password_empty));
                 }
                 else if(pass.length() < 8) {
-                    signupPassword.setError("Password must be at least 8 characters !");
+                    signupPassword.setError(getString(R.string.error_password_short));
                 }
                 else if(!isValidPassword(pass)) {
-                    signupPassword.setError("Password must contain Uppercase, Lowercase, Number & Special Character !");
+                    signupPassword.setError(getString(R.string.error_password_weak));
                 }
                 else if(username.isEmpty()) {
-                    signupUsername.setError("Username cannot be empty !");
+                    signupUsername.setError(getString(R.string.error_username_empty));
                 }
                 else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                    signupEmail.setError("Invalid Email !");
+                    signupEmail.setError(getString(R.string.error_invalid_email));
                 }
                 else {
                     auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -144,7 +151,7 @@ public class SignUpActivity extends AppCompatActivity {
                                         .set(userMap)
                                         .addOnSuccessListener(unused -> {
                                             Toast.makeText(SignUpActivity.this,
-                                                    "SignUp successful!",
+                                                    getString(R.string.signup_success),
                                                     Toast.LENGTH_SHORT).show();
 
                                             startActivity(new Intent(SignUpActivity.this, LoginPage.class));
@@ -158,7 +165,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                             }
                             else {
-                                Toast.makeText(SignUpActivity.this, "SignUp Failed : " + task.getException().getMessage(),
+                                Toast.makeText(SignUpActivity.this, getString(R.string.signup_failed, task.getException().getMessage()),
                                         Toast.LENGTH_LONG).show();
                             }
                         }

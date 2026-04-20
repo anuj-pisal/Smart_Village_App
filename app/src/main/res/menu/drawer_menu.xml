@@ -3,27 +3,27 @@
 
     <item
         android:id="@+id/nav_home"
-        android:title="Home"
+        android:title="@string/nav_home"
         android:icon="@drawable/ic_home" />
 
     <item
         android:id="@+id/nav_about_app"
-        android:title="About App"
+        android:title="@string/nav_about_app"
         android:icon="@drawable/ic_services" />
 
     <item
         android:id="@+id/nav_profile"
-        android:title="Profile"
+        android:title="@string/nav_profile"
         android:icon="@drawable/ic_profile" />
 
     <item
         android:id="@+id/nav_logout"
-        android:title="Logout"
+        android:title="@string/nav_logout"
         android:icon="@drawable/ic_logout" />
 
     <item
         android:id="@+id/nav_exit"
-        android:title="Exit"
+        android:title="@string/nav_exit"
         android:icon="@drawable/ic_exit" />
 
 </menu>

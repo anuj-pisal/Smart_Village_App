@@ -83,6 +83,46 @@ public class AdminDashboardAdapter extends RecyclerView.Adapter<AdminDashboardAd
                 case "Logs":
                     context.startActivity(new Intent(context, AdminLogsActivity.class));
                     break;
+
+                case "संपर्क":
+                    context.startActivity(new Intent(context, AddContactActivity.class));
+                    break;
+
+                case "सूचना":
+                    context.startActivity(new Intent(context, AddNoticeActivity.class));
+                    break;
+
+                case "बिले":
+                    context.startActivity(new Intent(context, BillsUserListActivity.class));
+                    break;
+
+                case "ठिकाणे":
+                    context.startActivity(new Intent(context, AddLocationActivity.class));
+                    break;
+
+                case "तक्रारी":
+                    context.startActivity(new Intent(context, AdminComplaintActivity.class));
+                    break;
+
+                case "योजना":
+                    context.startActivity(new Intent(context, AddSchemeActivity.class));
+                    break;
+
+                case "विकासकामे":
+                    context.startActivity(new Intent(context, AddDevelopmentActivity.class));
+                    break;
+
+                case "शेती":
+                    context.startActivity(new Intent(context, AgricultureActivity.class));
+                    break;
+
+                case "वापरकर्ते":
+                    context.startActivity(new Intent(context, AdminUserManagementActivity.class));
+                    break;
+
+                case "नोंदी":
+                    context.startActivity(new Intent(context, AdminLogsActivity.class));
+                    break;
             }
         });
     }

@@ -97,18 +97,18 @@ public class HomeFragment extends Fragment {
 
         List<DashboardItem> list = new ArrayList<>();
 
-        list.add(new DashboardItem(R.drawable.home, "About Village"));
-        list.add(new DashboardItem(R.drawable.contacts, "Contacts"));
-        list.add(new DashboardItem(R.drawable.business, "Businesses"));
-        list.add(new DashboardItem(R.drawable.market_prices, "Market Prices"));
-        list.add(new DashboardItem(R.drawable.notices, "Notices"));
-        list.add(new DashboardItem(R.drawable.bill, "Bills"));
-        list.add(new DashboardItem(R.drawable.locations, "Locations"));
-        list.add(new DashboardItem(R.drawable.complaints, "Complaints"));
-        list.add(new DashboardItem(R.drawable.schemes, "Schemes"));
-        list.add(new DashboardItem(R.drawable.development, "Developments"));
-        list.add(new DashboardItem(R.drawable.agriculture, "Agricultural"));
-        list.add(new DashboardItem(R.drawable.jobs, "Jobs"));
+        list.add(new DashboardItem(R.drawable.home, getString(R.string.about_village)));
+        list.add(new DashboardItem(R.drawable.contacts, getString(R.string.contacts)));
+        list.add(new DashboardItem(R.drawable.business, getString(R.string.businesses)));
+        list.add(new DashboardItem(R.drawable.market_prices, getString(R.string.market_prices)));
+        list.add(new DashboardItem(R.drawable.notices, getString(R.string.notices)));
+        list.add(new DashboardItem(R.drawable.bill, getString(R.string.bills)));
+        list.add(new DashboardItem(R.drawable.locations, getString(R.string.locations)));
+        list.add(new DashboardItem(R.drawable.complaints, getString(R.string.complaints)));
+        list.add(new DashboardItem(R.drawable.schemes, getString(R.string.schemes)));
+        list.add(new DashboardItem(R.drawable.development, getString(R.string.developments)));
+        list.add(new DashboardItem(R.drawable.agriculture, getString(R.string.agricultural)));
+        list.add(new DashboardItem(R.drawable.jobs, getString(R.string.jobs)));
 
         DashboardAdapter adapter = new DashboardAdapter(getContext(), list);
         recyclerView.setAdapter(adapter);

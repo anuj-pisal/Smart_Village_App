@@ -63,7 +63,7 @@
                 android:id="@+id/profile_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Username"
+                android:text="@string/username_label"
                 android:gravity="center"
                 android:textAppearance="?attr/textAppearanceHeadline5"
                 android:textStyle="bold" />
@@ -82,7 +82,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email Address"
+                android:hint="@string/hint_email_address"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -98,7 +98,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:hint="Full Name"
+                android:hint="@string/hint_full_name"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -113,7 +113,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:hint="Phone Number"
+                android:hint="@string/hint_phone_number"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -128,7 +128,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:hint="Birthdate (dd/mm/yyyy)"
+                android:hint="@string/hint_birthdate"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -144,7 +144,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="Gender"
+                android:text="@string/gender"
                 android:textAppearance="?attr/textAppearanceSubtitle2"
                 android:textColor="?android:attr/textColorSecondary"
                 android:textStyle="bold" />
@@ -160,7 +160,7 @@
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:layout_weight="1"
-                    android:text="Male"
+                    android:text="@string/male"
                     android:textColor="@color/white"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
@@ -171,7 +171,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_weight="1"
                     android:textColor="@color/white"
-                    android:text="Female"
+                    android:text="@string/female"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
                 <com.google.android.material.button.MaterialButton
@@ -180,7 +180,7 @@
                     android:layout_height="60dp"
                     android:layout_marginStart="8dp"
                     android:layout_weight="1"
-                    android:text="Other"
+                    android:text="@string/other"
                     android:textColor="@color/white"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
             </LinearLayout>
@@ -190,7 +190,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="32dp"
-                android:text="Save Profile"
+                android:text="@string/save_profile"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 app:cornerRadius="12dp" />

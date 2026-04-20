@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartVillageApp">
         <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
+        <activity
             android:name=".AdminLogsActivity"
             android:exported="false" />
         <activity
