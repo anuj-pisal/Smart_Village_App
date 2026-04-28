@@ -17,6 +17,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.app.AlertDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +36,7 @@ public class LoginPage extends BaseActivity {
 
     private EditText loginEmail, loginPassword;
     private Button b;
+    private AlertDialog loadingDialog;
 
     
 
@@ -103,6 +107,7 @@ public class LoginPage extends BaseActivity {
                 loginEmail.setError(getString(R.string.error_invalid_email));
             } else {
 
+                showLoading();
                 auth.signInWithEmailAndPassword(email, pass)
                         .addOnSuccessListener(authResult -> {
 
@@ -112,6 +117,7 @@ public class LoginPage extends BaseActivity {
                                     .document(uid)
                                     .get()
                                     .addOnSuccessListener(doc -> {
+                                        hideLoading();
 
                                         if (doc.exists()) {
 
@@ -140,13 +146,36 @@ public class LoginPage extends BaseActivity {
                                                     getString(R.string.account_removed),
                                                     Toast.LENGTH_LONG).show();
                                         }
+                                    }).addOnFailureListener(e -> {
+                                        hideLoading();
+                                        Toast.makeText(LoginPage.this, getString(R.string.login_failed), Toast.LENGTH_SHORT).show();
                                     });
                         })
-                        .addOnFailureListener(e ->
-                                Toast.makeText(LoginPage.this, getString(R.string.login_failed), Toast.LENGTH_SHORT).show()
-                        );
+                        .addOnFailureListener(e -> {
+                                hideLoading();
+                                Toast.makeText(LoginPage.this, getString(R.string.login_failed), Toast.LENGTH_SHORT).show();
+                        });
             }
         });
+    }
+
+    private void showLoading() {
+        if (loadingDialog == null) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setView(R.layout.dialog_loading);
+            builder.setCancelable(false);
+            loadingDialog = builder.create();
+            if (loadingDialog.getWindow() != null) {
+                loadingDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            }
+        }
+        loadingDialog.show();
+    }
+
+    private void hideLoading() {
+        if (loadingDialog != null && loadingDialog.isShowing()) {
+            loadingDialog.dismiss();
+        }
     }
 
     // 🔹 PASSWORD VALIDATION

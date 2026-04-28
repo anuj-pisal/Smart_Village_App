@@ -3,6 +3,7 @@ package com.example.smartvillageapp;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,7 +28,10 @@ public class AddJobActivity extends BaseActivity {
         desc = findViewById(R.id.job_desc);
         submit = findViewById(R.id.submit_job);
 
-        submit.setOnClickListener(v -> addJob());
+        submit.setOnClickListener(v -> {
+            submit.setEnabled(false);
+            addJob();
+        });
     }
 
     private void addJob() {
@@ -51,7 +55,12 @@ public class AddJobActivity extends BaseActivity {
                             "user",
                             "Job: posted job entitled (" + title.getText().toString() + ")"
                     );
+                    Toast.makeText(this, "Job Posted", Toast.LENGTH_SHORT).show();
                     finish();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, "Failed to post job", Toast.LENGTH_SHORT).show();
+                    submit.setEnabled(true);
                 });
 
     }

@@ -44,7 +44,10 @@ public class AddNoticeActivity extends BaseActivity {
 
         selectBtn.setOnClickListener(v -> openGallery());
 
-        uploadBtn.setOnClickListener(v -> uploadNotice());
+        uploadBtn.setOnClickListener(v -> {
+            uploadBtn.setEnabled(false);
+            uploadNotice();
+        });
     }
 
     private void openGallery() {
@@ -68,6 +71,7 @@ public class AddNoticeActivity extends BaseActivity {
 
         if (t.isEmpty() || imageUri == null) {
             Toast.makeText(this, getString(R.string.all_fields_required), Toast.LENGTH_SHORT).show();
+            uploadBtn.setEnabled(true);
             return;
         }
 
@@ -101,7 +105,9 @@ public class AddNoticeActivity extends BaseActivity {
                                     });
 
                         }))
-                .addOnFailureListener(e ->
-                        Toast.makeText(this, getString(R.string.upload_failed_2), Toast.LENGTH_SHORT).show());
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, getString(R.string.upload_failed_2), Toast.LENGTH_SHORT).show();
+                    uploadBtn.setEnabled(true);
+                });
     }
 }

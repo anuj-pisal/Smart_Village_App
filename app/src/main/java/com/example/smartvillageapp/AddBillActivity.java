@@ -58,7 +58,10 @@ public class AddBillActivity extends BaseActivity {
         storage = FirebaseStorage.getInstance();
 
         selectImages.setOnClickListener(v -> openGallery());
-        addBtn.setOnClickListener(v -> uploadBill());
+        addBtn.setOnClickListener(v -> {
+            addBtn.setEnabled(false);
+            uploadBill();
+        });
         date.setOnClickListener(v -> {
 
             Calendar c = Calendar.getInstance();
@@ -117,6 +120,20 @@ public class AddBillActivity extends BaseActivity {
     }
 
     private void uploadBill() {
+
+        if (imageUris.isEmpty() || title.getText().toString().isEmpty() || amount.getText().toString().isEmpty() || date.getText().toString().isEmpty()) {
+            Toast.makeText(this, getString(R.string.all_fields_required), Toast.LENGTH_SHORT).show();
+            addBtn.setEnabled(true);
+            return;
+        }
+
+        try {
+            Long.parseLong(amount.getText().toString());
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Invalid amount", Toast.LENGTH_SHORT).show();
+            addBtn.setEnabled(true);
+            return;
+        }
 
         // 🔥 STEP 1: FETCH USERNAME FIRST
         FirebaseFirestore.getInstance()
@@ -177,8 +194,16 @@ public class AddBillActivity extends BaseActivity {
 
                                         finish();
                                     }
+                                })
+                                .addOnFailureListener(e -> {
+                                    Toast.makeText(this, "Upload failed", Toast.LENGTH_SHORT).show();
+                                    addBtn.setEnabled(true);
                                 });
                     }
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, "Failed to get user", Toast.LENGTH_SHORT).show();
+                    addBtn.setEnabled(true);
                 });
     }
 }

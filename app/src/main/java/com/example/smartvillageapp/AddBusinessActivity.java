@@ -92,11 +92,13 @@ public class AddBusinessActivity extends BaseActivity {
     }
 
     private void saveBusiness() {
+        saveBtn.setEnabled(false);
 
         String bName = name.getText().toString().trim();
 
         if (bName.isEmpty()) {
             name.setError(getString(R.string.required));
+            saveBtn.setEnabled(true);
             return;
         }
 
@@ -104,6 +106,7 @@ public class AddBusinessActivity extends BaseActivity {
             Toast.makeText(this,
                     "Please select image",
                     Toast.LENGTH_SHORT).show();
+            saveBtn.setEnabled(true);
             return;
         }
 
@@ -160,13 +163,16 @@ public class AddBusinessActivity extends BaseActivity {
                                                     finish();
                                                 });
                                     }))
-                    .addOnFailureListener(e ->
+                    .addOnFailureListener(e -> {
                             Toast.makeText(this,
                                     "Upload Failed",
-                                    Toast.LENGTH_SHORT).show());
+                                    Toast.LENGTH_SHORT).show();
+                            saveBtn.setEnabled(true);
+                    });
 
         } catch (Exception e) {
             e.printStackTrace();
+            saveBtn.setEnabled(true);
         }
     }
 

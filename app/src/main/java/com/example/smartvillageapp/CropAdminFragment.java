@@ -48,7 +48,10 @@ public class CropAdminFragment extends Fragment {
             startActivityForResult(i, PICK_IMAGE);
         });
 
-        addBtn.setOnClickListener(x -> uploadCrop());
+        addBtn.setOnClickListener(x -> {
+            addBtn.setEnabled(false);
+            uploadCrop();
+        });
 
         return v;
     }
@@ -65,6 +68,12 @@ public class CropAdminFragment extends Fragment {
 
     private void uploadCrop() {
 
+        if (title.getText().toString().trim().isEmpty() || desc.getText().toString().trim().isEmpty() || imageUri == null) {
+            Toast.makeText(getContext(), getString(R.string.all_fields_required), Toast.LENGTH_SHORT).show();
+            addBtn.setEnabled(true);
+            return;
+        }
+        
         String fileName = "crop_" + System.currentTimeMillis();
 
         StorageReference ref = storage.getReference()
@@ -89,6 +98,10 @@ public class CropAdminFragment extends Fragment {
                             );
 
                             Toast.makeText(getContext(), getString(R.string.crop_added), Toast.LENGTH_SHORT).show();
-                        }));
+                        }))
+                .addOnFailureListener(e -> {
+                    Toast.makeText(getContext(), getString(R.string.upload_failed), Toast.LENGTH_SHORT).show();
+                    addBtn.setEnabled(true);
+                });
     }
 }

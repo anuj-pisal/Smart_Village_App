@@ -87,7 +87,11 @@ public class AddComplaintActivity extends BaseActivity {
                                 Toast.makeText(this, getString(R.string.complaint_registered), Toast.LENGTH_SHORT).show();
 
                                 finish();
-                            }));
+                            }))
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(this, getString(R.string.upload_failed), Toast.LENGTH_SHORT).show();
+                        submit.setEnabled(true);
+                    });
 
         });
     }

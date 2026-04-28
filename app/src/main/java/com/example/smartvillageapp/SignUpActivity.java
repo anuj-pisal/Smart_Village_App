@@ -17,6 +17,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.app.AlertDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.FieldValue;
 
@@ -40,6 +43,7 @@ public class SignUpActivity extends BaseActivity {
     private FirebaseAuth auth;
     private EditText signupEmail, signupPassword, signupUsername;
     private Button b;
+    private AlertDialog loadingDialog;
 
     
 
@@ -128,6 +132,7 @@ public class SignUpActivity extends BaseActivity {
                     signupEmail.setError(getString(R.string.error_invalid_email));
                 }
                 else {
+                    showLoading();
                     auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -147,6 +152,7 @@ public class SignUpActivity extends BaseActivity {
                                         .document(userId)
                                         .set(userMap)
                                         .addOnSuccessListener(unused -> {
+                                            hideLoading();
                                             Toast.makeText(SignUpActivity.this,
                                                     getString(R.string.signup_success),
                                                     Toast.LENGTH_SHORT).show();
@@ -155,6 +161,7 @@ public class SignUpActivity extends BaseActivity {
                                             finish();
                                         })
                                         .addOnFailureListener(e -> {
+                                            hideLoading();
                                             Toast.makeText(SignUpActivity.this,
                                                     getString(R.string.error_prefix) + e.getMessage(),
                                                     Toast.LENGTH_LONG).show();
@@ -162,6 +169,7 @@ public class SignUpActivity extends BaseActivity {
 
                             }
                             else {
+                                hideLoading();
                                 Toast.makeText(SignUpActivity.this, getString(R.string.signup_failed, task.getException().getMessage()),
                                         Toast.LENGTH_LONG).show();
                             }
@@ -170,6 +178,25 @@ public class SignUpActivity extends BaseActivity {
                 }
             }
         });
+    }
+
+    private void showLoading() {
+        if (loadingDialog == null) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setView(R.layout.dialog_loading);
+            builder.setCancelable(false);
+            loadingDialog = builder.create();
+            if (loadingDialog.getWindow() != null) {
+                loadingDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            }
+        }
+        loadingDialog.show();
+    }
+
+    private void hideLoading() {
+        if (loadingDialog != null && loadingDialog.isShowing()) {
+            loadingDialog.dismiss();
+        }
     }
 
     private boolean isValidPassword(String password) {

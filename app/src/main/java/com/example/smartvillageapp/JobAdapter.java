@@ -53,7 +53,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder> {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         h.title.setText(job.title);
-        String xyz = job.description + "\n" +job.requirement;
+        String xyz = job.description + "\n\n" +job.requirement;
         h.desc.setText(xyz);
 
         if ("closed".equals(job.status)) {

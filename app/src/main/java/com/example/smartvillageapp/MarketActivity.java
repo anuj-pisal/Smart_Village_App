@@ -1,7 +1,10 @@
 package com.example.smartvillageapp;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +31,20 @@ public class MarketActivity extends BaseActivity {
         adapter = new MarketAdapter(this, list);
         recycler.setAdapter(adapter);
 
+        EditText searchMarket = findViewById(R.id.search_market);
+        searchMarket.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                filter(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+
         // 🔥 STEP 1: CHECK CACHE FIRST
         if (MarketCache.cachedList != null && !MarketCache.cachedList.isEmpty()) {
 
@@ -39,6 +56,16 @@ public class MarketActivity extends BaseActivity {
         } else {
             loadData();
         }
+    }
+
+    private void filter(String text) {
+        List<MarketModel> filteredList = new ArrayList<>();
+        for (MarketModel item : list) {
+            if (item.commodity.toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(item);
+            }
+        }
+        adapter.filterList(filteredList);
     }
 
     private void loadData() {

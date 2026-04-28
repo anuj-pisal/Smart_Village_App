@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ArrayAdapter;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -26,6 +28,7 @@ public class AdminComplaintDetailActivity extends BaseActivity {
     Spinner statusSpinner;
     Button uploadBtn, updateBtn;
     TextView imageCount;
+    ImageView complaintImage;
 
     List<Uri> imageUris = new ArrayList<>();
     List<String> urls = new ArrayList<>();
@@ -41,10 +44,16 @@ public class AdminComplaintDetailActivity extends BaseActivity {
         uploadBtn = findViewById(R.id.upload_btn);
         updateBtn = findViewById(R.id.update_btn);
         imageCount = findViewById(R.id.image_count);
+        complaintImage = findViewById(R.id.complaint_image);
 
         docId = getIntent().getStringExtra("docId");
         userId = getIntent().getStringExtra("userId");
         username = getIntent().getStringExtra("username");
+        
+        String imageUrl = getIntent().getStringExtra("imageUrl");
+        if (imageUrl != null && !imageUrl.isEmpty()) {
+            Glide.with(this).load(imageUrl).into(complaintImage);
+        }
 
 
         String[] statuses = {"pending", "in_progress", "resolved"};

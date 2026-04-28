@@ -58,7 +58,10 @@ public class AddDevelopmentActivity extends BaseActivity {
         status.setAdapter(adapter);
 
         selectImages.setOnClickListener(v -> openGallery());
-        uploadBtn.setOnClickListener(v -> uploadDevelopment());
+        uploadBtn.setOnClickListener(v -> {
+            uploadBtn.setEnabled(false);
+            uploadDevelopment();
+        });
         startDate.setOnClickListener(v -> openDatePicker());
     }
 
@@ -122,6 +125,7 @@ public class AddDevelopmentActivity extends BaseActivity {
 
         if (imageUris.isEmpty()) {
             Toast.makeText(this, getString(R.string.select_images), Toast.LENGTH_SHORT).show();
+            uploadBtn.setEnabled(true);
             return;
         }
 
@@ -144,6 +148,10 @@ public class AddDevelopmentActivity extends BaseActivity {
                         if (imageUrls.size() == imageUris.size()) {
                             saveToFirestore(imageUrls);
                         }
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(this, getString(R.string.upload_failed), Toast.LENGTH_SHORT).show();
+                        uploadBtn.setEnabled(true);
                     });
         }
     }
@@ -157,7 +165,13 @@ public class AddDevelopmentActivity extends BaseActivity {
         map.put("fullDesc", fullDesc.getText().toString());
         map.put("budget", budget.getText().toString());
         map.put("location", location.getText().toString());
-        map.put("progress", Integer.parseInt(progress.getText().toString()));
+        try {
+            map.put("progress", Integer.parseInt(progress.getText().toString()));
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Invalid progress", Toast.LENGTH_SHORT).show();
+            uploadBtn.setEnabled(true);
+            return;
+        }
         map.put("startDate", startDate.getText().toString());
         map.put("status", status.getSelectedItem().toString());
         map.put("images", images);
@@ -175,6 +189,10 @@ public class AddDevelopmentActivity extends BaseActivity {
                     );
                     Toast.makeText(this, getString(R.string.development_added), Toast.LENGTH_SHORT).show();
                     finish();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
+                    uploadBtn.setEnabled(true);
                 });
     }
 }

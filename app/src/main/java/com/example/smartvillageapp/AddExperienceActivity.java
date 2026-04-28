@@ -36,6 +36,7 @@ public class AddExperienceActivity extends BaseActivity {
             String t = title.getText().toString();
             String d = desc.getText().toString();
 
+            postBtn.setEnabled(false);
             String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
             FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -52,15 +53,25 @@ public class AddExperienceActivity extends BaseActivity {
                         exp.put("userName", name);
                         exp.put("timestamp", System.currentTimeMillis());
 
-                        db.collection("experiences").add(exp);
-                        AppLogger.log(
-                                "User post",
-                                UserSession.username + " (id:" + UserSession.userId + ")",
-                                "user",
-                                "Post: User posted with title - (" + t +")"
-                        );
-                        Toast.makeText(this, getString(R.string.posted), Toast.LENGTH_SHORT).show();
-                        finish();
+                        db.collection("experiences").add(exp)
+                                .addOnSuccessListener(doc -> {
+                                    AppLogger.log(
+                                            "User post",
+                                            UserSession.username + " (id:" + UserSession.userId + ")",
+                                            "user",
+                                            "Post: User posted with title - (" + t +")"
+                                    );
+                                    Toast.makeText(this, getString(R.string.posted), Toast.LENGTH_SHORT).show();
+                                    finish();
+                                })
+                                .addOnFailureListener(e -> {
+                                    Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
+                                    postBtn.setEnabled(true);
+                                });
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(this, "Failed to get user", Toast.LENGTH_SHORT).show();
+                        postBtn.setEnabled(true);
                     });
         });
     }

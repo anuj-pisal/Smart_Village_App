@@ -45,17 +45,21 @@ public class ComplaintsActivity extends BaseActivity {
         FirebaseFirestore.getInstance()
                 .collection("complaints")
                 .whereEqualTo("userId", userId)
-                .get()
-                .addOnSuccessListener(q -> {
-                    list.clear();
-
-                    for (var d : q) {
-                        ComplaintModel c = d.toObject(ComplaintModel.class);
-                        c.id = d.getId();
-                        list.add(c);
+                .addSnapshotListener((q, e) -> {
+                    if (e != null) {
+                        return;
                     }
+                    if (q != null) {
+                        list.clear();
 
-                    adapter.notifyDataSetChanged();
+                        for (var d : q) {
+                            ComplaintModel c = d.toObject(ComplaintModel.class);
+                            c.id = d.getId();
+                            list.add(c);
+                        }
+
+                        adapter.notifyDataSetChanged();
+                    }
                 });
     }
 }

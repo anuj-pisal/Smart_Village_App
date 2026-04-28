@@ -49,7 +49,10 @@ public class AddSchemeActivity extends BaseActivity {
         db = FirebaseFirestore.getInstance();
 
         selectImg.setOnClickListener(v -> openGallery());
-        uploadBtn.setOnClickListener(v -> uploadScheme());
+        uploadBtn.setOnClickListener(v -> {
+            uploadBtn.setEnabled(false);
+            uploadScheme();
+        });
     }
 
     private void openGallery() {
@@ -71,6 +74,7 @@ public class AddSchemeActivity extends BaseActivity {
 
         if (imageUri == null) {
             Toast.makeText(this, getString(R.string.select_image), Toast.LENGTH_SHORT).show();
+            uploadBtn.setEnabled(true);
             return;
         }
 
@@ -107,6 +111,10 @@ public class AddSchemeActivity extends BaseActivity {
                                         finish();
                                     });
 
-                        }));
+                        }))
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, getString(R.string.upload_failed), Toast.LENGTH_SHORT).show();
+                    uploadBtn.setEnabled(true);
+                });
     }
 }

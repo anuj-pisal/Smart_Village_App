@@ -31,12 +31,49 @@
 
     </LinearLayout>
 
+    <!-- FILTERS -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="85dp"
+        android:padding="8dp"
+        android:scrollbars="none">
+
+        <RadioGroup
+            android:id="@+id/job_filter_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/filter_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All Jobs"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/filter_posted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Posted by Me" />
+
+            <RadioButton
+                android:id="@+id/filter_applied"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Applied by Me" />
+        </RadioGroup>
+    </HorizontalScrollView>
+
     <!-- RECYCLER VIEW -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/jobs_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="140dp"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:clipToPadding="false"/>

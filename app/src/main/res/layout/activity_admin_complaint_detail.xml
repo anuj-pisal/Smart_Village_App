@@ -28,6 +28,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"/>
 
+            <ImageView
+                android:id="@+id/complaint_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="16dp"
+                android:background="#E0E0E0"/>
+
             <!-- Status Dropdown (Fallback to standard spinner for logic safety, styled) -->
             <TextView
                 android:text="@string/status_val"

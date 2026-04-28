@@ -33,6 +33,7 @@
     <!-- Login / Sign Up -->
     <string name="log_in">Log in</string>
     <string name="sign_up">Sign up</string>
+    <string name="loading">Loading...</string>
     <string name="hint_email">email</string>
     <string name="hint_password">password</string>
     <string name="hint_username">username</string>
@@ -258,7 +259,7 @@
     <string name="gram_panchyat">Gram Panchyat</string>
     <string name="join_discussion">Join the discussion</string>
     <string name="post_btn">Post</string>
-    <string name="jobs_opportunities">Jobs &amp;amp; Opportunities</string>
+    <string name="jobs_opportunities">Jobs &amp; Opportunities</string>
     <string name="find_post_jobs">Find and post job openings in your village</string>
     <string name="popular_locations">Popular Locations</string>
     <string name="mandai_rates">Mandai Rates</string>

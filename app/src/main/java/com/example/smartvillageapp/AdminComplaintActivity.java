@@ -31,8 +31,8 @@ public class AdminComplaintActivity extends BaseActivity {
 
         FirebaseFirestore.getInstance()
                 .collection("complaints")
-                .get()
-                .addOnSuccessListener(snapshot -> {
+                .addSnapshotListener((snapshot, e) -> {
+                    if (e != null || snapshot == null) return;
 
                     list.clear();
 
@@ -42,7 +42,7 @@ public class AdminComplaintActivity extends BaseActivity {
 
                         if(!c.status.equals("resolved")) {
                             c.userId = d.getString("userId");
-                            c.docId = d.getId(); // 🔥 VERY IMPORTANT
+                            c.docId = d.getId();
 
                             list.add(c);
                         }

@@ -51,21 +51,24 @@ public class BusinessActivity extends BaseActivity {
         db.collection("businesses")
                 .orderBy("createdAt")
                 .limit(20)   // VERY IMPORTANT (cost control)
-                .get()
-                .addOnSuccessListener(queryDocumentSnapshots -> {
-
-                    businessList.clear();
-
-                    for (QueryDocumentSnapshot doc : queryDocumentSnapshots) {
-                        BusinessModel business = doc.toObject(BusinessModel.class);
-                        businessList.add(business);
-                    }
-
-                    adapter.notifyDataSetChanged();
-                })
-                .addOnFailureListener(e ->
+                .addSnapshotListener((queryDocumentSnapshots, e) -> {
+                    if (e != null) {
                         Toast.makeText(this,
                                 "Failed to load businesses",
-                                Toast.LENGTH_SHORT).show());
+                                Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    if (queryDocumentSnapshots != null) {
+                        businessList.clear();
+
+                        for (QueryDocumentSnapshot doc : queryDocumentSnapshots) {
+                            BusinessModel business = doc.toObject(BusinessModel.class);
+                            businessList.add(business);
+                        }
+
+                        adapter.notifyDataSetChanged();
+                    }
+                });
     }
 }

@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,19 +57,23 @@ public class ExperienceFragment extends Fragment {
 
         FirebaseFirestore.getInstance()
                 .collection("experiences")
-                .get()
-                .addOnSuccessListener(q -> {
-
-                    list.clear();
-
-                    for (DocumentSnapshot d : q) {
-
-                        ExperienceModel e = d.toObject(ExperienceModel.class);
-                        e.id = d.getId();
-                        list.add(e);
+                .orderBy("timestamp", Query.Direction.DESCENDING)
+                .addSnapshotListener((q, e) -> {
+                    if (e != null) {
+                        return;
                     }
+                    if (q != null) {
+                        list.clear();
 
-                    adapter.notifyDataSetChanged();
+                        for (DocumentSnapshot d : q) {
+
+                            ExperienceModel model = d.toObject(ExperienceModel.class);
+                            model.id = d.getId();
+                            list.add(model);
+                        }
+
+                        adapter.notifyDataSetChanged();
+                    }
                 });
     }
 }

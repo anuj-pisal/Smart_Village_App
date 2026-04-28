@@ -63,6 +63,7 @@ public class AdminComplaintAdapter extends RecyclerView.Adapter<AdminComplaintAd
             intent.putExtra("docId", c.docId);
             intent.putExtra("userId", c.userId);
             intent.putExtra("username", h.user.getText().toString());
+            intent.putExtra("imageUrl", c.imageUrl);
             context.startActivity(intent);
         });
     }

@@ -47,8 +47,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.VH> {
         FirebaseFirestore.getInstance()
                 .collection("bills")
                 .whereEqualTo("userId", u.id)
-                .get()
-                .addOnSuccessListener(snapshot -> {
+                .addSnapshotListener((snapshot, error) -> {
+                    if (error != null || snapshot == null) return;
 
                     boolean hasUnpaid = false;
                     boolean hasOverdue = false;
