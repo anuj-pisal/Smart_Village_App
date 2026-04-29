@@ -35,6 +35,8 @@
             android:paddingEnd="16dp"
             android:paddingBottom="80dp"
             android:clipToPadding="false"/>
+
+        <include layout="@layout/layout_empty_state" />
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

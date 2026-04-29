@@ -231,7 +231,7 @@
     <string name="apply_link">Apply Link (URL)</string>
     <string name="add_scheme_btn">Add Scheme</string>
     <string name="registered_complaints">Registered Complaints</string>
-    <string name="moderate_complaint">Moderate Complaint</string>
+    <string name="moderate_complaint">Complaint Specifies</string>
     <string name="status_val">Status</string>
     <string name="upload_proof_images">Upload Proof Images</string>
     <string name="update_complaint">Update Complaint</string>
@@ -281,6 +281,7 @@
     <string name="reject">Reject</string>
     <string name="domain_h">Domain</string>
     <string name="short_info">Short info</string>
+    <string name="search">Search contacts...</string>
     <string name="title_h">Title</string>
     <string name="action_h">Action</string>
     <string name="details_h">Details</string>
@@ -301,4 +302,5 @@
 
     <string name="crop_link_hint">Crop Link (URL)</string>
     <string name="invalid_link_format">Invalid link format</string>
+    <string name="choose_action">Choose Action</string>
 </resources>

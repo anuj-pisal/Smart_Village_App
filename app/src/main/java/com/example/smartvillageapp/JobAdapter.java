@@ -53,6 +53,11 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder> {
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+        // Reset visibility states for recycled views
+        h.applyBtn.setVisibility(View.GONE);
+        h.viewBtn.setVisibility(View.GONE);
+        h.status.setVisibility(View.GONE);
+
         h.title.setText(job.title);
         
         if (job.postedByName != null && !job.postedByName.isEmpty()) {
@@ -114,7 +119,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder> {
                         h.applyBtn.setEnabled(false);
 
                         h.status.setVisibility(View.VISIBLE);
-                        h.status.setText(context.getString(R.string.status_prefix) + status.toUpperCase());
+                        h.status.setText(context.getString(R.string.status_prefix) + " " + status.toUpperCase());
 
                         // Color
                         if ("pending".equals(status)) {

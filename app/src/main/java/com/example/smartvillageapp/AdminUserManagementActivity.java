@@ -11,12 +11,16 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.List;
+import android.view.View;
+import android.widget.TextView;
 
 public class AdminUserManagementActivity extends BaseActivity {
 
     RecyclerView recyclerView;
     List<UserModel> list = new ArrayList<>();
     AdminUserManagementAdapter adapter;
+    View emptyStateLayout;
+    TextView emptyStateMsg;
 
     @Override
     protected void onCreate(Bundle b) {
@@ -25,6 +29,10 @@ public class AdminUserManagementActivity extends BaseActivity {
 
         recyclerView = findViewById(R.id.recycler_users_admin);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        emptyStateLayout = findViewById(R.id.empty_state_layout);
+        emptyStateMsg = findViewById(R.id.empty_state_message);
+        emptyStateMsg.setText("No users registered");
 
         adapter = new AdminUserManagementAdapter(this, list);
         recyclerView.setAdapter(adapter);
@@ -47,6 +55,14 @@ public class AdminUserManagementActivity extends BaseActivity {
                     }
 
                     adapter.notifyDataSetChanged();
+                    
+                    if (list.isEmpty()) {
+                        emptyStateLayout.setVisibility(View.VISIBLE);
+                        recyclerView.setVisibility(View.GONE);
+                    } else {
+                        emptyStateLayout.setVisibility(View.GONE);
+                        recyclerView.setVisibility(View.VISIBLE);
+                    }
                 });
     }
 }

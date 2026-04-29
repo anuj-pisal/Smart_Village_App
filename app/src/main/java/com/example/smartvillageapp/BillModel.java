@@ -10,6 +10,7 @@ public class BillModel {
     public String dueDate;
     public String status;
     public long amount;
+    public long expiryTimestamp;
 
     public List<String> images;
 

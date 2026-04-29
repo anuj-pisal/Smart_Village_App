@@ -6,6 +6,7 @@ public class ContactsModel {
     private String designation;
     private String phone;
     private String email;
+    private String id;
 
     public ContactsModel() {
         // Required for Firestore
@@ -22,4 +23,6 @@ public class ContactsModel {
     public String getDesignation() { return designation; }
     public String getPhone() { return phone; }
     public String getEmail() { return email; }
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 }

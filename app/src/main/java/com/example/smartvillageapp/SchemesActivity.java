@@ -8,12 +8,22 @@ import androidx.recyclerview.widget.*;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.*;
+import android.app.AlertDialog;
+import android.content.Intent;
+import android.widget.TextView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import android.view.View;
 
 public class SchemesActivity extends BaseActivity {
 
     RecyclerView recycler;
     List<SchemeModel> list = new ArrayList<>();
     SchemeAdapter adapter;
+    View emptyStateLayout;
+    TextView emptyStateMsg;
+    FloatingActionButton fabAddScheme;
+    boolean isAdmin = false;
 
     @Override
     protected void onCreate(Bundle b) {
@@ -23,10 +33,57 @@ public class SchemesActivity extends BaseActivity {
         recycler = findViewById(R.id.scheme_list);
         recycler.setLayoutManager(new LinearLayoutManager(this));
 
+        emptyStateLayout = findViewById(R.id.empty_state_layout);
+        emptyStateMsg = findViewById(R.id.empty_state_message);
+        emptyStateMsg.setText("No schemes available currently");
+
         adapter = new SchemeAdapter(this, list);
         recycler.setAdapter(adapter);
 
+        isAdmin = getIntent().getBooleanExtra("isAdmin", false);
+        fabAddScheme = findViewById(R.id.fab_add_scheme);
+
+        if (isAdmin) {
+            fabAddScheme.setVisibility(View.VISIBLE);
+            fabAddScheme.setOnClickListener(v -> {
+                startActivity(new Intent(SchemesActivity.this, AddSchemeActivity.class));
+            });
+            setupSwipeToDelete();
+        }
+
         loadSchemes();
+    }
+    
+    private void setupSwipeToDelete() {
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+                SchemeModel scheme = list.get(position);
+                
+                DialogUtils.showConfirmDialog(SchemesActivity.this,
+                    "Delete Scheme",
+                    "Are you sure you want to delete this scheme?",
+                    "Delete",
+                    new DialogUtils.DialogCallback() {
+                        @Override
+                        public void onPositive() {
+                            FirebaseFirestore.getInstance().collection("schemes").document(scheme.id).delete()
+                                .addOnSuccessListener(aVoid -> loadSchemes());
+                        }
+
+                        @Override
+                        public void onNegative() {
+                            adapter.notifyItemChanged(position);
+                        }
+                    });
+            }
+        }).attachToRecyclerView(recycler);
     }
 
     private void loadSchemes() {
@@ -45,6 +102,14 @@ public class SchemesActivity extends BaseActivity {
                     }
 
                     adapter.notifyDataSetChanged();
+                    
+                    if (list.isEmpty()) {
+                        emptyStateLayout.setVisibility(View.VISIBLE);
+                        recycler.setVisibility(View.GONE);
+                    } else {
+                        emptyStateLayout.setVisibility(View.GONE);
+                        recycler.setVisibility(View.VISIBLE);
+                    }
                 });
     }
 }

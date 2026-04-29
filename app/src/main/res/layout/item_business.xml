@@ -69,36 +69,36 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="12dp"
-                app:cardBackgroundColor="?attr/colorControlHighlight"
+                app:cardBackgroundColor="@color/primaryColor"
                 android:layout_marginTop="16dp"
                 app:cardElevation="0dp">
-                
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:padding="16dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
                     <TextView
                         android:id="@+id/business_contact"
-                        android:text="+91 9394950090"
-                        android:textAppearance="?attr/textAppearanceBody2"
-                        android:layout_weight="1"
-                        android:maxLines="1"
-                        android:ellipsize="end"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"/>
-                        
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="+91 9394950090"
+                        android:textAppearance="?attr/textAppearanceBody2" />
+
                     <TextView
                         android:id="@+id/business_email"
-                        android:text="anujpisal@gmail.com"
-                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:maxLines="1"
                         android:ellipsize="end"
                         android:gravity="end"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"/>
+                        android:maxLines="1"
+                        android:text="anujpisal@gmail.com"
+                        android:textAppearance="?attr/textAppearanceBody2" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 

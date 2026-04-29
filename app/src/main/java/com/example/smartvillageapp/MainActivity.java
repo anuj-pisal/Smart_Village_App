@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -127,6 +128,12 @@ public class MainActivity extends BaseActivity implements ProfileFragment.OnProf
 
                 dialog.show();
 
+                if (dialog.getWindow() != null) {
+                    dialog.getWindow().setLayout(
+                            (int)(getResources().getDisplayMetrics().widthPixels * 0.8),
+                            ViewGroup.LayoutParams.WRAP_CONTENT
+                    );
+                }
 
             } else if (id == R.id.nav_exit) {
                 finishAffinity();

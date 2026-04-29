@@ -15,6 +15,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import android.widget.RadioGroup;
+import android.view.View;
+import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class JobsActivity extends BaseActivity {
@@ -25,6 +27,8 @@ public class JobsActivity extends BaseActivity {
     JobAdapter adapter;
     RadioGroup filterGroup;
     Set<String> appliedJobIds = new HashSet<>();
+    View emptyStateLayout;
+    TextView emptyStateMsg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,10 @@ public class JobsActivity extends BaseActivity {
         fullList = new ArrayList<>();
         adapter = new JobAdapter(this, list);
         recyclerView.setAdapter(adapter);
+
+        emptyStateLayout = findViewById(R.id.empty_state_layout);
+        emptyStateMsg = findViewById(R.id.empty_state_message);
+        emptyStateMsg.setText("No jobs found");
 
         filterGroup = findViewById(R.id.job_filter_group);
         filterGroup.setOnCheckedChangeListener((group, checkedId) -> applyFilter());
@@ -98,6 +106,14 @@ public class JobsActivity extends BaseActivity {
         }
         if (adapter != null) {
             adapter.notifyDataSetChanged();
+        }
+        
+        if (list.isEmpty()) {
+            emptyStateLayout.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
+        } else {
+            emptyStateLayout.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
         }
     }
 }

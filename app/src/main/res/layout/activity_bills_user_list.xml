@@ -15,6 +15,45 @@
         android:textAppearance="?attr/textAppearanceHeadline5"
         android:textStyle="bold" />
 
+    <RadioGroup
+        android:id="@+id/user_filter_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <RadioButton
+            android:id="@+id/filter_all"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="All Users"
+            android:textAlignment="center"
+            android:button="@null"
+            android:checked="true"
+            android:textColor="@color/white"
+            android:padding="12dp"
+            android:textStyle="bold"/>
+
+        <RadioButton
+            android:id="@+id/filter_overdue"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Overdue Users"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:textAlignment="center"
+            android:button="@null"
+            android:textColor="@color/white"
+            android:padding="12dp"
+            android:textStyle="bold"/>
+    </RadioGroup>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
         android:padding="8dp"

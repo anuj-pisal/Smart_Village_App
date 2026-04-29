@@ -68,15 +68,22 @@
         </RadioGroup>
     </HorizontalScrollView>
 
-    <!-- RECYCLER VIEW -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/jobs_recycler"
+    <!-- RECYCLER VIEW & EMPTY STATE -->
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:clipToPadding="false"/>
+        android:layout_height="match_parent"
+        android:layout_marginTop="140dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/jobs_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:clipToPadding="false"/>
+
+        <include layout="@layout/layout_empty_state" />
+    </FrameLayout>
 
     <!-- FLOATING BUTTON -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton

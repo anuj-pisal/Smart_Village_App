@@ -15,12 +15,16 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.List;
+import android.view.View;
+import android.widget.TextView;
 
 public class NoticesActivity extends BaseActivity {
 
     RecyclerView recyclerView;
     List<NoticeModel> list;
     NoticeAdapter adapter;
+    View emptyStateLayout;
+    TextView emptyStateMsg;
 
     @Override
     protected void onCreate(Bundle b) {
@@ -29,6 +33,10 @@ public class NoticesActivity extends BaseActivity {
 
         recyclerView = findViewById(R.id.notice_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        emptyStateLayout = findViewById(R.id.empty_state_layout);
+        emptyStateMsg = findViewById(R.id.empty_state_message);
+        emptyStateMsg.setText("No recent notices found");
 
         list = new ArrayList<>();
         adapter = new NoticeAdapter(this, list);
@@ -61,6 +69,14 @@ public class NoticesActivity extends BaseActivity {
                     }
 
                     adapter.notifyDataSetChanged();
+                    
+                    if (list.isEmpty()) {
+                        emptyStateLayout.setVisibility(View.VISIBLE);
+                        recyclerView.setVisibility(View.GONE);
+                    } else {
+                        emptyStateLayout.setVisibility(View.GONE);
+                        recyclerView.setVisibility(View.VISIBLE);
+                    }
                 });
     }
 }

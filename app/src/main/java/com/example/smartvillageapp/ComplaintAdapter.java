@@ -42,7 +42,7 @@ public class ComplaintAdapter extends RecyclerView.Adapter<ComplaintAdapter.VH> 
 
         Glide.with(context).load(c.imageUrl).into(h.img);
 
-        h.status.setText(context.getString(R.string.status_prefix) + c.status);
+        h.status.setText(context.getString(R.string.status_prefix) + " " + c.status);
 
         if ("pending".equals(c.status))
             h.status.setTextColor(Color.YELLOW);

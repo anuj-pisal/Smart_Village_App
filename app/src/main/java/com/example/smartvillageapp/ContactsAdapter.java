@@ -17,10 +17,20 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
 
     private Context context;
     private List<ContactsModel> list;
+    private boolean isAdmin = false;
 
     public ContactsAdapter(Context context, List<ContactsModel> list) {
         this.context = context;
         this.list = list;
+    }
+    
+    public void setAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
+    public void updateList(List<ContactsModel> newList) {
+        this.list = newList;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -43,10 +53,49 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
         holder.phone.setText(model.getPhone());
         holder.email.setText(model.getEmail());
 
-        holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(Intent.ACTION_DIAL);
-            intent.setData(Uri.parse("tel:" + model.getPhone()));
-            context.startActivity(intent);
+        if (isAdmin) {
+            holder.itemView.setOnClickListener(v -> {
+                Intent intent = new Intent(context, AddContactActivity.class);
+                intent.putExtra("id", model.getId());
+                intent.putExtra("name", model.getName());
+                intent.putExtra("designation", model.getDesignation());
+                intent.putExtra("phone", model.getPhone());
+                intent.putExtra("email", model.getEmail());
+                context.startActivity(intent);
+            });
+        }
+
+        holder.itemView.setOnLongClickListener(v -> {
+            android.app.Dialog dialog = new android.app.Dialog(context);
+            dialog.setContentView(R.layout.dialog_choose_action);
+            
+            if (dialog.getWindow() != null) {
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            }
+
+            android.widget.TextView title = dialog.findViewById(R.id.dialog_title);
+            android.widget.TextView subtitle = dialog.findViewById(R.id.dialog_subtitle);
+            title.setText(context.getString(R.string.choose_action));
+            subtitle.setVisibility(View.VISIBLE);
+            subtitle.setText(model.getName());
+
+            dialog.findViewById(R.id.btn_call).setOnClickListener(btnView -> {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" + model.getPhone()));
+                context.startActivity(intent);
+                dialog.dismiss();
+            });
+
+            dialog.findViewById(R.id.btn_mail).setOnClickListener(btnView -> {
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse("mailto:" + model.getEmail()));
+                context.startActivity(intent);
+                dialog.dismiss();
+            });
+
+            dialog.show();
+            return true;
         });
     }
 

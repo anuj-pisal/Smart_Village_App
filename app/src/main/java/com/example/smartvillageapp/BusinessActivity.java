@@ -2,6 +2,8 @@ package com.example.smartvillageapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,6 +24,8 @@ public class BusinessActivity extends BaseActivity {
     BusinessAdapter adapter;
     List<BusinessModel> businessList;
     FirebaseFirestore db;
+    View emptyStateLayout;
+    TextView emptyStateMsg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,10 @@ public class BusinessActivity extends BaseActivity {
 
         recyclerView = findViewById(R.id.businessRecycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        emptyStateLayout = findViewById(R.id.empty_state_layout);
+        emptyStateMsg = findViewById(R.id.empty_state_message);
+        emptyStateMsg.setText("No local businesses listed yet");
 
         businessList = new ArrayList<>();
         adapter = new BusinessAdapter(this, businessList);
@@ -44,6 +52,16 @@ public class BusinessActivity extends BaseActivity {
         db = FirebaseFirestore.getInstance();
 
         loadBusinesses();
+    }
+
+    private void toggleEmptyState(int size) {
+        if (size == 0) {
+            emptyStateLayout.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
+        } else {
+            emptyStateLayout.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
+        }
     }
 
     private void loadBusinesses() {
@@ -68,6 +86,7 @@ public class BusinessActivity extends BaseActivity {
                         }
 
                         adapter.notifyDataSetChanged();
+                        toggleEmptyState(businessList.size());
                     }
                 });
     }

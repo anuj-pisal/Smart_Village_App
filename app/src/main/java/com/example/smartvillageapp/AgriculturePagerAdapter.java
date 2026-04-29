@@ -14,10 +14,16 @@ public class AgriculturePagerAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
+        Fragment fragment;
         if (position == 0)
-            return new CropAdminFragment();
+            fragment = new CropFragment();
         else
-            return new VideoAdminFragment();
+            fragment = new VideoFragment();
+
+        android.os.Bundle bundle = new android.os.Bundle();
+        bundle.putBoolean("isAdmin", true);
+        fragment.setArguments(bundle);
+        return fragment;
     }
 
     @Override

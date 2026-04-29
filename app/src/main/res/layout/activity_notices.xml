@@ -23,4 +23,6 @@
         android:paddingBottom="16dp"
         android:clipToPadding="false"/>
 
+    <include layout="@layout/layout_empty_state" />
+
 </LinearLayout>

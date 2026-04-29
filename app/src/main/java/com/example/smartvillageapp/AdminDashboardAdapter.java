@@ -45,19 +45,27 @@ public class AdminDashboardAdapter extends RecyclerView.Adapter<AdminDashboardAd
             
             String t = item.title;
             if (t.equals(context.getString(R.string.contacts))) {
-                context.startActivity(new Intent(context, AddContactActivity.class));
+                Intent intent = new Intent(context, ContactsActivity.class);
+                intent.putExtra("isAdmin", true);
+                context.startActivity(intent);
             } else if (t.equals(context.getString(R.string.notices))) {
                 context.startActivity(new Intent(context, AddNoticeActivity.class));
             } else if (t.equals(context.getString(R.string.bills))) {
                 context.startActivity(new Intent(context, BillsUserListActivity.class));
             } else if (t.equals(context.getString(R.string.locations))) {
-                context.startActivity(new Intent(context, AddLocationActivity.class));
+                Intent intent = new Intent(context, LocationsActivity.class);
+                intent.putExtra("isAdmin", true);
+                context.startActivity(intent);
             } else if (t.equals(context.getString(R.string.complaints))) {
                 context.startActivity(new Intent(context, AdminComplaintActivity.class));
             } else if (t.equals(context.getString(R.string.schemes))) {
-                context.startActivity(new Intent(context, AddSchemeActivity.class));
+                Intent intent = new Intent(context, SchemesActivity.class);
+                intent.putExtra("isAdmin", true);
+                context.startActivity(intent);
             } else if (t.equals(context.getString(R.string.developments))) {
-                context.startActivity(new Intent(context, AddDevelopmentActivity.class));
+                Intent intent = new Intent(context, DevelopmentActivity.class);
+                intent.putExtra("isAdmin", true);
+                context.startActivity(intent);
             } else if (t.equals(context.getString(R.string.agriculture))) {
                 context.startActivity(new Intent(context, AgricultureActivity.class));
             } else if (t.equals(context.getString(R.string.users))) {

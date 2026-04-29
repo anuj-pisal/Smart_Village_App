@@ -51,11 +51,38 @@ public class BusinessAdapter extends RecyclerView.Adapter<BusinessAdapter.Busine
                 .placeholder(R.drawable.slide2)
                 .into(holder.image);
 
-        // Click phone → open dialer
-        holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(Intent.ACTION_DIAL);
-            intent.setData(Uri.parse("tel:" + business.getPhone()));
-            context.startActivity(intent);
+        // Long click -> context menu
+        holder.itemView.setOnLongClickListener(v -> {
+            android.app.Dialog dialog = new android.app.Dialog(context);
+            dialog.setContentView(R.layout.dialog_choose_action);
+
+            if (dialog.getWindow() != null) {
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            }
+
+            android.widget.TextView title = dialog.findViewById(R.id.dialog_title);
+            android.widget.TextView subtitle = dialog.findViewById(R.id.dialog_subtitle);
+            title.setText(context.getString(R.string.choose_action));
+            subtitle.setVisibility(View.VISIBLE);
+            subtitle.setText(business.getName());
+
+            dialog.findViewById(R.id.btn_call).setOnClickListener(btnView -> {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" + business.getPhone()));
+                context.startActivity(intent);
+                dialog.dismiss();
+            });
+
+            dialog.findViewById(R.id.btn_mail).setOnClickListener(btnView -> {
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse("mailto:" + business.getEmail()));
+                context.startActivity(intent);
+                dialog.dismiss();
+            });
+
+            dialog.show();
+            return true;
         });
     }
 

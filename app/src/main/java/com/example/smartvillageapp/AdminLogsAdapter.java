@@ -42,7 +42,7 @@ public class AdminLogsAdapter extends RecyclerView.Adapter<AdminLogsAdapter.VH> 
 
         h.action.setText(l.action);
         h.details.setText(l.details);
-        h.user.setText(context.getString(R.string.users_prefix) + l.userId);
+        h.user.setText(context.getString(R.string.users_prefix) + " " + l.userId);
 
         SimpleDateFormat f = new SimpleDateFormat("d MMM yyyy, hh:mm a", Locale.getDefault());
         h.time.setText(f.format(new Date(l.timestamp)));

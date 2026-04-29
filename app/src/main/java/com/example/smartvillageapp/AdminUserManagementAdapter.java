@@ -1,6 +1,7 @@
 package com.example.smartvillageapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,32 +47,49 @@ public class AdminUserManagementAdapter extends RecyclerView.Adapter<AdminUserMa
         h.itemView.setOnLongClickListener(v -> {
 
             PopupMenu menu = new PopupMenu(context, h.itemView);
+            menu.getMenu().add("See Details");
             menu.getMenu().add("Delete User");
 
             menu.setOnMenuItemClickListener(item -> {
 
-                if (item.getTitle().equals("Delete User")) {
+                if (item.getTitle().equals("See Details")) {
+                    Intent intent = new Intent(context, AdminUserDetailActivity.class);
+                    intent.putExtra("userId", u.id);
+                    intent.putExtra("name", u.name);
+                    intent.putExtra("email", u.email);
+                    context.startActivity(intent);
+                } else if (item.getTitle().equals("Delete User")) {
+                    DialogUtils.showConfirmDialog(context,
+                            "Delete User",
+                            "Are you sure you want to delete user " + u.name + "?",
+                            "Delete",
+                            new DialogUtils.DialogCallback() {
+                                @Override
+                                public void onPositive() {
+                                    FirebaseFirestore.getInstance()
+                                            .collection("users")
+                                            .document(u.id)
+                                            .delete()
+                                            .addOnSuccessListener(unused -> {
+                                                AppLogger.log(
+                                                        "User Deleted",
+                                                        u.name + " (id : " + u.id +" )",
+                                                        "admin",
+                                                        "User: " + u.name + " (" + u.id + ") is deleted"
+                                                );
+                                                Toast.makeText(context, context.getString(R.string.user_deleted), Toast.LENGTH_SHORT).show();
+                                                list.remove(position);
+                                                notifyDataSetChanged();
+                                            })
+                                            .addOnFailureListener(e -> {
+                                                Toast.makeText(context, context.getString(R.string.error_prefix) + e.getMessage(), Toast.LENGTH_LONG).show();
+                                            });
+                                }
 
-                    FirebaseFirestore.getInstance()
-                            .collection("users")
-                            .document(u.id)
-                            .delete()
-                            .addOnSuccessListener(unused -> {
-
-                                AppLogger.log(
-                                        "User Deleted",
-                                        u.name + " (id : " + u.id +" )",
-                                        "admin",
-                                        "User: " + u.name + " (" + u.id + ") is deleted"
-                                );
-
-                                Toast.makeText(context, context.getString(R.string.user_deleted), Toast.LENGTH_SHORT).show();
-
-                                list.remove(position);
-                                notifyDataSetChanged();
-                            })
-                            .addOnFailureListener(e -> {
-                                Toast.makeText(context, context.getString(R.string.error_prefix) + e.getMessage(), Toast.LENGTH_LONG).show();
+                                @Override
+                                public void onNegative() {
+                                    // Do nothing
+                                }
                             });
                 }
 

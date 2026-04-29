@@ -15,6 +15,36 @@
         android:textAppearance="?attr/textAppearanceHeadline5"
         android:textStyle="bold" />
 
+    <RadioGroup
+        android:id="@+id/bill_filter_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="8dp">
+
+        <RadioButton
+            android:id="@+id/filter_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All"
+            android:checked="true"
+            android:layout_marginEnd="16dp" />
+
+        <RadioButton
+            android:id="@+id/filter_paid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Paid"
+            android:layout_marginEnd="16dp" />
+
+        <RadioButton
+            android:id="@+id/filter_unpaid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Unpaid" />
+    </RadioGroup>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/bill_list"
         android:layout_width="match_parent"
@@ -23,5 +53,7 @@
         android:paddingEnd="16dp"
         android:paddingBottom="16dp"
         android:clipToPadding="false"/>
+
+    <include layout="@layout/layout_empty_state" />
 
 </LinearLayout>

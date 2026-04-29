@@ -17,6 +17,7 @@ public class AddContactActivity extends BaseActivity {
     Button addBtn;
 
     FirebaseFirestore db;
+    String contactId = null;
 
     @Override
     protected void onCreate(Bundle b) {
@@ -31,6 +32,15 @@ public class AddContactActivity extends BaseActivity {
         addBtn = findViewById(R.id.add_btn);
 
         db = FirebaseFirestore.getInstance();
+
+        if (getIntent().hasExtra("id")) {
+            contactId = getIntent().getStringExtra("id");
+            name.setText(getIntent().getStringExtra("name"));
+            designation.setText(getIntent().getStringExtra("designation"));
+            phone.setText(getIntent().getStringExtra("phone"));
+            email.setText(getIntent().getStringExtra("email"));
+            addBtn.setText("Update Contact");
+        }
 
         addBtn.setOnClickListener(v -> addContact());
     }
@@ -61,22 +71,34 @@ public class AddContactActivity extends BaseActivity {
         map.put("email", e);
         map.put("priority", priorityValue);
 
-        // 🔥 FIRESTORE INSERT
-        db.collection("contacts")
-                .add(map)
-                .addOnSuccessListener(doc -> {
-                    Toast.makeText(this, getString(R.string.contact_added), Toast.LENGTH_SHORT).show();
-                    AppLogger.log(
-                            "Contact Added",
-                            "NA",
-                            "admin",
-                            "Contact: " + p
-                                    + " of ( " + n + " - " + d + " ) is added"
-                    );
-                    finish();
-                })
-                .addOnFailureListener(e1 -> {
-                    Toast.makeText(this, getString(R.string.error_prefix) + e1.getMessage(), Toast.LENGTH_SHORT).show();
-                });
+        // 🔥 FIRESTORE INSERT OR UPDATE
+        if (contactId == null) {
+            db.collection("contacts")
+                    .add(map)
+                    .addOnSuccessListener(doc -> {
+                        Toast.makeText(this, getString(R.string.contact_added), Toast.LENGTH_SHORT).show();
+                        AppLogger.log(
+                                "Contact Added",
+                                "NA",
+                                "admin",
+                                "Contact: " + p
+                                        + " of ( " + n + " - " + d + " ) is added"
+                        );
+                        finish();
+                    })
+                    .addOnFailureListener(e1 -> {
+                        Toast.makeText(this, getString(R.string.error_prefix) + e1.getMessage(), Toast.LENGTH_SHORT).show();
+                    });
+        } else {
+            db.collection("contacts").document(contactId)
+                    .update(map)
+                    .addOnSuccessListener(aVoid -> {
+                        Toast.makeText(this, "Contact updated successfully", Toast.LENGTH_SHORT).show();
+                        finish();
+                    })
+                    .addOnFailureListener(e1 -> {
+                        Toast.makeText(this, getString(R.string.error_prefix) + e1.getMessage(), Toast.LENGTH_SHORT).show();
+                    });
+        }
     }
 }

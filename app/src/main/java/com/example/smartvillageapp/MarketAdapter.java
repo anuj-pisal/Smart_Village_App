@@ -42,7 +42,7 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.VH> {
         MarketModel m = list.get(i);
 
         h.crop.setText(m.commodity);
-        h.market.setText(context.getString(R.string.across_prefix) + m.district + " markets");
+        h.market.setText(context.getString(R.string.across_prefix) + " " +m.district + " markets");
 
         // 🔥 Convert ₹/quintal → ₹/kg
         try {

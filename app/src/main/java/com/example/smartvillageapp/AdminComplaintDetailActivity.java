@@ -54,6 +54,12 @@ public class AdminComplaintDetailActivity extends BaseActivity {
         if (imageUrl != null && !imageUrl.isEmpty()) {
             Glide.with(this).load(imageUrl).into(complaintImage);
         }
+        
+        TextView complaintDescription = findViewById(R.id.complaint_description);
+        String description = getIntent().getStringExtra("description");
+        if (description != null) {
+            complaintDescription.setText(description);
+        }
 
 
         String[] statuses = {"pending", "in_progress", "resolved"};

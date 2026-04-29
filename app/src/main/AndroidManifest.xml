@@ -20,6 +20,9 @@
             android:name=".AdminLogsActivity"
             android:exported="false" />
         <activity
+            android:name=".AdminUserDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".AdminUserManagementActivity"
             android:exported="false" />
         <activity
@@ -36,6 +39,12 @@
             android:exported="false" />
         <activity
             android:name=".BillsUserListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddVideoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddCropActivity"
             android:exported="false" />
         <activity
             android:name=".AgricultureActivity"

@@ -1,6 +1,6 @@
 package com.example.smartvillageapp;
 public class LocationModel {
-    public String name, description, imageUrl;
+    public String id, name, description, imageUrl;
     public double latitude, longitude;
 
     public LocationModel() {}
