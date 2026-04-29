@@ -299,4 +299,6 @@
     <string name="dev_subtitle">Second Year IT Engineering Student, WCE</string>
     <string name="smart_village_project_desc">Smart Village Project</string>
 
+    <string name="crop_link_hint">Crop Link (URL)</string>
+    <string name="invalid_link_format">Invalid link format</string>
 </resources>

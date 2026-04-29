@@ -64,7 +64,7 @@ public class BillDetailActivity extends BaseActivity implements PaymentResultLis
                             amount.setText("₹" + billAmount);
                         }
 
-                        date.setText(getString(R.string.due_prefix) + d.getString("dueDate"));
+                        date.setText(d.getString("dueDate"));
                         status.setText(d.getString("status"));
                         desc.setText(d.getString("description"));
 

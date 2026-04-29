@@ -1,6 +1,6 @@
 package com.example.smartvillageapp;
 public class JobModel {
-    public String jobId, title, requirement, description, postedBy, status;
+    public String jobId, title, requirement, description, postedBy, postedByName, status;
 
     public JobModel() {}
 

@@ -43,6 +43,7 @@ public class AddJobActivity extends BaseActivity {
         map.put("requirement", req.getText().toString());
         map.put("description", desc.getText().toString());
         map.put("postedBy", userId);
+        map.put("postedByName", UserSession.username);
         map.put("status", "open");
 
         FirebaseFirestore.getInstance()

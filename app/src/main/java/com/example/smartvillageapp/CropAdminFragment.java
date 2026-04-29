@@ -20,7 +20,7 @@ import java.util.Map;
 public class CropAdminFragment extends Fragment {
 
     ImageView image;
-    EditText title, desc;
+    EditText title, desc, cropLink;
     Button selectImg, addBtn;
 
     Uri imageUri;
@@ -37,6 +37,7 @@ public class CropAdminFragment extends Fragment {
         image = v.findViewById(R.id.image);
         title = v.findViewById(R.id.title);
         desc = v.findViewById(R.id.desc);
+        cropLink = v.findViewById(R.id.crop_link);
         selectImg = v.findViewById(R.id.select_img);
         addBtn = v.findViewById(R.id.add_btn);
 
@@ -68,8 +69,16 @@ public class CropAdminFragment extends Fragment {
 
     private void uploadCrop() {
 
-        if (title.getText().toString().trim().isEmpty() || desc.getText().toString().trim().isEmpty() || imageUri == null) {
+        String linkText = cropLink.getText().toString().trim();
+
+        if (title.getText().toString().trim().isEmpty() || desc.getText().toString().trim().isEmpty() || linkText.isEmpty() || imageUri == null) {
             Toast.makeText(getContext(), getString(R.string.all_fields_required), Toast.LENGTH_SHORT).show();
+            addBtn.setEnabled(true);
+            return;
+        }
+
+        if (!android.util.Patterns.WEB_URL.matcher(linkText).matches()) {
+            Toast.makeText(getContext(), getString(R.string.invalid_link_format), Toast.LENGTH_SHORT).show();
             addBtn.setEnabled(true);
             return;
         }
@@ -87,6 +96,7 @@ public class CropAdminFragment extends Fragment {
                             map.put("title", title.getText().toString());
                             map.put("description", desc.getText().toString());
                             map.put("imageUrl", uri.toString());
+                            map.put("cropLink", linkText);
 
                             db.collection("agriculture_crops").add(map);
 

@@ -31,7 +31,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder> {
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView title, desc, status;
+        TextView title, desc, status, postedBy;
         Button applyBtn, viewBtn;
 
         public ViewHolder(View v) {
@@ -39,6 +39,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder> {
             title = v.findViewById(R.id.job_title);
             desc = v.findViewById(R.id.job_desc);
             status = v.findViewById(R.id.job_status);
+            postedBy = v.findViewById(R.id.job_posted_by);
             applyBtn = v.findViewById(R.id.apply_btn);
             viewBtn = v.findViewById(R.id.view_app_btn);
         }
@@ -53,6 +54,14 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ViewHolder> {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         h.title.setText(job.title);
+        
+        if (job.postedByName != null && !job.postedByName.isEmpty()) {
+            h.postedBy.setText(context.getString(R.string.by_prefix) + " " + job.postedByName);
+            h.postedBy.setVisibility(View.VISIBLE);
+        } else {
+            h.postedBy.setVisibility(View.GONE);
+        }
+        
         String xyz = job.description + "\n\n" +job.requirement;
         h.desc.setText(xyz);
 

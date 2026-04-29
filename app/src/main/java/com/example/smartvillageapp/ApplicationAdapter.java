@@ -4,6 +4,9 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.app.AlertDialog;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,7 +29,7 @@ public class ApplicationAdapter extends RecyclerView.Adapter<ApplicationAdapter.
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView name, email, status;
-        Button approve, reject;
+        Button approve, reject, userDetailsBtn;
 
         public ViewHolder(View v) {
             super(v);
@@ -35,6 +38,7 @@ public class ApplicationAdapter extends RecyclerView.Adapter<ApplicationAdapter.
             status = v.findViewById(R.id.app_status);
             approve = v.findViewById(R.id.approve_btn);
             reject = v.findViewById(R.id.reject_btn);
+            userDetailsBtn = v.findViewById(R.id.user_details_btn);
         }
     }
 
@@ -64,6 +68,44 @@ public class ApplicationAdapter extends RecyclerView.Adapter<ApplicationAdapter.
 
         h.reject.setOnClickListener(v -> {
             updateStatus(app, "rejected");
+        });
+
+        h.userDetailsBtn.setOnClickListener(v -> {
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            db.collection("users").document(app.applicantId).get()
+                .addOnSuccessListener(doc -> {
+                    if (doc.exists()) {
+                        String userName = doc.getString("username");
+                        String userEmail = doc.getString("email");
+                        String contact = doc.getString("contact");
+                        String birthdate = doc.getString("birthdate");
+                        String gender = doc.getString("gender");
+                        
+                        String message = "Name: " + (userName != null ? userName : "N/A") + "\n"
+                                       + "Email: " + (userEmail != null ? userEmail : "N/A") + "\n"
+                                       + "Contact: " + (contact != null ? contact : "N/A") + "\n"
+                                       + "Birthdate: " + (birthdate != null ? birthdate : "N/A") + "\n"
+                                       + "Gender: " + (gender != null ? gender : "N/A");
+                                       
+                        View dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_applicant_details, null);
+                        TextView detailsText = dialogView.findViewById(R.id.dialog_details_text);
+                        detailsText.setText(message);
+                        
+                        AlertDialog dialog = new AlertDialog.Builder(context)
+                                .setView(dialogView)
+                                .create();
+                                
+                        if (dialog.getWindow() != null) {
+                            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                        }
+                        
+                        dialogView.findViewById(R.id.btn_close).setOnClickListener(view -> dialog.dismiss());
+                        
+                        dialog.show();
+                    } else {
+                        Toast.makeText(context, "User details not found", Toast.LENGTH_SHORT).show();
+                    }
+                });
         });
     }
 
