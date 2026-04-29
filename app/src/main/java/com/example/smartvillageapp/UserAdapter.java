@@ -17,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import android.view.Menu;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.VH> {
 
@@ -80,18 +81,18 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.VH> {
 
             PopupMenu menu = new PopupMenu(context, h.itemView);
 
-            menu.getMenu().add("Add Bill");
-            menu.getMenu().add("View Previous Bills");
+            menu.getMenu().add(Menu.NONE, 1, Menu.NONE, context.getString(R.string.add_bill_menu));
+            menu.getMenu().add(Menu.NONE, 2, Menu.NONE, context.getString(R.string.view_previous_bills));
 
             menu.setOnMenuItemClickListener(item -> {
 
-                if (item.getTitle().equals("Add Bill")) {
+                if (item.getItemId() == 1) {
 
                     Intent i1 = new Intent(context, AddBillActivity.class);
                     i1.putExtra("userId", u.id);
                     context.startActivity(i1);
 
-                } else if (item.getTitle().equals("View Previous Bills")) {
+                } else if (item.getItemId() == 2) {
 
                     Intent i2 = new Intent(context, UserBillsActivity.class);
                     i2.putExtra("userId", u.id);

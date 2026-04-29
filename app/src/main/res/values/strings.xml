@@ -303,4 +303,100 @@
     <string name="crop_link_hint">Crop Link (URL)</string>
     <string name="invalid_link_format">Invalid link format</string>
     <string name="choose_action">Choose Action</string>
+
+    <!-- Empty State Messages -->
+    <string name="empty_contacts">No contacts available</string>
+    <string name="empty_businesses">No local businesses listed yet</string>
+    <string name="empty_bills">No bills found</string>
+    <string name="empty_jobs">No jobs found</string>
+    <string name="empty_locations">No locations available</string>
+    <string name="empty_schemes">No schemes available currently</string>
+    <string name="empty_developments">No development projects to show</string>
+    <string name="empty_notices">No recent notices found</string>
+    <string name="empty_complaints">No complaints filed yet</string>
+    <string name="empty_crops">No crop information available</string>
+    <string name="empty_videos">No videos available</string>
+    <string name="empty_users">No users registered</string>
+    <string name="empty_user_bills">No previous bills found for this user</string>
+    <string name="empty_user_logs">No activity logs for this user</string>
+    <string name="empty_logs">No activity logs found</string>
+    <string name="empty_logs_search">No logs found for this search</string>
+    <string name="empty_complaints_admin">No pending complaints</string>
+
+    <!-- Dialog / Confirmation Strings -->
+    <string name="delete">Delete</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="delete_contact_title">Delete Contact</string>
+    <string name="delete_location_title">Delete Location</string>
+    <string name="delete_scheme_title">Delete Scheme</string>
+    <string name="delete_development_title">Delete Development Project</string>
+    <string name="delete_crop_title">Delete Crop</string>
+    <string name="delete_video_title">Delete Video</string>
+    <string name="delete_user_title">Delete User</string>
+    <string name="confirm_delete_contact">Are you sure you want to delete this contact?</string>
+    <string name="confirm_delete_location">Are you sure you want to delete this location?</string>
+    <string name="confirm_delete_scheme">Are you sure you want to delete this scheme?</string>
+    <string name="confirm_delete_development">Are you sure you want to delete this project?</string>
+    <string name="confirm_delete_crop">Are you sure you want to delete this crop?</string>
+    <string name="confirm_delete_video">Are you sure you want to delete this video?</string>
+    <string name="confirm_delete_user">Are you sure you want to delete user %1$s?</string>
+
+    <!-- Menu / Action Strings -->
+    <string name="see_details">See Details</string>
+    <string name="add_bill_menu">Add Bill</string>
+    <string name="view_previous_bills">View Previous Bills</string>
+    <string name="call_action">Call</string>
+    <string name="mail_action">Mail</string>
+    <string name="open_in_maps">Open in Maps</string>
+    <string name="user_details_label">User Details</string>
+    <string name="applicant_details">Applicant Details</string>
+    <string name="close_btn">Close</string>
+    <string name="update_contact">Update Contact</string>
+
+    <!-- Filter / Tab Strings -->
+    <string name="filter_all">All</string>
+    <string name="filter_paid">Paid</string>
+    <string name="filter_all_jobs">All Jobs</string>
+    <string name="filter_posted_by_me">Posted by Me</string>
+    <string name="filter_applied_by_me">Applied by Me</string>
+    <string name="filter_all_users">All Users</string>
+    <string name="filter_overdue_users">Overdue Users</string>
+    <string name="filter_pending">Pending</string>
+    <string name="filter_in_progress">In Progress</string>
+    <string name="activity_logs_title">Activity Logs</string>
+
+    <!-- Misc Strings -->
+    <string name="unknown">Unknown</string>
+    <string name="not_available">N/A</string>
+    <string name="contact_updated_success">Contact updated successfully</string>
+    <string name="job_posted_success">Job Posted</string>
+    <string name="failed_to_post_job">Failed to post job</string>
+    <string name="failed_generic">Failed</string>
+    <string name="failed_to_get_user">Failed to get user</string>
+    <string name="invalid_progress_value">Invalid progress</string>
+    <string name="user_details_not_found">User details not found</string>
+    <string name="id_label">ID: %1$s</string>
+    <string name="name_label">Name: %1$s</string>
+    <string name="email_label">Email: %1$s</string>
+    <string name="contact_label">Contact: %1$s</string>
+    <string name="birthdate_label">Birthdate: %1$s</string>
+    <string name="gender_label">Gender: %1$s</string>
+    <string name="application_status_msg">Application %1$s</string>
+    <string name="invalid_link">Invalid link</string>
+    <string name="add_video_label">Add Video</string>
+    <string name="add_crop_label">Add Crop</string>
+    <string name="no_records_found">No records found</string>
+    <string name="failed_to_add_video">Failed to add video</string>
+    <string name="user_comment">User Comment</string>
+    <string name="user_post">User post</string>
+    <string name="search_logs_hint">Search logs...</string>
+
+    <!-- About Village long texts -->
+    <string name="vision_text">Our village is committed to development, digital literacy, and sustainable growth. With strong community values and modern infrastructure, we are building a brighter future for every citizen.</string>
+    <string name="vision_goal_text">To transform our village into a fully digital, self-sustainable and environmentally friendly smart village while preserving our cultural heritage.</string>
+    <string name="facilities_list">• Digital Service Center\n• Public Library\n• Smart Water Supply\n• 24x7 Electricity\n• Community Hall\n• Health Center</string>
+    <string name="development_goals_list">• Promote Digital Literacy\n• Support Local Businesses\n• Improve Agricultural Productivity\n• Encourage Youth Employment\n• Sustainable Energy Initiatives</string>
+    <string name="contact_info_text">Village Office\nPhone: +91 9876543210\nEmail: smartvillage@gmail.com\nAddress: Main Road, Smart Village</string>
+    <string name="search_crops_hint">Search crops...</string>
+    <string name="visibility_duration_hint">Visibility Duration (Days, Optional)</string>
 </resources>

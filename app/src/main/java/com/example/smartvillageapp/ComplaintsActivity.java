@@ -34,7 +34,7 @@ public class ComplaintsActivity extends BaseActivity {
 
         emptyStateLayout = findViewById(R.id.empty_state_layout);
         emptyStateMsg = findViewById(R.id.empty_state_message);
-        emptyStateMsg.setText("No complaints filed yet");
+        emptyStateMsg.setText(getString(R.string.empty_complaints));
 
         recycler.setLayoutManager(new LinearLayoutManager(this));
         adapter = new ComplaintAdapter(this, list);

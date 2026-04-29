@@ -35,7 +35,7 @@ public class AdminComplaintActivity extends BaseActivity {
 
         emptyStateLayout = findViewById(R.id.empty_state_layout);
         emptyStateMsg = findViewById(R.id.empty_state_message);
-        emptyStateMsg.setText("No pending complaints");
+        emptyStateMsg.setText(getString(R.string.empty_complaints_admin));
 
         adapter = new AdminComplaintAdapter(this, list);
         recyclerView.setAdapter(adapter);

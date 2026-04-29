@@ -131,7 +131,7 @@ public class AddBillActivity extends BaseActivity {
         try {
             Long.parseLong(amount.getText().toString());
         } catch (NumberFormatException e) {
-            Toast.makeText(this, "Invalid amount", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.invalid_amount), Toast.LENGTH_SHORT).show();
             addBtn.setEnabled(true);
             return;
         }
@@ -207,13 +207,13 @@ public class AddBillActivity extends BaseActivity {
                                     }
                                 })
                                 .addOnFailureListener(e -> {
-                                    Toast.makeText(this, "Upload failed", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(this, getString(R.string.upload_failed), Toast.LENGTH_SHORT).show();
                                     addBtn.setEnabled(true);
                                 });
                     }
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(this, "Failed to get user", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.failed_to_get_user), Toast.LENGTH_SHORT).show();
                     addBtn.setEnabled(true);
                 });
     }

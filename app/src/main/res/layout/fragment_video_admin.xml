@@ -53,7 +53,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/add_btn"
-            android:text="Add Video"
+            android:text="@string/add_video_label"
             android:textSize="16sp"
             android:layout_width="match_parent"
             android:layout_height="60dp"

@@ -35,7 +35,7 @@ public class SchemesActivity extends BaseActivity {
 
         emptyStateLayout = findViewById(R.id.empty_state_layout);
         emptyStateMsg = findViewById(R.id.empty_state_message);
-        emptyStateMsg.setText("No schemes available currently");
+        emptyStateMsg.setText(getString(R.string.empty_schemes));
 
         adapter = new SchemeAdapter(this, list);
         recycler.setAdapter(adapter);
@@ -67,9 +67,9 @@ public class SchemesActivity extends BaseActivity {
                 SchemeModel scheme = list.get(position);
                 
                 DialogUtils.showConfirmDialog(SchemesActivity.this,
-                    "Delete Scheme",
-                    "Are you sure you want to delete this scheme?",
-                    "Delete",
+                    getString(R.string.delete_scheme_title),
+                    getString(R.string.confirm_delete_scheme),
+                    getString(R.string.delete),
                     new DialogUtils.DialogCallback() {
                         @Override
                         public void onPositive() {

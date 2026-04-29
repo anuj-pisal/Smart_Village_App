@@ -34,7 +34,7 @@ public class BillsActivity extends BaseActivity {
 
         emptyStateLayout = findViewById(R.id.empty_state_layout);
         emptyStateMsg = findViewById(R.id.empty_state_message);
-        emptyStateMsg.setText("No bills found");
+        emptyStateMsg.setText(getString(R.string.empty_bills));
 
         adapter = new BillAdapter(this, list);
         recycler.setAdapter(adapter);

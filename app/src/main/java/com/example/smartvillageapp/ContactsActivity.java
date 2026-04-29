@@ -48,7 +48,7 @@ public class ContactsActivity extends BaseActivity {
 
         emptyStateLayout = findViewById(R.id.empty_state_layout);
         emptyStateMsg = findViewById(R.id.empty_state_message);
-        emptyStateMsg.setText("No contacts available");
+        emptyStateMsg.setText(getString(R.string.empty_contacts));
 
         adapter = new ContactsAdapter(this, contactList);
         
@@ -95,9 +95,9 @@ public class ContactsActivity extends BaseActivity {
                 ContactsModel contact = contactList.get(position);
                 
                 DialogUtils.showConfirmDialog(ContactsActivity.this,
-                    "Delete Contact",
-                    "Are you sure you want to delete this contact?",
-                    "Delete",
+                    getString(R.string.delete_contact_title),
+                    getString(R.string.confirm_delete_contact),
+                    getString(R.string.delete),
                     new DialogUtils.DialogCallback() {
                         @Override
                         public void onPositive() {

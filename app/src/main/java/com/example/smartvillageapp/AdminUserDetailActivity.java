@@ -43,7 +43,7 @@ public class AdminUserDetailActivity extends BaseActivity {
 
         nameTv.setText(userName);
         emailTv.setText(userEmail);
-        idTv.setText("ID: " + userId);
+        idTv.setText(getString(R.string.id_label, userId));
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new AdminLogsAdapter(this, logList);
@@ -71,7 +71,7 @@ public class AdminUserDetailActivity extends BaseActivity {
 
                     if (logList.isEmpty()) {
                         emptyStateLayout.setVisibility(View.VISIBLE);
-                        emptyStateMsg.setText("No activity logs for this user");
+                        emptyStateMsg.setText(getString(R.string.empty_user_logs));
                         recyclerView.setVisibility(View.GONE);
                     } else {
                         emptyStateLayout.setVisibility(View.GONE);

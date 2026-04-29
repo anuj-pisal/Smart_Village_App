@@ -42,7 +42,7 @@ public class DevelopmentActivity extends BaseActivity {
 
         emptyStateLayout = findViewById(R.id.empty_state_layout);
         emptyStateMsg = findViewById(R.id.empty_state_message);
-        emptyStateMsg.setText("No development projects to show");
+        emptyStateMsg.setText(getString(R.string.empty_developments));
 
         list = new ArrayList<>();
         adapter = new DevelopmentAdapter(this, list);
@@ -75,9 +75,9 @@ public class DevelopmentActivity extends BaseActivity {
                 DevelopmentModel model = list.get(position);
 
                 DialogUtils.showConfirmDialog(DevelopmentActivity.this,
-                        "Delete Development Project",
-                        "Are you sure you want to delete this project?",
-                        "Delete",
+                        getString(R.string.delete_development_title),
+                        getString(R.string.confirm_delete_development),
+                        getString(R.string.delete),
                         new DialogUtils.DialogCallback() {
                             @Override
                             public void onPositive() {

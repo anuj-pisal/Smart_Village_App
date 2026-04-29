@@ -45,7 +45,7 @@ public class JobsActivity extends BaseActivity {
 
         emptyStateLayout = findViewById(R.id.empty_state_layout);
         emptyStateMsg = findViewById(R.id.empty_state_message);
-        emptyStateMsg.setText("No jobs found");
+        emptyStateMsg.setText(getString(R.string.empty_jobs));
 
         filterGroup = findViewById(R.id.job_filter_group);
         filterGroup.setOnCheckedChangeListener((group, checkedId) -> applyFilter());

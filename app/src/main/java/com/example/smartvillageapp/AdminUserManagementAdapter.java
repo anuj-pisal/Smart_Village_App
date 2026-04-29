@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
+import android.view.Menu;
 
 public class AdminUserManagementAdapter extends RecyclerView.Adapter<AdminUserManagementAdapter.VH> {
 
@@ -47,22 +48,22 @@ public class AdminUserManagementAdapter extends RecyclerView.Adapter<AdminUserMa
         h.itemView.setOnLongClickListener(v -> {
 
             PopupMenu menu = new PopupMenu(context, h.itemView);
-            menu.getMenu().add("See Details");
-            menu.getMenu().add("Delete User");
+            menu.getMenu().add(Menu.NONE, 1, Menu.NONE, context.getString(R.string.see_details));
+            menu.getMenu().add(Menu.NONE, 2, Menu.NONE, context.getString(R.string.delete_user_title));
 
             menu.setOnMenuItemClickListener(item -> {
 
-                if (item.getTitle().equals("See Details")) {
+                if (item.getItemId() == 1) {
                     Intent intent = new Intent(context, AdminUserDetailActivity.class);
                     intent.putExtra("userId", u.id);
                     intent.putExtra("name", u.name);
                     intent.putExtra("email", u.email);
                     context.startActivity(intent);
-                } else if (item.getTitle().equals("Delete User")) {
+                } else if (item.getItemId() == 2) {
                     DialogUtils.showConfirmDialog(context,
-                            "Delete User",
-                            "Are you sure you want to delete user " + u.name + "?",
-                            "Delete",
+                            context.getString(R.string.delete_user_title),
+                            context.getString(R.string.confirm_delete_user, u.name),
+                            context.getString(R.string.delete),
                             new DialogUtils.DialogCallback() {
                                 @Override
                                 public void onPositive() {

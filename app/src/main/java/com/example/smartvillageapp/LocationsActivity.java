@@ -38,7 +38,7 @@ public class LocationsActivity extends BaseActivity {
 
         emptyStateLayout = findViewById(R.id.empty_state_layout);
         emptyStateMsg = findViewById(R.id.empty_state_message);
-        emptyStateMsg.setText("No locations available");
+        emptyStateMsg.setText(getString(R.string.empty_locations));
 
         list = new ArrayList<>();
         adapter = new LocationAdapter(this, list);
@@ -71,9 +71,9 @@ public class LocationsActivity extends BaseActivity {
                 LocationModel location = list.get(position);
                 
                 DialogUtils.showConfirmDialog(LocationsActivity.this,
-                    "Delete Location",
-                    "Are you sure you want to delete this location?",
-                    "Delete",
+                    getString(R.string.delete_location_title),
+                    getString(R.string.confirm_delete_location),
+                    getString(R.string.delete),
                     new DialogUtils.DialogCallback() {
                         @Override
                         public void onPositive() {

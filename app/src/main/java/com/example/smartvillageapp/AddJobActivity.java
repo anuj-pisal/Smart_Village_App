@@ -56,11 +56,11 @@ public class AddJobActivity extends BaseActivity {
                             "user",
                             "Job: posted job entitled (" + title.getText().toString() + ")"
                     );
-                    Toast.makeText(this, "Job Posted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.job_posted_success), Toast.LENGTH_SHORT).show();
                     finish();
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(this, "Failed to post job", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.failed_to_post_job), Toast.LENGTH_SHORT).show();
                     submit.setEnabled(true);
                 });
 

@@ -38,7 +38,7 @@ public class AdminLogsActivity extends BaseActivity {
 
         emptyStateLayout = findViewById(R.id.empty_state_layout);
         emptyStateMsg = findViewById(R.id.empty_state_message);
-        emptyStateMsg.setText("No activity logs found");
+        emptyStateMsg.setText(getString(R.string.empty_logs));
 
         adapter = new AdminLogsAdapter(this, list);
         recycler.setAdapter(adapter);
@@ -106,9 +106,9 @@ public class AdminLogsActivity extends BaseActivity {
         if (list.isEmpty()) {
             emptyStateLayout.setVisibility(View.VISIBLE);
             if (searchView != null && !searchView.getQuery().toString().isEmpty()) {
-                emptyStateMsg.setText("No logs found for this user/action");
+                emptyStateMsg.setText(getString(R.string.empty_logs_search));
             } else {
-                emptyStateMsg.setText("No activity logs found");
+                emptyStateMsg.setText(getString(R.string.empty_logs));
             }
             recycler.setVisibility(View.GONE);
         } else {

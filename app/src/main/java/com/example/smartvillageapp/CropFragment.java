@@ -48,7 +48,7 @@ public class CropFragment extends Fragment {
 
         emptyStateLayout = view.findViewById(R.id.empty_state_layout);
         emptyStateMsg = view.findViewById(R.id.empty_state_message);
-        emptyStateMsg.setText("No crop information available");
+        emptyStateMsg.setText(getString(R.string.empty_crops));
 
         list = new ArrayList<>();
         adapter = new CropAdapter(getContext(), list);
@@ -83,9 +83,9 @@ public class CropFragment extends Fragment {
                 CropModel model = list.get(position);
 
                 DialogUtils.showConfirmDialog(getContext(),
-                        "Delete Crop",
-                        "Are you sure you want to delete this crop?",
-                        "Delete",
+                        getString(R.string.delete_crop_title),
+                        getString(R.string.confirm_delete_crop),
+                        getString(R.string.delete),
                         new DialogUtils.DialogCallback() {
                             @Override
                             public void onPositive() {

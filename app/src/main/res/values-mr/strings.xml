@@ -299,4 +299,100 @@
     <string name="smart_village_project_desc">स्मार्ट व्हिलेज प्रकल्प</string>
 
     <string name="choose_action">क्रिया निवडा</string>
+
+    <!-- Empty State Messages -->
+    <string name="empty_contacts">संपर्क उपलब्ध नाहीत</string>
+    <string name="empty_businesses">अद्याप कोणताही स्थानिक व्यवसाय सूचीबद्ध नाही</string>
+    <string name="empty_bills">बिले आढळली नाहीत</string>
+    <string name="empty_jobs">नोकऱ्या आढळल्या नाहीत</string>
+    <string name="empty_locations">ठिकाणे उपलब्ध नाहीत</string>
+    <string name="empty_schemes">सध्या कोणत्याही योजना उपलब्ध नाहीत</string>
+    <string name="empty_developments">दाखवण्यासाठी विकास प्रकल्प नाहीत</string>
+    <string name="empty_notices">अलीकडील सूचना आढळल्या नाहीत</string>
+    <string name="empty_complaints">अद्याप कोणतीही तक्रार दाखल नाही</string>
+    <string name="empty_crops">पिकांची माहिती उपलब्ध नाही</string>
+    <string name="empty_videos">व्हिडिओ उपलब्ध नाहीत</string>
+    <string name="empty_users">कोणताही वापरकर्ता नोंदणीकृत नाही</string>
+    <string name="empty_user_bills">या वापरकर्त्याची पूर्वीची बिले आढळली नाहीत</string>
+    <string name="empty_user_logs">या वापरकर्त्यासाठी कोणत्याही क्रियाकलाप नोंदी नाहीत</string>
+    <string name="empty_logs">क्रियाकलाप नोंदी आढळल्या नाहीत</string>
+    <string name="empty_logs_search">या शोधासाठी नोंदी आढळल्या नाहीत</string>
+    <string name="empty_complaints_admin">प्रलंबित तक्रारी नाहीत</string>
+
+    <!-- Dialog / Confirmation Strings -->
+    <string name="delete">हटवा</string>
+    <string name="dialog_cancel">रद्द करा</string>
+    <string name="delete_contact_title">संपर्क हटवा</string>
+    <string name="delete_location_title">ठिकाण हटवा</string>
+    <string name="delete_scheme_title">योजना हटवा</string>
+    <string name="delete_development_title">विकास प्रकल्प हटवा</string>
+    <string name="delete_crop_title">पीक हटवा</string>
+    <string name="delete_video_title">व्हिडिओ हटवा</string>
+    <string name="delete_user_title">वापरकर्ता हटवा</string>
+    <string name="confirm_delete_contact">तुम्हाला हा संपर्क हटवायचा आहे का?</string>
+    <string name="confirm_delete_location">तुम्हाला हे ठिकाण हटवायचे आहे का?</string>
+    <string name="confirm_delete_scheme">तुम्हाला ही योजना हटवायची आहे का?</string>
+    <string name="confirm_delete_development">तुम्हाला हा प्रकल्प हटवायचा आहे का?</string>
+    <string name="confirm_delete_crop">तुम्हाला हे पीक हटवायचे आहे का?</string>
+    <string name="confirm_delete_video">तुम्हाला हा व्हिडिओ हटवायचा आहे का?</string>
+    <string name="confirm_delete_user">तुम्हाला वापरकर्ता %1$s हटवायचे आहे का?</string>
+
+    <!-- Menu / Action Strings -->
+    <string name="see_details">तपशील पहा</string>
+    <string name="add_bill_menu">बिल जोडा</string>
+    <string name="view_previous_bills">पूर्वीची बिले पहा</string>
+    <string name="call_action">कॉल करा</string>
+    <string name="mail_action">मेल करा</string>
+    <string name="open_in_maps">नकाशात पहा</string>
+    <string name="user_details_label">वापरकर्ता तपशील</string>
+    <string name="applicant_details">अर्जदाराचा तपशील</string>
+    <string name="close_btn">बंद करा</string>
+    <string name="update_contact">संपर्क अद्यतनित करा</string>
+
+    <!-- Filter / Tab Strings -->
+    <string name="filter_all">सर्व</string>
+    <string name="filter_paid">भरलेले</string>
+    <string name="filter_all_jobs">सर्व नोकऱ्या</string>
+    <string name="filter_posted_by_me">मी पोस्ट केलेल्या</string>
+    <string name="filter_applied_by_me">मी अर्ज केलेल्या</string>
+    <string name="filter_all_users">सर्व वापरकर्ते</string>
+    <string name="filter_overdue_users">थकबाकीदार वापरकर्ते</string>
+    <string name="filter_pending">प्रलंबित</string>
+    <string name="filter_in_progress">प्रगतीपथावर</string>
+    <string name="activity_logs_title">क्रियाकलाप नोंदी</string>
+
+    <!-- Misc Strings -->
+    <string name="unknown">अज्ञात</string>
+    <string name="not_available">उपलब्ध नाही</string>
+    <string name="contact_updated_success">संपर्क यशस्वीरित्या अद्यतनित</string>
+    <string name="job_posted_success">नोकरी पोस्ट केली</string>
+    <string name="failed_to_post_job">नोकरी पोस्ट करण्यात अयशस्वी</string>
+    <string name="failed_generic">अयशस्वी</string>
+    <string name="failed_to_get_user">वापरकर्ता मिळवण्यात अयशस्वी</string>
+    <string name="invalid_progress_value">अवैध प्रगती</string>
+    <string name="user_details_not_found">वापरकर्ता तपशील आढळले नाहीत</string>
+    <string name="id_label">आयडी: %1$s</string>
+    <string name="name_label">नाव: %1$s</string>
+    <string name="email_label">ईमेल: %1$s</string>
+    <string name="contact_label">संपर्क: %1$s</string>
+    <string name="birthdate_label">जन्मतारीख: %1$s</string>
+    <string name="gender_label">लिंग: %1$s</string>
+    <string name="application_status_msg">अर्ज %1$s</string>
+    <string name="invalid_link">अवैध लिंक</string>
+    <string name="add_video_label">व्हिडिओ जोडा</string>
+    <string name="add_crop_label">पीक जोडा</string>
+    <string name="no_records_found">नोंदी आढळल्या नाहीत</string>
+    <string name="failed_to_add_video">व्हिडिओ जोडण्यात अयशस्वी</string>
+    <string name="user_comment">वापरकर्ता टिप्पणी</string>
+    <string name="user_post">वापरकर्ता पोस्ट</string>
+    <string name="search_logs_hint">नोंदी शोधा...</string>
+
+    <!-- About Village long texts -->
+    <string name="vision_text">आमचे गाव विकास, डिजिटल साक्षरता आणि शाश्वत वाढीसाठी वचनबद्ध आहे. मजबूत सामुदायिक मूल्ये आणि आधुनिक पायाभूत सुविधांसह, आम्ही प्रत्येक नागरिकासाठी उज्ज्वल भविष्य घडवत आहोत.</string>
+    <string name="vision_goal_text">आमच्या सांस्कृतिक वारशाचे जतन करताना गावाचे पूर्णपणे डिजिटल, स्वयंपूर्ण आणि पर्यावरणपूरक स्मार्ट गाव बनवणे हे आमचे ध्येय आहे.</string>
+    <string name="facilities_list">• डिजिटल सेवा केंद्र\n• सार्वजनिक वाचनालय\n• स्मार्ट जलपुरवठा\n• २४x७ वीजपुरवठा\n• सामुदायिक सभागृह\n• आरोग्य केंद्र</string>
+    <string name="development_goals_list">• डिजिटल साक्षरता वाढवा\n• स्थानिक व्यवसायांना पाठिंबा\n• कृषी उत्पादकता सुधारा\n• युवा रोजगार प्रोत्साहन\n• शाश्वत ऊर्जा उपक्रम</string>
+    <string name="contact_info_text">ग्राम कार्यालय\nफोन: +91 9876543210\nईमेल: smartvillage@gmail.com\nपत्ता: मुख्य रस्ता, स्मार्ट व्हिलेज</string>
+    <string name="search_crops_hint">पिके शोधा...</string>
+    <string name="visibility_duration_hint">दृश्यता कालावधी (दिवस, पर्यायी)</string>
 </resources>

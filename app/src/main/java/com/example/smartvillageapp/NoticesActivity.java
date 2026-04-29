@@ -36,7 +36,7 @@ public class NoticesActivity extends BaseActivity {
 
         emptyStateLayout = findViewById(R.id.empty_state_layout);
         emptyStateMsg = findViewById(R.id.empty_state_message);
-        emptyStateMsg.setText("No recent notices found");
+        emptyStateMsg.setText(getString(R.string.empty_notices));
 
         list = new ArrayList<>();
         adapter = new NoticeAdapter(this, list);

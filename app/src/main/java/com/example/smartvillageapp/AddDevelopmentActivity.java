@@ -168,7 +168,7 @@ public class AddDevelopmentActivity extends BaseActivity {
         try {
             map.put("progress", Integer.parseInt(progress.getText().toString()));
         } catch (NumberFormatException e) {
-            Toast.makeText(this, "Invalid progress", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.invalid_progress_value), Toast.LENGTH_SHORT).show();
             uploadBtn.setEnabled(true);
             return;
         }
@@ -191,7 +191,7 @@ public class AddDevelopmentActivity extends BaseActivity {
                     finish();
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.failed_generic), Toast.LENGTH_SHORT).show();
                     uploadBtn.setEnabled(true);
                 });
     }

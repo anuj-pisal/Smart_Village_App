@@ -57,7 +57,7 @@ public class VideoAdminFragment extends Fragment {
                     addBtn.setEnabled(true);
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(getContext(), "Failed to add video", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getString(R.string.failed_to_add_video), Toast.LENGTH_SHORT).show();
                     addBtn.setEnabled(true);
                 });
 

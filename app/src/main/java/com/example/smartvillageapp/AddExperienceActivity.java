@@ -65,12 +65,12 @@ public class AddExperienceActivity extends BaseActivity {
                                     finish();
                                 })
                                 .addOnFailureListener(e -> {
-                                    Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(this, getString(R.string.failed_generic), Toast.LENGTH_SHORT).show();
                                     postBtn.setEnabled(true);
                                 });
                     })
                     .addOnFailureListener(e -> {
-                        Toast.makeText(this, "Failed to get user", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, getString(R.string.failed_to_get_user), Toast.LENGTH_SHORT).show();
                         postBtn.setEnabled(true);
                     });
         });

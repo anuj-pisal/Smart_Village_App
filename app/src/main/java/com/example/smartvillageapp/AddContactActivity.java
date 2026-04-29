@@ -39,7 +39,7 @@ public class AddContactActivity extends BaseActivity {
             designation.setText(getIntent().getStringExtra("designation"));
             phone.setText(getIntent().getStringExtra("phone"));
             email.setText(getIntent().getStringExtra("email"));
-            addBtn.setText("Update Contact");
+            addBtn.setText(getString(R.string.update_contact));
         }
 
         addBtn.setOnClickListener(v -> addContact());
@@ -93,7 +93,7 @@ public class AddContactActivity extends BaseActivity {
             db.collection("contacts").document(contactId)
                     .update(map)
                     .addOnSuccessListener(aVoid -> {
-                        Toast.makeText(this, "Contact updated successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, getString(R.string.contact_updated_success), Toast.LENGTH_SHORT).show();
                         finish();
                     })
                     .addOnFailureListener(e1 -> {

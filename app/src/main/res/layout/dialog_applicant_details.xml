@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Applicant Details"
+        android:text="@string/applicant_details"
         android:textColor="#F1F5F9"
         android:textSize="22sp"
         android:textStyle="bold" />
@@ -69,7 +69,7 @@
             android:layout_height="48dp"
             android:layout_weight="1"
             android:background="@drawable/bg_btn_cancel"
-            android:text="Close"
+            android:text="@string/close_btn"
             android:textColor="#CBD5E1"
             android:textSize="15sp"
             android:textAllCaps="false"

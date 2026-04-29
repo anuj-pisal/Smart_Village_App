@@ -48,7 +48,7 @@ public class ApplicationAdapter extends RecyclerView.Adapter<ApplicationAdapter.
         ApplicationModel app = list.get(i);
 
         // ✅ Show Name
-        h.name.setText(app.applicantName != null ? app.applicantName : "Unknown");
+        h.name.setText(app.applicantName != null ? app.applicantName : context.getString(R.string.unknown));
 
         // ✅ Show Email
         h.email.setText(app.applicantEmail != null ? app.applicantEmail : "");
@@ -81,11 +81,12 @@ public class ApplicationAdapter extends RecyclerView.Adapter<ApplicationAdapter.
                         String birthdate = doc.getString("birthdate");
                         String gender = doc.getString("gender");
                         
-                        String message = "Name: " + (userName != null ? userName : "N/A") + "\n"
-                                       + "Email: " + (userEmail != null ? userEmail : "N/A") + "\n"
-                                       + "Contact: " + (contact != null ? contact : "N/A") + "\n"
-                                       + "Birthdate: " + (birthdate != null ? birthdate : "N/A") + "\n"
-                                       + "Gender: " + (gender != null ? gender : "N/A");
+                        String na = context.getString(R.string.not_available);
+                        String message = context.getString(R.string.name_label, userName != null ? userName : na) + "\n"
+                                       + context.getString(R.string.email_label, userEmail != null ? userEmail : na) + "\n"
+                                       + context.getString(R.string.contact_label, contact != null ? contact : na) + "\n"
+                                       + context.getString(R.string.birthdate_label, birthdate != null ? birthdate : na) + "\n"
+                                       + context.getString(R.string.gender_label, gender != null ? gender : na);
                                        
                         View dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_applicant_details, null);
                         TextView detailsText = dialogView.findViewById(R.id.dialog_details_text);
@@ -103,7 +104,7 @@ public class ApplicationAdapter extends RecyclerView.Adapter<ApplicationAdapter.
                         
                         dialog.show();
                     } else {
-                        Toast.makeText(context, "User details not found", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, context.getString(R.string.user_details_not_found), Toast.LENGTH_SHORT).show();
                     }
                 });
         });
@@ -127,7 +128,7 @@ public class ApplicationAdapter extends RecyclerView.Adapter<ApplicationAdapter.
                     }
 
                     Toast.makeText(context,
-                            "Application " + status,
+                            context.getString(R.string.application_status_msg, status),
                             Toast.LENGTH_SHORT).show();
 
                     app.status = status;

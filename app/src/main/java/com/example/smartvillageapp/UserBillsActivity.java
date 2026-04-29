@@ -33,7 +33,7 @@ public class UserBillsActivity extends BaseActivity {
 
         emptyStateLayout = findViewById(R.id.empty_state_layout);
         emptyStateMsg = findViewById(R.id.empty_state_message);
-        emptyStateMsg.setText("No previous bills found for this user");
+        emptyStateMsg.setText(getString(R.string.empty_user_bills));
 
         // 🔥 INITIALIZE ADAPTER
         adapter = new BillUserAdapter(this, billList);

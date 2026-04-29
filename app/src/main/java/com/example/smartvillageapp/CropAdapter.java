@@ -58,7 +58,7 @@ public class CropAdapter extends RecyclerView.Adapter<CropAdapter.ViewHolder> {
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(c.cropLink));
                     context.startActivity(intent);
                 } catch (Exception e) {
-                    Toast.makeText(context, "Invalid link", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, context.getString(R.string.invalid_link), Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -27,7 +27,7 @@
             android:id="@+id/filter_all"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="All"
+            android:text="@string/filter_all"
             android:checked="true"
             android:layout_marginEnd="16dp" />
 
@@ -35,14 +35,14 @@
             android:id="@+id/filter_paid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Paid"
+            android:text="@string/filter_paid"
             android:layout_marginEnd="16dp" />
 
         <RadioButton
             android:id="@+id/filter_unpaid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Unpaid" />
+            android:text="@string/unpaid" />
     </RadioGroup>
 
     <androidx.recyclerview.widget.RecyclerView

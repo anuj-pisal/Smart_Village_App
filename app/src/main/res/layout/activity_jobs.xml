@@ -49,7 +49,7 @@
                 android:id="@+id/filter_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="All Jobs"
+                android:text="@string/filter_all_jobs"
                 android:checked="true" />
 
             <RadioButton
@@ -57,14 +57,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="Posted by Me" />
+                android:text="@string/filter_posted_by_me" />
 
             <RadioButton
                 android:id="@+id/filter_applied"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="Applied by Me" />
+                android:text="@string/filter_applied_by_me" />
         </RadioGroup>
     </HorizontalScrollView>
 

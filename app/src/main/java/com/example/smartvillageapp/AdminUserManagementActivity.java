@@ -32,7 +32,7 @@ public class AdminUserManagementActivity extends BaseActivity {
 
         emptyStateLayout = findViewById(R.id.empty_state_layout);
         emptyStateMsg = findViewById(R.id.empty_state_message);
-        emptyStateMsg.setText("No users registered");
+        emptyStateMsg.setText(getString(R.string.empty_users));
 
         adapter = new AdminUserManagementAdapter(this, list);
         recyclerView.setAdapter(adapter);

@@ -45,7 +45,7 @@ public class VideoFragment extends Fragment {
 
         emptyStateLayout = view.findViewById(R.id.empty_state_layout);
         emptyStateMsg = view.findViewById(R.id.empty_state_message);
-        emptyStateMsg.setText("No videos available");
+        emptyStateMsg.setText(getString(R.string.empty_videos));
 
         list = new ArrayList<>();
         adapter = new VideoAdapter(getContext(), list);
@@ -80,9 +80,9 @@ public class VideoFragment extends Fragment {
                 VideoModel model = list.get(position);
 
                 DialogUtils.showConfirmDialog(getContext(),
-                        "Delete Video",
-                        "Are you sure you want to delete this video?",
-                        "Delete",
+                        getString(R.string.delete_video_title),
+                        getString(R.string.confirm_delete_video),
+                        getString(R.string.delete),
                         new DialogUtils.DialogCallback() {
                             @Override
                             public void onPositive() {

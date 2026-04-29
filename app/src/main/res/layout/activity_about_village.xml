@@ -75,7 +75,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:text="Our village is committed to development, digital literacy, and sustainable growth. With strong community values and modern infrastructure, we are building a brighter future for every citizen."
+                    android:text="@string/vision_text"
                     android:textSize="15sp"
                     android:textColor="@android:color/white"/>
             </com.google.android.material.card.MaterialCardView>
@@ -253,7 +253,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:text="To transform our village into a fully digital, self-sustainable and environmentally friendly smart village while preserving our cultural heritage."
+                    android:text="@string/vision_goal_text"
                     android:textSize="15sp"
                     android:textColor="@android:color/white"/>
             </com.google.android.material.card.MaterialCardView>
@@ -280,7 +280,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:text="• Digital Service Center\n• Public Library\n• Smart Water Supply\n• 24x7 Electricity\n• Community Hall\n• Health Center"
+                    android:text="@string/facilities_list"
                     android:textSize="15sp"
                     android:textColor="@android:color/white"/>
             </com.google.android.material.card.MaterialCardView>
@@ -307,7 +307,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:text="• Promote Digital Literacy\n• Support Local Businesses\n• Improve Agricultural Productivity\n• Encourage Youth Employment\n• Sustainable Energy Initiatives"
+                    android:text="@string/development_goals_list"
                     android:textSize="15sp"
                     android:textColor="@android:color/white"/>
             </com.google.android.material.card.MaterialCardView>
@@ -334,7 +334,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:text="Village Office\nPhone: +91 9876543210\nEmail: smartvillage@gmail.com\nAddress: Main Road, Smart Village"
+                    android:text="@string/contact_info_text"
                     android:textSize="15sp"
                     android:textColor="@android:color/white"/>
             </com.google.android.material.card.MaterialCardView>
