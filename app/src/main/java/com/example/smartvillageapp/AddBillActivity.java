@@ -29,7 +29,7 @@ import java.util.Map;
 
 public class AddBillActivity extends BaseActivity {
 
-    EditText title, amount, desc, date, visibilityDuration;
+    EditText title, amount, desc, date;
     Button selectImages, addBtn;
 
     List<Uri> imageUris = new ArrayList<>();
@@ -49,7 +49,7 @@ public class AddBillActivity extends BaseActivity {
         amount = findViewById(R.id.amount);
         desc = findViewById(R.id.desc);
         date = findViewById(R.id.date);
-        visibilityDuration = findViewById(R.id.visibilityDuration);
+
         selectImages = findViewById(R.id.select_images);
         addBtn = findViewById(R.id.add_btn);
 
@@ -179,15 +179,6 @@ public class AddBillActivity extends BaseActivity {
                                         map.put("images", urls);
                                         map.put("timestamp", System.currentTimeMillis());
                                         
-                                        String durationStr = visibilityDuration.getText().toString();
-                                        long expiryTimestamp = 0;
-                                        if (!durationStr.isEmpty()) {
-                                            try {
-                                                long days = Long.parseLong(durationStr);
-                                                expiryTimestamp = System.currentTimeMillis() + (days * 24L * 60L * 60L * 1000L);
-                                            } catch (NumberFormatException ignored) {}
-                                        }
-                                        map.put("expiryTimestamp", expiryTimestamp);
 
                                         db.collection("bills").add(map);
 

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.View;
 import android.widget.*;
 
 import androidx.annotation.Nullable;
@@ -19,8 +20,11 @@ import java.util.Map;
 public class AddNoticeActivity extends BaseActivity {
 
     ImageView imageView;
-    EditText title;
+    EditText title, description, visibilityDuration;
     Button selectBtn, uploadBtn;
+    RadioGroup noticeTypeGroup;
+    View imageContainer;
+    View descLayout;
 
     Uri imageUri;
 
@@ -36,11 +40,28 @@ public class AddNoticeActivity extends BaseActivity {
 
         imageView = findViewById(R.id.notice_image);
         title = findViewById(R.id.title);
+        description = findViewById(R.id.description);
+        visibilityDuration = findViewById(R.id.visibilityDuration);
         selectBtn = findViewById(R.id.select_image_btn);
         uploadBtn = findViewById(R.id.upload_btn);
+        noticeTypeGroup = findViewById(R.id.notice_type_group);
+        imageContainer = findViewById(R.id.image_container);
+        descLayout = findViewById(R.id.desc_layout);
 
         storage = FirebaseStorage.getInstance();
         db = FirebaseFirestore.getInstance();
+
+        descLayout.setVisibility(View.GONE); // Default is Image
+
+        noticeTypeGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            if (checkedId == R.id.radio_text) {
+                imageContainer.setVisibility(View.GONE);
+                descLayout.setVisibility(View.VISIBLE);
+            } else {
+                imageContainer.setVisibility(View.VISIBLE);
+                descLayout.setVisibility(View.GONE);
+            }
+        });
 
         selectBtn.setOnClickListener(v -> openGallery());
 
@@ -68,46 +89,72 @@ public class AddNoticeActivity extends BaseActivity {
     private void uploadNotice() {
 
         String t = title.getText().toString().trim();
+        String desc = description.getText().toString().trim();
+        boolean isTextNotice = noticeTypeGroup.getCheckedRadioButtonId() == R.id.radio_text;
 
-        if (t.isEmpty() || imageUri == null) {
+        if (t.isEmpty() || (!isTextNotice && imageUri == null) || (isTextNotice && desc.isEmpty())) {
             Toast.makeText(this, getString(R.string.all_fields_required), Toast.LENGTH_SHORT).show();
             uploadBtn.setEnabled(true);
             return;
         }
 
-        String fileName = "notice_" + System.currentTimeMillis();
+        String durationStr = visibilityDuration.getText().toString();
+        long expiryTimestamp = 0;
+        if (!durationStr.isEmpty()) {
+            try {
+                long days = Long.parseLong(durationStr);
+                expiryTimestamp = System.currentTimeMillis() + (days * 24L * 60L * 60L * 1000L);
+            } catch (NumberFormatException ignored) {}
+        }
 
-        StorageReference ref = storage.getReference()
-                .child("notice_images/" + fileName);
+        if (isTextNotice) {
+            Map<String, Object> map = new HashMap<>();
+            map.put("title", t);
+            map.put("description", desc);
+            map.put("type", "text");
+            map.put("timestamp", System.currentTimeMillis());
+            map.put("expiryTimestamp", expiryTimestamp);
 
-        ref.putFile(imageUri)
-                .addOnSuccessListener(task -> ref.getDownloadUrl()
-                        .addOnSuccessListener(uri -> {
+            db.collection("notices")
+                    .add(map)
+                    .addOnSuccessListener(d -> {
+                        AppLogger.log("Notice Published", "NA", "admin", "Text Notice: ( " + t + " ) is added");
+                        Toast.makeText(this, getString(R.string.notice_published), Toast.LENGTH_SHORT).show();
+                        finish();
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(this, getString(R.string.upload_failed_2), Toast.LENGTH_SHORT).show();
+                        uploadBtn.setEnabled(true);
+                    });
+        } else {
+            String fileName = "notice_" + System.currentTimeMillis();
+            StorageReference ref = storage.getReference().child("notice_images/" + fileName);
 
-                            String imageUrl = uri.toString();
+            long finalExpiryTimestamp = expiryTimestamp;
+            ref.putFile(imageUri)
+                    .addOnSuccessListener(task -> ref.getDownloadUrl()
+                            .addOnSuccessListener(uri -> {
+                                String imageUrl = uri.toString();
 
-                            Map<String, Object> map = new HashMap<>();
-                            map.put("title", t);
-                            map.put("imageUrl", imageUrl);
-                            map.put("timestamp", System.currentTimeMillis());
+                                Map<String, Object> map = new HashMap<>();
+                                map.put("title", t);
+                                map.put("imageUrl", imageUrl);
+                                map.put("type", "image");
+                                map.put("timestamp", System.currentTimeMillis());
+                                map.put("expiryTimestamp", finalExpiryTimestamp);
 
-                            db.collection("notices")
-                                    .add(map)
-                                    .addOnSuccessListener(d -> {
-                                        AppLogger.log(
-                                                "Notice Published",
-                                                "NA",
-                                                "admin",
-                                                "Notice: ( "+ t +" ) is added"
-                                        );
-                                        Toast.makeText(this, getString(R.string.notice_published), Toast.LENGTH_SHORT).show();
-                                        finish();
-                                    });
-
-                        }))
-                .addOnFailureListener(e -> {
-                    Toast.makeText(this, getString(R.string.upload_failed_2), Toast.LENGTH_SHORT).show();
-                    uploadBtn.setEnabled(true);
-                });
+                                db.collection("notices")
+                                        .add(map)
+                                        .addOnSuccessListener(d -> {
+                                            AppLogger.log("Notice Published", "NA", "admin", "Image Notice: ( " + t + " ) is added");
+                                            Toast.makeText(this, getString(R.string.notice_published), Toast.LENGTH_SHORT).show();
+                                            finish();
+                                        });
+                            }))
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(this, getString(R.string.upload_failed_2), Toast.LENGTH_SHORT).show();
+                        uploadBtn.setEnabled(true);
+                    });
+        }
     }
 }

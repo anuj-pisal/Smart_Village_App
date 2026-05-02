@@ -395,4 +395,12 @@
     <string name="contact_info_text">ग्राम कार्यालय\nफोन: +91 9876543210\nईमेल: smartvillage@gmail.com\nपत्ता: मुख्य रस्ता, स्मार्ट व्हिलेज</string>
     <string name="search_crops_hint">पिके शोधा...</string>
     <string name="visibility_duration_hint">दृश्यता कालावधी (दिवस, पर्यायी)</string>
+    <string name="image_notices_tab">चित्र सूचना</string>
+    <string name="text_announcements_tab">घोषणा</string>
+    <string name="image_notice">चित्र सूचना</string>
+    <string name="text_notice">मजकूर घोषणा</string>
+    <string name="notice_description">सूचनेचे वर्णन</string>
+    <string name="valid_until">येथपर्यंत वैध: %1$s</string>
+    <string name="posted_on">पोस्ट केले: %1$s</string>
+    <string name="read_more">पुढे वाचा</string>
 </resources>

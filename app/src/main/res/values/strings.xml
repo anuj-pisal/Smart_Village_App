@@ -399,4 +399,12 @@
     <string name="contact_info_text">Village Office\nPhone: +91 9876543210\nEmail: smartvillage@gmail.com\nAddress: Main Road, Smart Village</string>
     <string name="search_crops_hint">Search crops...</string>
     <string name="visibility_duration_hint">Visibility Duration (Days, Optional)</string>
+    <string name="image_notices_tab">Image Notices</string>
+    <string name="text_announcements_tab">Announcements</string>
+    <string name="image_notice">Image Notice</string>
+    <string name="text_notice">Text Announcement</string>
+    <string name="notice_description">Notice Description</string>
+    <string name="valid_until">Valid until: %1$s</string>
+    <string name="posted_on">Posted on: %1$s</string>
+    <string name="read_more">Read More</string>
 </resources>

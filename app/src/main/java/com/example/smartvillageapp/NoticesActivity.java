@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,10 +22,14 @@ import android.widget.TextView;
 public class NoticesActivity extends BaseActivity {
 
     RecyclerView recyclerView;
-    List<NoticeModel> list;
-    NoticeAdapter adapter;
+    List<NoticeModel> imageNoticesList;
+    List<NoticeModel> textNoticesList;
+    NoticeAdapter imageAdapter;
+    TextNoticeAdapter textAdapter;
     View emptyStateLayout;
     TextView emptyStateMsg;
+    TabLayout tabLayout;
+    int currentTabPosition = 0;
 
     @Override
     protected void onCreate(Bundle b) {
@@ -38,11 +43,53 @@ public class NoticesActivity extends BaseActivity {
         emptyStateMsg = findViewById(R.id.empty_state_message);
         emptyStateMsg.setText(getString(R.string.empty_notices));
 
-        list = new ArrayList<>();
-        adapter = new NoticeAdapter(this, list);
-        recyclerView.setAdapter(adapter);
+        tabLayout = findViewById(R.id.tab_layout);
+
+        imageNoticesList = new ArrayList<>();
+        textNoticesList = new ArrayList<>();
+        
+        imageAdapter = new NoticeAdapter(this, imageNoticesList);
+        textAdapter = new TextNoticeAdapter(this, textNoticesList);
+
+        recyclerView.setAdapter(imageAdapter);
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                currentTabPosition = tab.getPosition();
+                updateRecyclerView();
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {}
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {}
+        });
 
         loadNotices();
+    }
+
+    private void updateRecyclerView() {
+        if (currentTabPosition == 0) {
+            recyclerView.setAdapter(imageAdapter);
+            if (imageNoticesList.isEmpty()) {
+                emptyStateLayout.setVisibility(View.VISIBLE);
+                recyclerView.setVisibility(View.GONE);
+            } else {
+                emptyStateLayout.setVisibility(View.GONE);
+                recyclerView.setVisibility(View.VISIBLE);
+            }
+        } else {
+            recyclerView.setAdapter(textAdapter);
+            if (textNoticesList.isEmpty()) {
+                emptyStateLayout.setVisibility(View.VISIBLE);
+                recyclerView.setVisibility(View.GONE);
+            } else {
+                emptyStateLayout.setVisibility(View.GONE);
+                recyclerView.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
     private void loadNotices() {
@@ -52,7 +99,8 @@ public class NoticesActivity extends BaseActivity {
                 .get()
                 .addOnSuccessListener(q -> {
 
-                    list.clear();
+                    imageNoticesList.clear();
+                    textNoticesList.clear();
 
                     long currentTime = System.currentTimeMillis();
 
@@ -60,23 +108,31 @@ public class NoticesActivity extends BaseActivity {
 
                         NoticeModel n = d.toObject(NoticeModel.class);
 
-                        // 🔥 CHECK 48 HOURS (48 * 60 * 60 * 1000)
-                        long diff = currentTime - n.timestamp;
+                        boolean isValid = false;
+                        if (n.expiryTimestamp > 0) {
+                            if (currentTime < n.expiryTimestamp) {
+                                isValid = true;
+                            }
+                        } else {
+                            // Backward compatibility
+                            long diff = currentTime - n.timestamp;
+                            if (diff <= 48L * 60 * 60 * 1000) {
+                                isValid = true;
+                            }
+                        }
 
-                        if (diff <= 48L * 60 * 60 * 1000) {
-                            list.add(n); // ✅ only valid notices
+                        if (isValid) {
+                            if ("text".equals(n.type)) {
+                                textNoticesList.add(n);
+                            } else {
+                                imageNoticesList.add(n);
+                            }
                         }
                     }
 
-                    adapter.notifyDataSetChanged();
-                    
-                    if (list.isEmpty()) {
-                        emptyStateLayout.setVisibility(View.VISIBLE);
-                        recyclerView.setVisibility(View.GONE);
-                    } else {
-                        emptyStateLayout.setVisibility(View.GONE);
-                        recyclerView.setVisibility(View.VISIBLE);
-                    }
+                    imageAdapter.notifyDataSetChanged();
+                    textAdapter.notifyDataSetChanged();
+                    updateRecyclerView();
                 });
     }
 }
